@@ -1,0 +1,636 @@
+*
+{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.div-center
+{
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/*
+    CONTENEDOR DE PRESENTACIÓN
+*/
+.container-presentacion
+{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color:#2E86C1;
+}
+
+/*Color de fuente de la presentación*/
+header
+{
+    color:aliceblue;
+}
+
+/*
+    IMAGEN DE PERFIL
+*/
+
+/*Contenedor*/
+.img-container
+{
+    display:flex;
+    margin-top:65px;
+    margin-bottom:65px;
+}
+
+/*Ajuste imagen*/
+.img-container img
+{
+    display: flex;
+    background-color:black;
+    border-radius: 50%;
+    margin:auto;
+    width:300px;
+    height:335.06px;
+    transition: .1s;
+}
+
+/*Para que se extienda cuando el cursor pase*/
+.img-container img:hover
+{
+    transform:scale(1.1);
+}
+
+/*
+    DATOS PRINCIPALES DEL PERFIL
+*/
+
+/*Contenedor*/
+.datos
+{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*Ajuste de items de datos*/
+.item
+{
+    user-select: none;
+}
+
+/*
+    MAIN-BAR
+*/
+
+/*Contenedor*/
+.main-bar
+{
+    display: flex;
+    position:sticky;
+    width: 100%;
+    top:0;
+    background-color:#2874A6;
+    justify-content: center;
+    z-index: 100;
+}
+
+/*Ajuste botones*/
+.main-bar ul
+{
+    display:flex;
+    list-style: none;
+}
+
+/*Cambia el color del boton*/
+.main-bar ul li:hover
+{
+    background-color: #3498DB;
+}
+
+/*Ajuste del enlace*/
+.main-bar ul li a
+{
+    display: flex;
+    width:200px;
+    height:60px;
+    text-decoration: none;
+    color:aliceblue;
+}
+
+/*Ajuste de fuente*/
+.main-bar ul li a p
+{
+    margin:auto;
+    font-size: 20px;
+}
+
+/*
+    ACERCA DE MI
+*/
+
+/*Contenedor*/
+.about-me
+{
+    display:flex;
+    background-color: aliceblue
+}
+
+/*Margen caja de texto*/
+.about-me div
+{
+    margin:200px;
+}
+
+/*Ajuste titulo*/
+.about-me div h2
+{
+    text-align: center;
+    margin-bottom:60px;
+}
+
+/*Ajuste parrafos*/
+.about-me div p
+{
+    margin-top:15px;
+    font-size: 19px;
+}
+
+/*
+    PROYECTOS
+*/
+
+/*Contenedor*/
+.carrousel-container
+{
+    display:flex;
+    background-color: #AED6F1;
+    justify-content: space-between;
+    overflow-x:hidden;
+    align-items: center;
+    width:100%;
+    height:700px;
+}
+
+/*Banda del carrusel*/
+.carrousel-band
+{
+    width:20%;
+    min-width: 400px;
+    margin-top:1em;
+}
+
+/*Carrusel*/
+.carrousel
+{
+    display:flex;
+    width:300%;
+    height:420px;
+    align-items: center;
+    justify-content: space-around;
+    transition:1s;
+}
+
+/*
+    CARTAS
+*/
+
+/*Contenedor*/
+.carrousel .card
+{
+    width:calc(100%/2);
+    background-image: var(--img);
+    color: aliceblue;
+    margin: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    min-height: 416px;
+    max-width: 296px;
+    max-height: 416px;
+    min-width: 296px;
+    background-color: #3498DB;
+    border-radius: 15px;
+    transition: .5s;
+}
+
+/*Información de las cartas*/
+.data-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 416px;
+    border-radius: 15px;
+    transition: .5s;
+}
+
+/*Titulo de cartas*/
+.title-container
+{
+    display: flex;
+    width:100%;
+    height:420px;
+}
+
+.title
+{
+    font-size: 30px;
+    background-color: rgba(7, 206, 206, 0.753);
+    transition: .5s;
+    padding: 15px;
+    border-radius: 30px 30px 30px 30px;
+    margin: auto;
+}
+
+/*Descripción de la carta*/
+.contents
+{
+    overflow:hidden;
+    width:0;
+    height: 0;
+    display: flex;
+    padding:0;
+    opacity: 0;
+    border-radius: 0 0 15px 15px;
+    transition: .5s;
+}
+
+/*Centrado de descripción*/
+.contents .description
+{
+    width:100%;
+    margin-left:auto;
+    margin-top:auto;
+    text-align: center;
+}
+
+/*Que pasa cuando este al frente*/
+.inFront
+{
+    transform: scale(1.07);
+    box-shadow: 1.5px 1.5px 10px rgba(1,1,100,.5)
+}
+
+/*Hacer aparecer descripción*/
+.inFront .contents
+{
+    opacity: 1;
+    width:260px;
+    height:750px;
+    padding:15px;
+    opacity: 1;
+}
+
+/*Quitar background al titulo*/
+.inFront .title
+{
+    background-color: transparent;
+}
+
+/*Cambiar background a la carta*/
+.inFront .data-container
+{
+    background-color: rgba(53, 52, 52, 0.5);
+}
+
+/*Boton ver más*/
+.show-more
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding:2px;
+}
+
+/*Enlace ver más*/
+.contents .description a
+{
+    background-color: rgba(182, 255, 249, 0.534);
+    border-radius: 5px;
+    padding: 7px;
+    text-decoration: none;
+    color: aliceblue;
+    transition: .2s;
+}
+
+/*Cambiar color al boton*/
+.contents .description a:hover
+{
+    background-color: rgba(182, 255, 249, 0.75);
+}
+
+/*Ajuste de fuente*/
+.contents .description p
+{
+    width:100%;
+    transition: .2s;
+}
+
+/*Cambia color de fuente*/
+.contents .description a:hover p
+{
+    color: rgb(102, 102, 102);
+}
+
+/*
+    PUNTOS DE TRANSLACIÓN
+*/
+
+/*Contenedor*/
+.carrousel-band .puntos
+{
+    margin-top:20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Ajuste del punto*/
+.carrousel-band .punto
+{
+    min-width:1em;
+    height:1em;
+    background-color:#5DADE2;
+    border-radius: 50%;
+    margin:1em;
+    list-style: none;
+    transition: .5s;
+}
+
+/*Cambiar cursor cuando pase*/
+.carrousel-band .punto:hover
+{
+    cursor:pointer;
+}
+
+/*Cambiar color a los puntos inactivos*/
+.carrousel-band .inactive:hover
+{
+    background-color: #5499C7;
+}
+
+/*Cambiar color y escala al punto activo*/
+.punto.activo
+{
+    background-color: #1B4F72;
+    transform: scale(1.2);
+}
+
+/*
+    BOTONES DE TRANSLACIÓN
+*/
+
+/*Contenedor*/
+.carrousel-container .container-botton
+{
+    width: 160px;
+    height: 160px;
+    z-index: 50;
+}
+
+/*Ajuste de botones*/
+.carrousel-container .botton
+{
+    display: flex;
+    justify-content: center;
+    margin:50px;
+    align-items: center;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #1B4F72;
+    transition: .1s;
+}
+
+/*Cambia el color y el cursor cuando este arriba*/
+.carrousel-container .botton:hover
+{
+    background-color:#12354d;
+    cursor: pointer;
+}
+
+/*Translación del boton izquierdo*/
+.botton-left:hover
+{
+    transform: translateX(3.5%)
+}
+
+/*Translación del boton izquierdo*/
+.botton-right:hover
+{
+    transform: translateX(-3.5%);
+}
+
+/*Ajuste de icono*/
+.carrousel-container .botton img
+{
+    width: 40px;
+    height: 40px;
+}
+
+/*Ajuste icono del boton izquierdo*/
+.carrousel-container .botton-left img
+{
+    position: relative;
+    left: -1.9px;
+}
+
+/*
+    CONTACTOS
+*/
+
+/*Contenedor*/
+.contact-container
+{
+    display: flex;
+    align-items: center;
+    background-color: aliceblue;
+    height:525px;
+}
+
+/*Contactos principales*/
+.main-contacts
+{
+    display: flex;
+    width:50%;
+    height:400px;
+    border-right: 1px solid #AED6F1;
+}
+
+/*Ajuste de los contenedores de contacto*/
+.contacts
+{
+    margin:15px;
+    align-self: center;
+    line-height: 1.7;
+    width: 100%;
+    
+}
+
+/*Ajuste de enlaces*/
+.contact-a
+{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-a :hover
+{
+    color:#2874A6;
+}
+
+/*Ajuste de fuentes*/
+.contact-p
+{
+    color: #12354d;
+    width: 95%;
+}
+
+/*Ajuste de imagenes*/
+.contact-images
+{
+    width: 22px;
+    height: 22px;
+    margin-left: 7px;
+}
+
+/*Quitar decoración de enlaces*/
+.contact-container .contacts a
+{
+    text-decoration: none;
+}
+
+/*Ajuste de contactos dela derecha*/
+.contacts-right
+{
+    text-align: end;
+}
+
+/*Ajuste de contactos de la izquierda*/
+.contacts-left
+{
+    text-align: start;
+}
+
+/*Ajuste de otros contactos*/
+.other-contacts
+{
+    display: flex;
+    align-items: center;
+    width:50%;
+    height:400px;
+    border-left: 1px solid #AED6F1;
+}
+
+/*Ajuste de imagenes de otros contactos*/
+.image-other-contacts
+{
+    margin-left: 0;
+    margin-right: 7px;
+}
+
+/*
+    FOOTER
+*/
+
+/*Contenedor*/
+.footer
+{
+    display: flex;
+    background-color: #2E86C1;
+    font-size: 14px;
+    width:100%;
+    height:35px
+}
+
+/*Ajuste de enlaces*/
+.footer a
+{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+/*COPYRIGHT*/
+
+/*Contenedor*/
+.copyright
+{
+    margin: auto;
+    color: aliceblue;
+    text-align: center;
+    width: 33.3%;
+}
+
+/*AUTOR*/
+
+/*Contenedor*/
+.autor
+{
+    margin: auto;
+    color: aliceblue;
+    width: 33.3%;
+    margin-left: 7px;
+}
+
+/*REDES SOCIALES*/
+
+/*Contenedor*/
+.networks
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 33.3%;
+}
+
+.container-networks
+{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/*Ajuste de las apps sociales*/
+.app
+{
+    display: flex;
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+/*Ajuste de los iconos*/
+.img-app
+{
+    width: 20px;
+    margin-right: 3px;
+}
+
+@media only screen and (max-width:1072px)
+{
+    .container-presentacion
+    {
+        max-height:530px;
+    }
+
+    .img-container
+    {
+        margin:30px;
+        width:50%;
+    }
+
+    .datos
+    {
+        margin-left:0;
+        min-width:477px;
+        margin-bottom:30px;
+        text-align:center;
+    }
+
+    .item
+    {
+        margin:0;
+    }
+}
