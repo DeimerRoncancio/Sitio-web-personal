@@ -1,0 +1,16 @@
+@use 'variables';
+
+.color-1 {background-color: variables.$color1;}
+.color-2 {background-color: variables.$color2;}
+.color-3 {background-color: variables.$color3;}
+.color-4 {background-color: variables.$color4;}
+.color-5 {background-color: variables.$color5;}
+
+.main-button {
+    background-color: variables.$color1;
+    transition: all 1s;
+}
+
+.main-button:hover {
+    outline: 1px solid;
+}
