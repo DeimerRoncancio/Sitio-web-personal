@@ -1,0 +1,6 @@
+@use '../variables';
+
+.draggable {
+    background-color: variables.$color4;
+    color: variables.$white2;
+}

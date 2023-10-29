@@ -1,0 +1,6 @@
+@use '../variables';
+
+.about-me-container {
+    background-color: variables.$color2;
+    color: variables.$white1;
+}

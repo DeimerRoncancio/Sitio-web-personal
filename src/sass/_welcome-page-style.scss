@@ -8,9 +8,10 @@
 
 .main-button {
     background-color: variables.$color1;
-    transition: all 1s;
+    transition:all 0.3s;
+    border: solid 1.5px variables.$color1;
 }
 
 .main-button:hover {
-    outline: 1px solid;
+    border-color: #ffff;
 }

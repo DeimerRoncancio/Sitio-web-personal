@@ -1,0 +1,30 @@
+@use 'variables';
+
+.main-page-styles {
+    background-color: variables.$color1;
+}
+
+.nav-h-container {
+    height: calc(100% - 70px);
+}
+
+.dashboard {
+    width: calc(100% - 140px);
+}
+
+.nav-top {
+    background-color: variables.$color3;
+}
+
+.nav-left {
+    background-color: variables.$color5;
+}
+
+.nav-hover {
+    color: variables.$white1;
+    transition: all 0.2s
+}
+
+.nav-hover:hover {
+    color: variables.$white2;
+}

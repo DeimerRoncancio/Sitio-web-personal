@@ -20,11 +20,51 @@
 
 .main-button {
   background-color: #535a6b;
-  transition: all 1s;
+  transition: all 0.3s;
+  border: solid 1.5px #535a6b;
 }
 
 .main-button:hover {
-  outline: 1px solid;
+  border-color: white;
+}
+
+.main-page-styles {
+  background-color: #535a6b;
+}
+
+.nav-h-container {
+  height: calc(100% - 70px);
+}
+
+.dashboard {
+  width: calc(100% - 140px);
+}
+
+.nav-top {
+  background-color: #353c4c;
+}
+
+.nav-left {
+  background-color: #171e2c;
+}
+
+.nav-hover {
+  color: #eaecf1;
+  transition: all 0.2s;
+}
+
+.nav-hover:hover {
+  color: #c6cad4;
+}
+
+.draggable {
+  background-color: #262d3c;
+  color: #c6cad4;
+}
+
+.about-me-container {
+  background-color: #444b5b;
+  color: #eaecf1;
 }
 
 /*# sourceMappingURL=style.css.map */
