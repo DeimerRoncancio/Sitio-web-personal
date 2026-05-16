@@ -1,5 +1,5 @@
-import { RxPerson } from 'react-icons/rx';
-import { MdOutlineWebAsset } from 'react-icons/md';
+import { FiUser } from "react-icons/fi";
+import { CgScreen } from "react-icons/cg";
 
 import AboutMe from '../routes/about-me';
 import Portfolio from '../routes/portfolio';
@@ -7,16 +7,18 @@ import Portfolio from '../routes/portfolio';
 export const items = [
   {
     id: 0,
-    component: <AboutMe />,
-    icon: <RxPerson />,
     name: "Sobre mi",
-    path: "/main/about"
+    description: "Información personal, habilidades y experiencia laboral",
+    path: "/main/about",
+    component: <AboutMe />,
+    icon: <FiUser />,
   },
   {
     id: 1,
-    component: <Portfolio />,
-    icon: <MdOutlineWebAsset />,
     name: "Portafolio",
-    path: "/main/portfolio"
+    description: "Proyectos personales y colaborativos que he desarrollado",
+    path: "/main/portfolio",
+    component: <Portfolio />,
+    icon: <CgScreen />,
   }
 ];

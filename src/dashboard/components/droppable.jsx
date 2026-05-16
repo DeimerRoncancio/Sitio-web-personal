@@ -1,35 +1,34 @@
 import { useDroppable } from "@dnd-kit/react";
 import { RiDragDropLine } from "react-icons/ri";
+import DropEmptyBox from "./drop-empty-box";
+import { useEffect } from "react";
 
-export default function Droppable({ children, parent }) {
+export default function Droppable({ children, parent, items }) {
   const { isDropTarget, ref } = useDroppable({ id: "droppable" });
+  const item = items.find((item) => item.path === window.location.pathname);
 
   return (
-    <div ref={ref} className={`w-full h-full after:shadow-[inset_0px_0px_75px_10px]
-      after:shadow-cyan-800/50 after:inset-0 after:absolute after:transition-all ease-in after:duration-200
+    <div ref={ref} className={`w-full h-full after:shadow-[inset_0px_0px_75px_10px] text-white
+      overflow-y-auto after:shadow-cyan-800/50 after:inset-0 after:absolute after:transition-all}
+      ease-in after:duration-200
       ${isDropTarget
         ? "after:shadow-[inset_0px_0px_75px_20px] after:opacity-100 after:visible"
         : "after:opacity-0 after:invisible after:duration-75"}`
     }>
       {parent === "droppable"
-        ? children
-        : <div className='w-full h-full text-[#888] p-28 px-32'>
-          <div className={`w-full h-full flex flex-col bg-[#2a3344] justify-center items-center
-            outline-2 outline-[#888] outline-offset-2 border-2 border-dashed border-[#888888]
-            ${isDropTarget && "outline-cyan-500 outline !bg-[#2f3b52] scale-105 text-[#bec1c7]"}
-            rounded-2xl transition-all duration-300`
-          }>
-            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00a1cd59] to-[#0080a038]
-              ${isDropTarget && "!from-[#00a1cd59] !to-[#0080a038]"}
-              flex items-center justify-center mb-4`
-            }>
-              <RiDragDropLine size={35} className={`text-[#00a2ce] ${isDropTarget && "text-[#00c8ff]"} `} />
+        ? (<>
+            <div className="w-full flex bg-[#111621] p-5 border-b border-[#2a3852]">
+              <div className="bg-[#1d5771] text-3xl p-2 rounded-xl mr-5 text-[#0fc6f8]">
+                {item?.icon}
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold">{item?.name}</h2>
+                <p className="text-gray-400 text-sm">{item?.description}</p>
+              </div>
             </div>
-            <p className='text-center text-lg w-96'>
-              Arrastra o haz click en los elementos desde el panel izquierdo para ver su contenido aquí
-            </p>
-          </div>
-        </div>}
+            {children}
+          </>)
+       : <DropEmptyBox isDropTarget={isDropTarget} />}
     </div>
   );
 }

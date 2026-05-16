@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react'
 
-import { IoMdArrowBack } from "react-icons/io";
+import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import { items } from '../constants/items';
 
 import Draggable from '../components/draggable'
 import Droppable from '../components/droppable';
 
 import { DragDropProvider } from '@dnd-kit/react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { RiHomeLine } from 'react-icons/ri';
 
 export default function DashboardLayout() {
   const [parent, setParent] = useState(undefined);
   const navigate = useNavigate();
+  const item = items.find((item) => item.path === window.location.pathname);
 
   const changePage = (event) => {
     if (!event.operation.target) return;
@@ -30,17 +32,23 @@ export default function DashboardLayout() {
 
   return (
     <div className="main-page-styles w-screen h-screen">
-      <div className="flex bg-[#171e2c] w-full outline outline-1 outline-[#2a3852]">
-        <div className='pl-8 py-4 flex justify-center items-center'>
-          <a className='nav-hover' href="/">
+      <div className="flex bg-[#171e2c] w-full border-b border-[#2a3852]">
+        <div className='pl-8 py-4 flex justify-center items-center space-x-3'>
+          <button className='nav-hover' onClick={() => navigate(-1)}>
             <IoMdArrowBack className='text-2xl' />
-          </a>
-        </div>
+          </button>
+          <button className='nav-hover' onClick={() => navigate(1)}>
+            <IoMdArrowForward className='text-2xl' />
+          </button>
+          <button className='nav-hover' onClick={() => navigate("/")}>
+            <RiHomeLine className='text-2xl' />
+          </button>
+        </div> 
         <div className='navs flex items-center text-base font-medium pl-5'>
-          <a className='nav-hover flex items-center space-x-3' href='/'>
+          <p className='nav-hover flex items-center space-x-3'>
             <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-            <h2>Inicio</h2>
-          </a>
+            <h2>{item ? item.name : "Dashboard"}</h2>
+          </p>
         </div>
       </div>
       <div className="nav-h-container flex w-full">
@@ -61,7 +69,7 @@ export default function DashboardLayout() {
             </ul>
           </div>
           <div className="dashboard bg-[#202a3e] w-full relative">
-            <Droppable parent={parent}>
+            <Droppable parent={parent} items={items}>
               <Outlet />
             </Droppable>
           </div>

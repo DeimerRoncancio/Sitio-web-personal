@@ -12,7 +12,7 @@ export default function ItemsDraggables({ icon, name, isDragging, isShadow = fal
 
   return (
     <div className={`draggable ${tailwindClasses} flex w-[95px] h-[80px]  flex-col justify-center
-      transition-all duration-300 rounded-xl items-center p-1 text-5xl border-2 border-[#888] shadow-lg
+      transition-all duration-300 rounded-xl items-center p-1 text-4xl border-2 border-[#888] shadow-lg
       shadow-[#aaaaaa34] hover:scale-105 bg-gradient-to-tl from-[#424c5c] to-[#171e2c]`
     }>
       {icon}
