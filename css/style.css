@@ -33,20 +33,20 @@
 }
 
 .nav-h-container {
-  height: calc(100% - 70px);
+  height: calc(100% - 56px);
 }
 
 .dashboard {
   width: calc(100% - 140px);
 }
 
-.nav-top {
-  background-color: #353c4c;
-}
-
-.nav-left {
+.navs {
   background-color: #171e2c;
 }
+/* 
+.nav-left {
+  background-color: #171e2c;
+} */
 
 .nav-hover {
   color: #eaecf1;
