@@ -1,11 +1,11 @@
-import logoLg from '../sources/logoLg.svg'
-import logo from '../sources/Logo.svg'
+import logoLg from '../../sources/logoLg.svg'
+import logo from '../../sources/Logo.svg'
 
 import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
 import { BsFacebook, BsTwitter } from 'react-icons/bs'
 import { RiInstagramFill } from 'react-icons/ri'
 
-import '../../css/style.css'
+import '../../../css/style.css'
 
 export default function WelcomePageComponent() {
   return (

@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import '../../css/style.css'
+import '../../../css/style.css'
 
 export default function ItemsDraggables({ icon, name, isDragging, isShadow = false, isActive }) {
   const isHighlighted = isActive || (isDragging && !isShadow);
