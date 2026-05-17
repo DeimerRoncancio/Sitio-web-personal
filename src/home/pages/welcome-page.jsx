@@ -67,7 +67,7 @@ export default function WelcomePageComponent() {
         <h2 className="text-[40px]">Deimer Roncancio Avila</h2>
         <h3 className="text-[22px] text-[#ffffffcc]">Desarrollador de software - Frontend Jr</h3>
         <img className='w-[360px] my-[50px]' src={logoLg} />
-        <a href='/main'>
+        <a href='/dashboard'>
           <button className="main-button px-[55px] py-[10px] rounded-sm transition-all duration-500">
             Ir al portafolio
           </button>

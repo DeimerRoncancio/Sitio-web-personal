@@ -9,7 +9,7 @@ export const items = [
     id: 0,
     name: "Sobre mi",
     description: "Información personal, habilidades y experiencia laboral",
-    path: "/main/about",
+    path: "/dashboard/about",
     component: <AboutMe />,
     icon: <FiUser />,
   },
@@ -17,7 +17,7 @@ export const items = [
     id: 1,
     name: "Portafolio",
     description: "Proyectos personales y colaborativos que he desarrollado",
-    path: "/main/portfolio",
+    path: "/dashboard/portfolio",
     component: <Portfolio />,
     icon: <CgScreen />,
   }

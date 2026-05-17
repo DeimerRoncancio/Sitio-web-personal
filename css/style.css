@@ -49,6 +49,18 @@
   transition: all 0.2s;
 }
 
+.nav-button {
+  background-color: #171e2c;
+  border-radius: 11px;
+  padding: 7px;
+  color: #eaecf1;
+  transition: all 0.2s;
+}
+
+.nav-button:hover {
+  background-color: #202a3e;
+}
+
 .nav-hover:hover {
   color: #c6cad4;
 }

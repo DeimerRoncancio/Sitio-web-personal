@@ -12,9 +12,9 @@ function App() {
     <main>
       <Routes>
         <Route path="/" element={<WelcomePageComponent />} />
-        <Route path='/main' element={<DashboardLayout />} >
-          <Route path="/main/about" element={<AboutMe />} />
-          <Route path="/main/portfolio" element={<Portfolio />} />
+        <Route path='/dashboard' element={<DashboardLayout />} >
+          <Route path="/dashboard/about" element={<AboutMe />} />
+          <Route path="/dashboard/portfolio" element={<Portfolio />} />
         </Route>
       </Routes>
     </main>
