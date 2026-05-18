@@ -21,7 +21,10 @@ export default function DashboardLayout() {
     const id = event.operation.source.id;
 
     if (id === 0) navigate("/dashboard/about");
-    if (id === 1) navigate("/dashboard/portfolio");
+    if (id === 1) navigate("/dashboard/skills");
+    if (id === 2) navigate("/dashboard/portfolio");
+    if (id === 3) navigate("/dashboard/formation");
+    if (id === 4) navigate("/dashboard/contact");
 
     setParent(event.operation.target?.id);
   }

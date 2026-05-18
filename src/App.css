@@ -1,0 +1,10 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px); /* Empieza 20 píxeles más abajo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* Termina en su posición original */
+  }
+}

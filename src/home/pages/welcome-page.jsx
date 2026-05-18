@@ -21,7 +21,7 @@ export default function WelcomePageComponent() {
             <li className="mb-4">
               <p>
                 <a target="_blank" href="https://www.linkedin.com/in/deimer-steven-roncancio-avila-518b48245/"
-                className="text-2xl hover:text-[#ffffffa9] transition-all duration-200">
+                className="text-2xl hover:text-cyan-300 transition-all duration-200">
                   <AiFillLinkedin />
                 </a>
               </p>
@@ -29,7 +29,7 @@ export default function WelcomePageComponent() {
             <li className="mb-4">
               <p>
                 <a target="_blank" href="https://github.com/DeimerRoncancio"
-                className="text-2xl hover:text-[#ffffffa9] 
+                className="text-2xl hover:text-cyan-300
                 transition-all duration-200">
                   <AiFillGithub />
                 </a>
@@ -38,7 +38,7 @@ export default function WelcomePageComponent() {
             <li className="mb-4">
               <p>
                 <a target="_blank" href="https://www.facebook.com/deison.deiss12/?locale=es_LA"
-                className="text-2xl hover:text-[#ffffffa9] 
+                className="text-2xl hover:text-cyan-300
                 transition-all duration-200">
                   <BsFacebook />
                 </a>
@@ -47,7 +47,7 @@ export default function WelcomePageComponent() {
             <li className="mb-4">
               <p>
                 <a target="_blank" href="https://twitter.com/DeimerRoncancio"
-                className="text-2xl hover:text-[#ffffffa9] 
+                className="text-2xl hover:text-cyan-300
                 transition-all duration-200">
                   <BsTwitter />
                 </a>
@@ -56,7 +56,7 @@ export default function WelcomePageComponent() {
             <li className="mb-4">
               <p>
                 <a target="_blank" href="https://www.instagram.com/deimerroncancio/"
-                className="text-2xl hover:text-[#ffffffa9] 
+                className="text-2xl hover:text-cyan-300
                 transition-all duration-200">
                   <RiInstagramFill />
                 </a>
@@ -65,11 +65,14 @@ export default function WelcomePageComponent() {
           </ul>
         </div>
         <h2 className="text-[40px]">Deimer Roncancio Avila</h2>
-        <h3 className="text-[22px] text-[#ffffffcc]">Desarrollador de software - Frontend Jr</h3>
+        <h3 className="text-[22px] text-[#ffffffcc]">Desarrollador de software - Full Stack</h3>
         <img className='w-[360px] my-[50px]' src={logoLg} />
         <a href='/dashboard'>
-          <button className="main-button px-[55px] py-[10px] rounded-sm transition-all duration-500">
-            Ir al portafolio
+          <button className="flex flex-col justify-center hover:border-cyan-500 hover:from-[#3b4355] hover:to-[#00586e]
+            transition-all duration-300 rounded-xl items-center px-[55px] py-4 text-4xl border-2 border-[#888] shadow-lg
+            shadow-[#aaaaaa34] hover:scale-105 bg-gradient-to-tl from-[#424c5c] to-[#171e2c]"
+          >
+            <h3 className="text-sm text-white">Ir al portafolio</h3>
           </button>
         </a>
       </div>

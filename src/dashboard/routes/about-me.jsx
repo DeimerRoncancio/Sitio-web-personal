@@ -2,113 +2,93 @@ import '../../../css/style.css'
 
 export default function AboutMe() {
   return (
-    <div className="dropable-zone-container max-w-5xl mx-auto p-12 h-full z-0">
-      <div className="flex flex-col lg:flex-col gap-12">
-        {/* Columna Izquierda - Perfil */}
-        <div className="w-full lg:w-1/3 flex flex-col items-center auto-rows-max">
-          <div className="relative group">
-            <div className="w-56 h-56 rounded-full bg-[#171e2c] border-4 border-[#2a3852] flex items-center justify-center overflow-hidden mb-6 shadow-2xl transition-all duration-300 group-hover:border-cyan-500/50">
-              <svg className="w-24 h-24 text-[#535a6b]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+    <div className="dropable-zone-container flex h-[calc(100%-77px)] items-center">
+      <div className="flex flex-col gap-7 animation-fadeInUp">
+        <div className="w-full bg-[#1b2435] border border-[#2a3852] rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-lg">
+          <div className="relative">
+            <div className="w-28 h-28 rounded-2xl bg-gradient-to-tl from-[#283755] to-[#0f1826] border-4 border-[#2a3852] flex items-center
+            justify-center">
+              <svg className="w-12 h-12 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>
+            </div>
+            <div className="absolute -bottom-1 -right-1 bg-[#10b981] rounded-full p-1.5 border-4 border-[#2a3852]">
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
               </svg>
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-[#eaecf1] mb-2">Renato Roncal</h1>
-          <h2 className="text-cyan-400 font-medium tracking-wide mb-6">Full Stack Developer</h2>
 
-          <div className="w-full bg-[#171e2c] rounded-xl border border-[#2a3852] p-5 space-y-4">
-            <div className="flex items-center space-x-3 text-[#c6cad4]">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-              <span className="text-sm">Lima, Perú</span>
+          <div className="flex flex-col gap-2 w-full items-center sm:items-start">
+            <h1 className="text-2xl font-bold text-[#eaecf1]">Deimer Roncancio</h1>
+            <div className="flex items-center text-cyan-400 font-medium">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Desarrollador Full Stack
             </div>
-            <div className="flex items-center space-x-3 text-[#c6cad4]">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-              <span className="text-sm">usuario@ejemplo.com</span>
-            </div>
-            <div className="flex items-center space-x-3 text-[#c6cad4]">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-              <span className="text-sm cursor-pointer hover:text-cyan-400">linkedin.com/in/usuario</span>
+
+            <div className="flex flex-wrap items-center gap-4 text-sm text-[#9aa3b2]">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Villavicencio, Colombia
+              </div>
+              <div className="flex items-center gap-2 bg-[#0b2a22] text-[#34d399] px-3 py-1 rounded-full border border-[#124b3c]">
+                <span className="w-2 h-2 rounded-full bg-[#22c55e]"></span>
+                Disponible
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Columna Derecha - Contenido */}
-        <div className="w-full lg:w-2/3 flex flex-col gap-8">
-
-          <div className="bg-[#171e2c] border border-[#2a3852] rounded-xl p-8">
-            <h3 className="text-xl font-bold text-[#eaecf1] border-b border-[#2a3852] pb-3 mb-5 flex items-center">
-              <span className="w-2 h-2 rounded-full bg-cyan-500 mr-3"></span>
-              Perfil Profesional
-            </h3>
-            <p className="text-[#c6cad4] leading-relaxed">
-              Soy un desarrollador de software con una gran pasión por crear interfaces interactivas y escalables.
-              Con experiencia en el ecosistema de JavaScript moderno, disfruto resolver problemas complejos a
-              través del código y mejorar constantemente la experiencia del usuario. Mi enfoque está en
-              construir soluciones limpias, mantenibles y de alto rendimiento.
-            </p>
-          </div>
-        </div>
-        <div className="bg-[#171e2c] border border-[#2a3852] rounded-xl p-8">
-          <h3 className="text-xl font-bold text-[#eaecf1] border-b border-[#2a3852] pb-3 mb-5 flex items-center">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 mr-3"></span>
-            Mi Filosofía
+        <div className="">
+          <h3 className="text-lg font-semibold text-[#eaecf1] flex items-center gap-2 mb-3">
+            <span className="text-[#ff6467] text-3xl">♡</span>
+            About Me
           </h3>
-          <ul className="space-y-4">
-            <li className="flex items-start">
-              <span className="text-cyan-500 mr-3 mt-1">▹</span>
-              <p className="text-[#c6cad4] text-sm md:text-base">
-                <strong className="text-[#eaecf1] font-medium">Aprendizaje Continuo:</strong> La tecnología avanza rápido, por lo que siempre estoy explorando nuevas herramientas y conceptos para no quedarme atrás.
-              </p>
-            </li>
-            <li className="flex items-start">
-              <span className="text-cyan-500 mr-3 mt-1">▹</span>
-              <p className="text-[#c6cad4] text-sm md:text-base">
-                <strong className="text-[#eaecf1] font-medium">Código Limpio:</strong> Creo fervientemente que el código se escribe para que otros desarrolladores (y mi yo del futuro) puedan leerlo y mantenerlo con facilidad.
-              </p>
-            </li>
-            <li className="flex items-start">
-              <span className="text-cyan-500 mr-3 mt-1">▹</span>
-              <p className="text-[#c6cad4] text-sm md:text-base">
-                <strong className="text-[#eaecf1] font-medium">Atención al Detalle:</strong> Un buen diseño no solo tiene que funcionar, sino sentirse natural, accesible y sin fricciones para el usuario final.
-              </p>
-            </li>
-          </ul>
-        </div>
-
-        <div className="bg-[#171e2c] border border-[#2a3852] rounded-xl p-8">
-          <h3 className="text-xl font-bold text-[#eaecf1] border-b border-[#2a3852] pb-3 mb-5 flex items-center">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 mr-3"></span>
-            Fuera del Código
-          </h3>
-          <p className="text-[#c6cad4] mb-6">
-            Cuando no estoy escribiendo código o frente al ordenador, disfruto de diferentes actividades que me ayudan a desconectar y encontrar nueva inspiración:
+          <p className="text-[#9aa3b2] leading-relaxed">
+            Desarrollador junior orientado a frontend y backend, con proyectos personales y ganas de aportar en
+            equipos reales. Trabajo con <span className="text-cyan-400 font-medium">React</span> y
+            <span className="text-cyan-400 font-medium"> Node.js</span>, y estoy reforzando bases en buenas practicas,
+            pruebas y colaboracion. Busco mi primera oportunidad para seguir creciendo y entregar valor desde el dia uno.
           </p>
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
-            <div className="bg-[#202a3e] p-4 rounded-lg border border-[#2a3852] flex items-center gap-4 hover:border-[#535a6b] transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#171e2c] flex items-center justify-center text-xl">🎮</div>
-              <div>
-                <h4 className="text-[#eaecf1] font-medium text-sm">Videojuegos</h4>
-              </div>
-            </div>
-            <div className="bg-[#202a3e] p-4 rounded-lg border border-[#2a3852] flex items-center gap-4 hover:border-[#535a6b] transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#171e2c] flex items-center justify-center text-xl">📚</div>
-              <div>
-                <h4 className="text-[#eaecf1] font-medium text-sm">Lectura</h4>
-              </div>
-            </div>
-            <div className="bg-[#202a3e] p-4 rounded-lg border border-[#2a3852] flex items-center gap-4 hover:border-[#535a6b] transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#171e2c] flex items-center justify-center text-xl">☕</div>
-              <div>
-                <h4 className="text-[#eaecf1] font-medium text-sm">Amante del Café</h4>
-              </div>
-            </div>
-            <div className="bg-[#202a3e] p-4 rounded-lg border border-[#2a3852] flex items-center gap-4 hover:border-[#535a6b] transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#171e2c] flex items-center justify-center text-xl">✈️</div>
-              <div>
-                <h4 className="text-[#eaecf1] font-medium text-sm">Viajar</h4>
-              </div>
-            </div>
-          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          <a
+            className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/60 bg-[#162233] px-4 py-2 text-sm font-medium text-cyan-200 transition-colors duration-200 hover:bg-[#1b2b41]"
+            href="mailto:juan.dev@email.com"
+          >
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Email
+          </a>
+          <a
+            className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 text-sm font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
+            href="https://www.linkedin.com/in/juan-developer"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.476-.9 1.637-1.85 3.369-1.85 3.6 0 4.267 2.369 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.928-2.063-2.072 0-1.144.92-2.072 2.063-2.072 1.144 0 2.064.928 2.064 2.072 0 1.144-.92 2.072-2.064 2.072zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 text-sm font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
+            href="https://github.com/juan-developer"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.235-3.221-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.911 1.23 3.221 0 4.61-2.805 5.625-5.475 5.92.429.369.81 1.096.81 2.213 0 1.596-.015 2.879-.015 3.269 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+            GitHub
+          </a>
         </div>
       </div>
     </div>
