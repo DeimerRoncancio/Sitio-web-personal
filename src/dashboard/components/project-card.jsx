@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight, FiEye } from "react-icons/fi";
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, onOpen }) {
   const [currentImg, setCurrentImg] = useState(0);
 
   const nextImg = (e) => {
@@ -82,6 +82,7 @@ export default function ProjectCard({ project }) {
 
         <div className="flex mt-auto">
           <button
+            onClick={onOpen}
             className="flex-1 flex items-center justify-center gap-2 bg-[#10151f] hover:bg-black/60 text-white/90 text-sm font-semibold py-2 rounded-xl transition-colors border border-transparent hover:border-white/10"
           >
             <FiEye size={16} /> Ver Proyecto

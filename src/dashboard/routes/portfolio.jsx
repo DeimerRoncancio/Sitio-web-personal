@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import '../../../css/style.css';
 import { BsStars } from "react-icons/bs";
 import { projects } from '../constants/proyects';
 import ProjectCard from '../components/project-card';
+import ProjectModal from '../components/project-modal';
 
 export default function Portfolio() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <div className="dropable-zone-container py-14 animation-fadeInUp">
       <div className="max-w-5xl">
@@ -16,10 +20,17 @@ export default function Portfolio() {
 
         <div className="grid grid-cols-2 gap-4">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+            <ProjectCard key={index} project={project} onOpen={() => setSelectedProject(project)} />
           ))}
         </div>
       </div>
+      
+      {selectedProject && (
+        <ProjectModal 
+          project={selectedProject} 
+          onClose={() => setSelectedProject(null)} 
+        />
+      )}
     </div>
   );
 }
