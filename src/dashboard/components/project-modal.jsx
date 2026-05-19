@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiExternalLink } from "react-icons/fi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 export default function ProjectModal({ project, onClose }) {
   const [currentImg, setCurrentImg] = useState(0);
+  const thumbnailsRef = useRef(null);
+
+  useEffect(() => {
+    if (thumbnailsRef.current) {
+      const activeThumb = thumbnailsRef.current.children[currentImg];
+      if (activeThumb) {
+        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }, [currentImg]);
 
   if (!project) return null;
 
@@ -13,6 +23,13 @@ export default function ProjectModal({ project, onClose }) {
 
   const prevImg = () => {
     setCurrentImg((prev) => (prev === 0 ? project.images.length - 1 : prev - 1));
+  };
+
+  const scrollThumbnails = (dir) => {
+    if (thumbnailsRef.current) {
+      const scrollAmount = dir === 'left' ? -200 : 200;
+      thumbnailsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -76,17 +93,37 @@ export default function ProjectModal({ project, onClose }) {
               </div>
 
               {project.images.length > 1 && (
-                <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar px-1">
-                  {project.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImg(idx)}
-                      className={`relative flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden transition-all duration-300 border-2 ${idx === currentImg ? 'border-white brightness-100' : 'border-transparent brightness-50 hover:brightness-75'
-                        }`}
+                <div className="relative group/thumbs">
+                  {project.images.length > 6 && (
+                    <button 
+                      onClick={() => scrollThumbnails('left')}
+                      className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 z-10 bg-black/60 hover:bg-black text-white p-1.5 rounded-full backdrop-blur-md transition-all opacity-0 group-hover/thumbs:opacity-100 shadow-xl border border-white/10"
                     >
-                      <img src={img} alt={`thumbnail ${idx}`} className="w-full h-full object-cover" />
+                      <FiChevronLeft size={18} />
                     </button>
-                  ))}
+                  )}
+                  
+                  <div ref={thumbnailsRef} className="flex gap-3 overflow-x-auto pb-2 no-scrollbar px-1 scroll-smooth">
+                    {project.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentImg(idx)}
+                        className={`relative flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden transition-all duration-300 border-2 ${idx === currentImg ? 'border-white brightness-100' : 'border-transparent brightness-50 hover:brightness-75'
+                          }`}
+                      >
+                        <img src={img} alt={`thumbnail ${idx}`} className="w-full h-full object-cover" />
+                      </button>
+                    ))}
+                  </div>
+
+                  {project.images.length > 6 && (
+                    <button 
+                      onClick={() => scrollThumbnails('right')}
+                      className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 z-10 bg-black/60 hover:bg-black text-white p-1.5 rounded-full backdrop-blur-md transition-all opacity-0 group-hover/thumbs:opacity-100 shadow-xl border border-white/10"
+                    >
+                      <FiChevronRight size={18} />
+                    </button>
+                  )}
                 </div>
               )}
             </div>
