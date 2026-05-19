@@ -98,7 +98,7 @@ export default function ProjectModal({ project, onClose }) {
                 className="flex-1 flex justify-center items-center gap-2 py-3.5 md:py-4 rounded-xl font-bold transition-all text-white hover:brightness-110 shadow-lg text-sm md:text-base"
                 style={{ backgroundColor: project.theme.btn }}
               >
-                <FiExternalLink size={18} /> Ver Proyecto en Vivo
+                <FiExternalLink size={18} /> Ver Proyecto
               </button>
               <button className="flex-1 flex justify-center items-center gap-2 bg-[#161c27] hover:bg-[#1a212e] border border-white/5 text-white/90 py-3.5 md:py-4 rounded-xl font-bold transition-all shadow-sm text-sm md:text-base">
                 <FiGithub size={18} /> Ver Código Fuente

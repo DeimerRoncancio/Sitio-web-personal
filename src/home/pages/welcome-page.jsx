@@ -20,7 +20,7 @@ export default function WelcomePageComponent() {
           <ul className='absolute left-0 ml-11'>
             <li className="mb-4">
               <p>
-                <a target="_blank" href="https://www.linkedin.com/in/deimer-steven-roncancio-avila-518b48245/"
+                <a target="_blank" href="https://www.linkedin.com/in/deimer-roncancio"
                 className="text-2xl hover:text-cyan-300 transition-all duration-200">
                   <AiFillLinkedin />
                 </a>

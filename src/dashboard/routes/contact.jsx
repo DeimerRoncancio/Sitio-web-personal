@@ -24,21 +24,21 @@ export default function Contact() {
           <div className="space-y-6">
             <h2 className="text-xl font-semibold text-white mb-6">Información de contacto</h2>
             
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
+            <a href="https://linkedin.com/in/deimer-roncancio" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
               <div className="p-3 bg-[#1e273a] border border-[#2a3852] rounded-xl group-hover:bg-[#2a3852]">
                 <FaLinkedin size={20} className="text-[#347fca]" />
               </div>
               <span>LinkedIn</span>
             </a>
             
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
+            <a href="https://github.com/DeimerRoncancio" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
               <div className="p-3 bg-[#1e273a] border border-[#2a3852] rounded-xl group-hover:bg-[#2a3852]">
                 <FaGithub size={20} className="text-[#f0f6fc]" />
               </div>
               <span>GitHub</span>
             </a>
 
-            <a href="mailto:tuemail@ejemplo.com" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
+            <a href="mailto:deimerroncancio@gmail.com" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
               <div className="p-3 bg-[#1e273a] border border-[#2a3852] rounded-xl group-hover:bg-[#2a3852]">
                 <FaEnvelope size={20} className="text-[#61dafb]" />
               </div>

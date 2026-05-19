@@ -50,17 +50,19 @@ export default function AboutMe() {
             About Me
           </h3>
           <p className="text-[#9aa3b2] leading-relaxed">
-            Desarrollador junior orientado a frontend y backend, con proyectos personales y ganas de aportar en
-            equipos reales. Trabajo con <span className="text-cyan-400 font-medium">React</span> y
-            <span className="text-cyan-400 font-medium"> Node.js</span>, y estoy reforzando bases en buenas practicas,
-            pruebas y colaboracion. Busco mi primera oportunidad para seguir creciendo y entregar valor desde el dia uno.
+            Desarrollador Fullstack especializado en Backend con <span className="text-cyan-400 font-medium">Java </span> 
+            y <span className="text-cyan-400 font-medium">Spring Boot</span>, y sólida experiencia 
+            en Frontend con <span className="text-cyan-400 font-medium"> React</span>. Me enfoco en 
+            construir soluciones robustas y seguras, aplicando Spring Security para el control de accesos 
+            y autenticación. Mi stack técnico se complementa con la gestión avanzada de datos mediante 
+            Hibernate, JPA y bases de datos SQL, además de la optimización de entornos con Docker y Git.
           </p>
         </div>
 
         <div className="flex flex-wrap gap-3">
           <a
             className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/60 bg-[#162233] px-4 py-2 text-sm font-medium text-cyan-200 transition-colors duration-200 hover:bg-[#1b2b41]"
-            href="mailto:juan.dev@email.com"
+            href="mailto:deimerroncancio@email.com"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -69,7 +71,7 @@ export default function AboutMe() {
           </a>
           <a
             className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 text-sm font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
-            href="https://www.linkedin.com/in/juan-developer"
+            href="https://www.linkedin.com/in/deimer-roncancio/"
             target="_blank"
             rel="noreferrer"
           >
@@ -80,7 +82,7 @@ export default function AboutMe() {
           </a>
           <a
             className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 text-sm font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
-            href="https://github.com/juan-developer"
+            href="https://github.com/DeimerRoncancio"
             target="_blank"
             rel="noreferrer"
           >
