@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
-import { items } from '../constants/items';
 
 import Draggable from '../components/draggable'
 import Droppable from '../components/droppable';
@@ -10,6 +9,7 @@ import { DragDropProvider } from '@dnd-kit/react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { RiHomeLine } from 'react-icons/ri';
 import NavBar from '../components/nav-bar';
+import { items } from '../constants/items';
 
 export default function DashboardLayout() {
   const [parent, setParent] = useState(undefined);

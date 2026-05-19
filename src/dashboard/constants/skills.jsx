@@ -1,5 +1,6 @@
 import { SiHtml5, SiCss3, SiJavascript, SiSpringboot, SiApachemaven, SiHibernate, SiMysql, SiPostgresql, SiMongodb, SiJunit5, SiApachekafka, SiRedis, SiGit, SiGithub, SiDocker, SiPostman, SiGithubactions, SiTailwindcss, SiSpringsecurity } from 'react-icons/si';
 import { FaJava, FaReact, FaUsers, FaLightbulb, FaRegClock, FaComments } from 'react-icons/fa';
+import { TbBrandReactNative } from 'react-icons/tb';
 
 export const skills = {
   principales: [
@@ -21,14 +22,14 @@ export const skills = {
     { name: 'PostgreSQL', icon: <SiPostgresql className="text-[#336791]" size={36} /> },
     { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#38B2AC]" size={36} /> },
     { name: 'Kafka', icon: <SiApachekafka className="white text-white" size={36} /> },
-    { name: 'Redis', icon: <SiRedis className="text-[#DC382D]" size={36} /> },
+    { name: 'React Native', icon: <TbBrandReactNative className="text-[#61DAFB]" size={36} /> },
     { name: 'HTML', icon: <SiHtml5 className="text-[#E34F26]" size={36} /> },
     { name: 'CSS', icon: <SiCss3 className="text-[#1572B6]" size={36} /> },
   ],
   blandas: [
-    { name: 'Comunicación', icon: <FaComments className="text-[#A78BFA]" size={36} /> },
     { name: 'Trabajo en equipo', icon: <FaUsers className="text-[#34D399]" size={36} /> },
     { name: 'Resolución de problemas', icon: <FaLightbulb className="text-[#FBBF24]" size={36} /> },
+    { name: 'Comunicación', icon: <FaComments className="text-[#A78BFA]" size={36} /> },
     { name: 'Gestión del tiempo', icon: <FaRegClock className="text-[#60A5FA]" size={36} /> },
   ]
 };

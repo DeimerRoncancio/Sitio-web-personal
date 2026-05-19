@@ -10,7 +10,7 @@ export default function Skills() {
       <div className="space-y-10">
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-white">
-            <LuBadgeCheck className="inline-block text-[#00a4ac] mr-2" size={24} />
+            <LuBadgeCheck className="inline-block text-[#6db33f] mr-2" size={24} />
             Tecnologías Principales
           </h2>
           <div className="flex flex-wrap gap-4">
@@ -34,7 +34,7 @@ export default function Skills() {
 
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-white">
-            <LuMessagesSquare className="inline-block text-[#00a4ac] mr-2" size={24} />
+            <LuMessagesSquare className="inline-block text-[#a78bfa] mr-2" size={24} />
             Habilidades Blandas
           </h2>
           <div className="flex flex-wrap gap-4">
