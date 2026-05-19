@@ -60,7 +60,7 @@ export const projects = [
   {
     title: 'Portafolio Personal',
     description: 'Sitio web personal para mostrar proyectos, habilidades y experiencia profesional',
-    longDescription: 'Sistema robusto y escalable para una aplicación de banca móvil, diseñado bajo una arquitectura RESTful. Desarrollada con Express y MongoDB, prioriza la seguridad en cada endpoint implementando autenticación JWT, rate limiting, encriptación AES-256 para datos sensibles y auditoría completa de transacciones financieras. Cuenta con documentación interactiva.',
+    longDescription: 'Sitio web personal desarrollado con React y Tailwind CSS para mostrar proyectos, habilidades y experiencia profesional. El diseño es moderno y responsivo, con una navegación intuitiva y un enfoque en la presentación visual de los proyectos. Implementado con React Router para una experiencia de usuario fluida.',
     tags: ['React', 'JavaScript', 'Tailwind CSS', 'React Router'],
     year: 'Oct 2023 - Presente',
     icon: <MdWorkOutline size={22} />,
