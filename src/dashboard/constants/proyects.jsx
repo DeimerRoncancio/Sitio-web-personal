@@ -1,58 +1,78 @@
 import { FiCheckCircle, FiGlobe, FiMonitor, FiSmartphone } from "react-icons/fi";
+import { IoBagOutline, IoCartOutline } from "react-icons/io5";
+import { MdWorkOutline } from "react-icons/md";
 
 export const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'Plataforma de comercio electronico completa con carrito, pagos y panel de admin',
-    longDescription: 'Plataforma de comercio electrónico completa desarrollada con Next.js y PostgreSQL. Incluye un sistema de carrito de compras intuitivo, procesamiento de pagos seguro a través de Stripe, y un panel de administración robusto para gestionar productos, pedidos y usuarios. Implementada con un enfoque en el rendimiento y la escalabilidad, utilizando Server-Side Rendering (SSR).',
-    tags: ['Next.js', 'Stripe', 'PostgreSQL'],
-    year: '2024',
-    icon: <FiGlobe size={22} />,
+    title: 'Multi Shop E-commerce',
+    description: 'Plataforma de comercio electronico completa con carrito, sesión de usuario y pagos',
+    longDescription: 'Plataforma de comercio electrónico completa desarrollada con React, Spring Boot y MySQL. Incluye un sistema de carrito de compras intuitivo, lista de deseos, sesión de usuario por medio de Spring Security y JWT, y procesamiento de pagos seguro a través de Stripe. Implementada con un enfoque en el rendimiento y la escalabilidad, utilizando Server-Side Rendering (SSR) de React Router Framework.',
+    tags: ['Spring Boot', 'Java', 'React', 'Stripe', 'MySQL', 'Hibernate', 'JWT', 'Spring Security'],
+    year: 'Nov 2024 - Sep 2025',
+    icon: <IoCartOutline size={22} />,
     theme: { bg: '#1a415b', border: '#255090', btn: '#2C5675' },
     images: [
-      'https://picsum.photos/seed/ecommerce1/800/600',
-      'https://picsum.photos/seed/ecommerce2/800/600',
-      'https://picsum.photos/seed/ecommerce3/800/600'
+      '/public/proyects/multi-shop/multi-shop-1.png',
+      '/public/proyects/multi-shop/multi-shop-2.png',
+      '/public/proyects/multi-shop/multi-shop-3.png',
+      '/public/proyects/multi-shop/multi-shop-4.png',
+      '/public/proyects/multi-shop/multi-shop-5.png',
+      '/public/proyects/multi-shop/multi-shop-6.png',
+      '/public/proyects/multi-shop/multi-shop-7.png',
     ]
   },
   {
-    title: 'Task Management App',
-    description: 'Aplicacion de gestion de tareas con colaboracion en tiempo real',
-    longDescription: 'Aplicación de gestión de tareas diseñada para aumentar la productividad de equipos. Permite la colaboración en tiempo real utilizando Firebase, sincronizando tableros Kanban, listas de tareas y estados instantáneamente entre todos los usuarios. La interfaz de usuario, construida con React y Tailwind CSS, es completamente responsiva y ofrece soporte para modo oscuro.',
-    tags: ['React', 'Firebase', 'Tailwind'],
-    year: '2023',
-    icon: <FiCheckCircle size={22} />,
+    title: 'Drop Shipping App',
+    description: 'Plataforma de dropshipping con integración de pagos',
+    longDescription: 'Aplicación de dropshipping (React, Spring Boot, MySQL) enfocada en la venta de productos con pagos integrados vía ePayco. Destaca por su arquitectura segura (Spring Security y JWT) y su excelente rendimiento, ofreciendo una experiencia fluida y escalable mediante diseño responsivo y SSR con React Router Framework.',
+    tags: ['Spring Boot', 'Java', 'React', 'ePayco', 'MySQL', 'JWT', 'Spring Security'],
+    year: 'Nov - 2025 - Feb 2026',
+    icon: <IoBagOutline size={22} />,
     theme: { bg: '#1a4a3d', border: '#137046', btn: '#266954' },
     images: [
-      'https://picsum.photos/seed/task1/800/600',
-      'https://picsum.photos/seed/task2/800/600'
+      '/public/proyects/drop-shipping/drop-shipping-1.png',
+      '/public/proyects/drop-shipping/drop-shipping-2.png',
+      '/public/proyects/drop-shipping/drop-shipping-3.png',
+      '/public/proyects/drop-shipping/drop-shipping-4.png',
+      '/public/proyects/drop-shipping/drop-shipping-5.png',
+      '/public/proyects/drop-shipping/drop-shipping-6.png',
+      '/public/proyects/drop-shipping/drop-shipping-7.png',
+      '/public/proyects/drop-shipping/drop-shipping-8.png',
     ]
   },
   {
-    title: 'Analytics Dashboard',
-    description: 'Dashboard interactivo con graficos y reportes personalizados',
-    longDescription: 'Un dashboard interactivo avanzado para la visualización de datos complejos. Combina la reactividad de Vue.js con la potencia de D3.js para crear gráficos dinámicos, mapas de calor y reportes estadísticos personalizados. El backend en Node.js procesa grandes volúmenes de datos exportables en formatos CSV y PDF, ideal para análisis de inteligencia de negocios (BI).',
-    tags: ['Vue.js', 'D3.js', 'Node.js'],
-    year: '2022',
+    title: 'Panel Administrativo para Comercio Electronico',
+    description: 'Panel administrativo completo para gestionar productos, pedidos y usuarios en una plataforma de comercio electrónico',
+    longDescription: 'Panel administrativo completo desarrollado con React, Spring Boot y MySQL para gestionar productos, pedidos y usuarios en una plataforma de comercio electrónico. Incluye funcionalidades avanzadas como control de acceso basado en roles (RBAC). Implementado con un enfoque en la seguridad y el rendimiento, utilizando JWT y optimizaciones de rendimiento en el frontend.',
+    tags: ['Spring Boot', 'Java', 'React', 'MySQL'],
+    year: 'Mar 2025 - Mar 2026',
     icon: <FiMonitor size={22} />,
     theme: { bg: '#423056', border: '#63378a', btn: '#523775' },
     images: [
-      'https://picsum.photos/seed/analytics1/800/600',
-      'https://picsum.photos/seed/analytics2/800/600',
-      'https://picsum.photos/seed/analytics3/800/600'
+      '/public/proyects/admin-panel/admin-panel-1.png',
+      '/public/proyects/admin-panel/admin-panel-2.png',
+      '/public/proyects/admin-panel/admin-panel-3.png',
+      '/public/proyects/admin-panel/admin-panel-4.png',
+      '/public/proyects/admin-panel/admin-panel-5.png',
+      '/public/proyects/admin-panel/admin-panel-6.png',
     ]
   },
   {
-    title: 'Mobile Banking API',
-    description: 'API RESTful para aplicacion de banca movil con alta seguridad',
+    title: 'Portafolio Personal',
+    description: 'Sitio web personal para mostrar proyectos, habilidades y experiencia profesional',
     longDescription: 'Sistema robusto y escalable para una aplicación de banca móvil, diseñado bajo una arquitectura RESTful. Desarrollada con Express y MongoDB, prioriza la seguridad en cada endpoint implementando autenticación JWT, rate limiting, encriptación AES-256 para datos sensibles y auditoría completa de transacciones financieras. Cuenta con documentación interactiva.',
-    tags: ['Express', 'MongoDB', 'Redis'],
-    year: '2023',
-    icon: <FiSmartphone size={22} />,
+    tags: ['React', 'JavaScript', 'Tailwind CSS', 'React Router'],
+    year: 'Oct 2023 - Presente',
+    icon: <MdWorkOutline size={22} />,
     theme: { bg: '#4d3a2b', border: '#844a1e', btn: '#724B34' },
     images: [
-      'https://picsum.photos/seed/banking1/800/600',
-      'https://picsum.photos/seed/banking2/800/600'
+      '/public/proyects/portfolio/portfolio-1.png',
+      '/public/proyects/portfolio/portfolio-2.png',
+      '/public/proyects/portfolio/portfolio-3.png',
+      '/public/proyects/portfolio/portfolio-4.png',
+      '/public/proyects/portfolio/portfolio-5.png',
+      '/public/proyects/portfolio/portfolio-6.png',
+      '/public/proyects/portfolio/portfolio-7.png',
     ]
   }
 ];
