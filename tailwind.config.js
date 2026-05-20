@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       screens: {
-        'xs': '30rem', // 💡 Aquí defines tu breakpoint personalizado
+        'xs': '30rem',
+        '2xs': '380px',
       },
     },
   },

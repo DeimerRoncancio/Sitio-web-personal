@@ -59,7 +59,7 @@ export default function AboutMe() {
           </p>
         </div>
 
-        <div className="flex gap-3 text-xs xs:text-sm xs:font-medium">
+        <div className="flex gap-3 flex-wrap xxs:flex-nowrap text-xs xs:text-sm xs:font-medium">
           <a
             className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/60 bg-[#162233] px-4 py-2 font-medium text-cyan-200 transition-colors duration-200 hover:bg-[#1b2b41]"
             href="mailto:deimerroncancio@email.com"

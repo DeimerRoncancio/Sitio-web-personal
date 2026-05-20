@@ -56,7 +56,8 @@ export default function DashboardLayout() {
               ))}
             </ul>
           </div>
-          <div className="dashboard bg-[#202a3e] w-full h-[calc(100vh-131px)] sm:h-full relative order-1 sm:order-2">
+          <div className="dashboard bg-[#202a3e] w-full h-[calc(100vh-121px)] 2xs:h-[calc(100vh-131px)]
+          sm:h-full relative order-1 sm:order-2">
             <Droppable parent={parent} items={items}>
               <Outlet />
             </Droppable>
