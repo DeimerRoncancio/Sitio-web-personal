@@ -59,9 +59,9 @@ export default function AboutMe() {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 text-xs xs:text-sm xs:font-medium">
           <a
-            className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/60 bg-[#162233] px-4 py-2 text-sm font-medium text-cyan-200 transition-colors duration-200 hover:bg-[#1b2b41]"
+            className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/60 bg-[#162233] px-4 py-2 font-medium text-cyan-200 transition-colors duration-200 hover:bg-[#1b2b41]"
             href="mailto:deimerroncancio@email.com"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ export default function AboutMe() {
             Email
           </a>
           <a
-            className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 text-sm font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
+            className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
             href="https://www.linkedin.com/in/deimer-roncancio/"
             target="_blank"
             rel="noreferrer"
@@ -81,7 +81,7 @@ export default function AboutMe() {
             LinkedIn
           </a>
           <a
-            className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 text-sm font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
+            className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
             href="https://github.com/DeimerRoncancio"
             target="_blank"
             rel="noreferrer"
