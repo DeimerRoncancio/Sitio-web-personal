@@ -39,7 +39,7 @@ export default function DashboardLayout() {
       <NavBar items={items} />
       <div className="nav-h-container flex flex-col sm:flex-row w-full">
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
-          <div className="navs fixed bottom-0 sm:static w-full sm:w-auto border-r border-[#2a3852] order-2 sm:order-1">
+          <div className="navs fixed bottom-0 sm:static w-full sm:w-auto border-r border-[#2a3852] order-2 sm:order-1 z-50">
             <p className='hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
               NAVEGACIÓN
             </p>
