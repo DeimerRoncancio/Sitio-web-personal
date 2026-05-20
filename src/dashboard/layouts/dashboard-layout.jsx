@@ -35,15 +35,15 @@ export default function DashboardLayout() {
   }, [navigate])
 
   return (
-    <div className="main-page-styles overflow-hidden w-screen h-screen">
+    <div className="main-page-styles overflow-y-hidden w-screen h-screen">
       <NavBar items={items} />
       <div className="nav-h-container flex flex-col sm:flex-row w-full">
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
-          <div className="navs sm:border-r sm:border-[#2a3852] order-2 sm:order-1 z-50">
+          <div className="navs fixed bottom-0 sm:static w-full sm:w-auto border-r border-[#2a3852] order-2 sm:order-1">
             <p className='hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
               NAVEGACIÓN
             </p>
-            <ul className='flex flex-row m-auto sm:flex-col p-3 space-x-3 sm:space-y-3 sm:space-x-0'>
+            <ul className='flex flex-row sm:flex-col p-3 space-x-3 sm:space-y-3 sm:space-x-0'>
               {items.map((item, index) => (
                 <Draggable
                   key={item.id}
@@ -54,7 +54,7 @@ export default function DashboardLayout() {
               ))}
             </ul>
           </div>
-          <div className="dashboard bg-[#202a3e] w-full h-[calc(100vh-160px)] sm:h-full relative order-1 sm:order-2">
+          <div className="dashboard bg-[#202a3e] w-full h-[calc(100vh-161px)] sm:h-full relative order-1 sm:order-2">
             <Droppable parent={parent} items={items}>
               <Outlet />
             </Droppable>
