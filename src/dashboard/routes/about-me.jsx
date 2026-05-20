@@ -2,7 +2,7 @@ import '../../../css/style.css'
 
 export default function AboutMe() {
   return (
-    <div className="dropable-zone-container flex h-[calc(100%-77px)] items-center">
+    <div className="dropable-zone-container flex sm:h-[calc(100%-77px)] items-center">
       <div className="flex flex-col gap-7 animation-fadeInUp">
         <div className="w-full bg-[#1b2435] border border-[#2a3852] rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-lg">
           <div className="relative">

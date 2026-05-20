@@ -9,7 +9,7 @@ export default function Droppable({ children, parent, items }) {
 
   return (
     <div ref={ref} className={`w-full h-full text-white after:shadow-cyan-800/50 after:inset-0
-      after:absolute after:transition-all ease-in after:duration-200 after:z-50
+      after:absolute after:transition-all ease-in after:duration-200 after:z-40
       ${isDropTarget
         ? "after:shadow-[inset_0px_0px_75px_20px] after:opacity-100 after:visible"
         : "after:opacity-0 after:invisible after:duration-75"}`

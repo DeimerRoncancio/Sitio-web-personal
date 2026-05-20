@@ -44,7 +44,8 @@ export default function DashboardLayout() {
             <p className='hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
               NAVEGACIÓN
             </p>
-            <ul className='flex w-full xs:space-x-3 xs:w-auto justify-between sm:flex-col p-3 sm:space-y-3 sm:!space-x-0'>
+            <ul className='flex w-full xs:space-x-3 xs:w-auto justify-between sm:flex-col p-3 sm:space-y-3 
+            sm:!space-x-0'>
               {items.map((item, index) => (
                 <Draggable
                   key={item.id}
@@ -55,7 +56,7 @@ export default function DashboardLayout() {
               ))}
             </ul>
           </div>
-          <div className="dashboard bg-[#202a3e] w-full h-[calc(100vh-161px)] sm:h-full relative order-1 sm:order-2">
+          <div className="dashboard bg-[#202a3e] w-full h-[calc(100vh-131px)] sm:h-full relative order-1 sm:order-2">
             <Droppable parent={parent} items={items}>
               <Outlet />
             </Droppable>

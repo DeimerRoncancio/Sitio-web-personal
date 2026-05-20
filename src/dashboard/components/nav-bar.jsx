@@ -30,7 +30,7 @@ export default function NavBar({ items }) {
           </p>
         </div>
       </div>
-      <div className="flex flex-row items-center space-x-4 pr-[2px]">
+      <div className="hidden xs:flex flex-row items-center space-x-4 pr-[2px]">
         <button className='nav-button flex space-x-2 items-center' onClick={() => navigate("/")}>
           <IoEyeOutline className='text-xl' />
           <p className="text-sm text-[#c4c8ce]">Cambiar Vista</p>
