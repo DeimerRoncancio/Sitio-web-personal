@@ -11,15 +11,12 @@ import { FiArrowRight } from 'react-icons/fi';
 export default function WelcomePageComponent() {
   return (
     <div className="relative flex w-screen h-screen bg-[#171e2c] overflow-hidden selection:bg-cyan-500 selection:text-white font-sans">
-      
-      {/* Logo superior izquierdo */}
       <div className='absolute top-0 left-0 m-6 md:m-8 z-20 animation-fadeInUp'>
         <a href="/" className="inline-block transition-transform hover:scale-105">
-          <img className="w-[100px] md:w-[130px]" src={logo} alt="Logo" />
+          <img className="w-[100px]" src={logo} alt="Logo" />
         </a>
       </div>
 
-      {/* Redes Sociales - Barra lateral izquierda */}
       <div className="hidden md:flex flex-col absolute left-8 top-1/2 -translate-y-1/2 z-20 animation-fadeInUp gap-6 after:content-[''] after:w-[1px] after:h-24 after:bg-gradient-to-b after:from-cyan-500/50 after:to-transparent after:mx-auto after:mt-4">
         {[
           { icon: <AiFillLinkedin />, href: "https://www.linkedin.com/in/deimer-roncancio" },
@@ -43,12 +40,10 @@ export default function WelcomePageComponent() {
         ))}
       </div>
 
-      {/* Contenido Central */}
       <div className='flex flex-col w-full h-full text-white justify-center items-center z-10 p-4'>
-        
         <div className="mb-6 md:mb-8 animation-fadeInUp" style={{ animationDelay: '0.1s' }}>
           <img 
-            className='w-[150px] md:w-[220px] lg:w-[250px]' 
+            className='w-[280px]' 
             src={logoLg} 
             alt="Main Logo" 
           />
@@ -76,8 +71,7 @@ export default function WelcomePageComponent() {
             </button>
           </Link>
         </div>
-        
-        {/* Redes para móviles */}
+
         <div className="md:hidden flex gap-6 mt-16 text-white/40 animation-fadeInUp" style={{ animationDelay: '0.4s' }}>
           {[
             { icon: <AiFillLinkedin />, href: "https://www.linkedin.com/in/deimer-roncancio" },
