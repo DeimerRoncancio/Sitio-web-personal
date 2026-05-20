@@ -1,7 +1,6 @@
 import { FiCheckCircle, FiGlobe, FiMonitor, FiSmartphone } from "react-icons/fi";
 import { IoBagOutline, IoCartOutline } from "react-icons/io5";
 import { MdWorkOutline } from "react-icons/md";
-import multiShop1 from '/public/proyects/multi-shop/multiShop1.png';
 
 export const projects = [
   {
@@ -13,13 +12,13 @@ export const projects = [
     icon: <IoCartOutline size={22} />,
     theme: { bg: '#1a415b', border: '#255090', btn: '#2C5675' },
     images: [
-      multiShop1,
-      '/public/proyects/multi-shop/multi-shop-2.png',
-      '/public/proyects/multi-shop/multi-shop-3.png',
-      '/public/proyects/multi-shop/multi-shop-4.png',
-      '/public/proyects/multi-shop/multi-shop-5.png',
-      '/public/proyects/multi-shop/multi-shop-6.png',
-      '/public/proyects/multi-shop/multi-shop-7.png',
+      '/proyects/multi-shop/multi-shop-1.png',
+      '/proyects/multi-shop/multi-shop-2.png',
+      '/proyects/multi-shop/multi-shop-3.png',
+      '/proyects/multi-shop/multi-shop-4.png',
+      '/proyects/multi-shop/multi-shop-5.png',
+      '/proyects/multi-shop/multi-shop-6.png',
+      '/proyects/multi-shop/multi-shop-7.png',
     ],
     frontendRepo: 'https://github.com/DeimerRoncancio/ecommerce-multi-shop',
     backendRepo: 'https://github.com/DeimerRoncancio/multi-shop-api'
@@ -33,14 +32,14 @@ export const projects = [
     icon: <IoBagOutline size={22} />,
     theme: { bg: '#1a4a3d', border: '#137046', btn: '#266954' },
     images: [
-      '/public/proyects/drop-shipping/drop-shipping-1.png',
-      '/public/proyects/drop-shipping/drop-shipping-2.png',
-      '/public/proyects/drop-shipping/drop-shipping-3.png',
-      '/public/proyects/drop-shipping/drop-shipping-4.png',
-      '/public/proyects/drop-shipping/drop-shipping-5.png',
-      '/public/proyects/drop-shipping/drop-shipping-6.png',
-      '/public/proyects/drop-shipping/drop-shipping-7.png',
-      '/public/proyects/drop-shipping/drop-shipping-8.png',
+      '/proyects/drop-shipping/drop-shipping-1.png',
+      '/proyects/drop-shipping/drop-shipping-2.png',
+      '/proyects/drop-shipping/drop-shipping-3.png',
+      '/proyects/drop-shipping/drop-shipping-4.png',
+      '/proyects/drop-shipping/drop-shipping-5.png',
+      '/proyects/drop-shipping/drop-shipping-6.png',
+      '/proyects/drop-shipping/drop-shipping-7.png',
+      '/proyects/drop-shipping/drop-shipping-8.png',
     ],
     frontendRepo: 'https://github.com/Siwina-tech/drop-shipping-app',
     backendRepo: 'https://github.com/Siwina-tech/drop-shipping-api'
@@ -54,12 +53,12 @@ export const projects = [
     icon: <FiMonitor size={22} />,
     theme: { bg: '#423056', border: '#63378a', btn: '#523775' },
     images: [
-      '/public/proyects/admin-panel/admin-panel-1.png',
-      '/public/proyects/admin-panel/admin-panel-2.png',
-      '/public/proyects/admin-panel/admin-panel-3.png',
-      '/public/proyects/admin-panel/admin-panel-4.png',
-      '/public/proyects/admin-panel/admin-panel-5.png',
-      '/public/proyects/admin-panel/admin-panel-6.png',
+      '/proyects/admin-panel/admin-panel-1.png',
+      '/proyects/admin-panel/admin-panel-2.png',
+      '/proyects/admin-panel/admin-panel-3.png',
+      '/proyects/admin-panel/admin-panel-4.png',
+      '/proyects/admin-panel/admin-panel-5.png',
+      '/proyects/admin-panel/admin-panel-6.png',
     ],
     frontendRepo: 'https://github.com/DeimerRoncancio/control-panel-multi-shop',
     backendRepo: 'https://github.com/DeimerRoncancio/multi-shop-api'
@@ -73,13 +72,13 @@ export const projects = [
     icon: <MdWorkOutline size={22} />,
     theme: { bg: '#4d3a2b', border: '#844a1e', btn: '#724B34' },
     images: [
-      '/public/proyects/portfolio/portfolio-1.png',
-      '/public/proyects/portfolio/portfolio-2.png',
-      '/public/proyects/portfolio/portfolio-3.png',
-      '/public/proyects/portfolio/portfolio-4.png',
-      '/public/proyects/portfolio/portfolio-5.png',
-      '/public/proyects/portfolio/portfolio-6.png',
-      '/public/proyects/portfolio/portfolio-7.png',
+      '/proyects/portfolio/portfolio-1.png',
+      '/proyects/portfolio/portfolio-2.png',
+      '/proyects/portfolio/portfolio-3.png',
+      '/proyects/portfolio/portfolio-4.png',
+      '/proyects/portfolio/portfolio-5.png',
+      '/proyects/portfolio/portfolio-6.png',
+      '/proyects/portfolio/portfolio-7.png',
     ],
     frontendRepo: 'https://github.com/DeimerRoncancio/Sitio-web-personal',
   }
