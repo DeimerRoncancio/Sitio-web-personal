@@ -12,7 +12,7 @@ import NavBar from '../components/nav-bar';
 import { items } from '../constants/items';
 
 export default function DashboardLayout() {
-  const [parent, setParent] = useState(() => window.location.pathname === "/dashboard" ? undefined : "droppable");
+  const [parent, setParent] = useState(undefined);
   const navigate = useNavigate();
   const item = items.find((item) => item.path === window.location.pathname);
 
@@ -48,11 +48,11 @@ export default function DashboardLayout() {
   }, [navigate])
 
   return (
-    <div className="main-page-styles overflow-y-hidden w-screen" style={{ height: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="main-page-styles w-screen flex flex-col" style={{ height: 'calc(var(--vh, 1vh) * 100)' }}>
       <NavBar items={items} />
       <div className="nav-h-container flex flex-col sm:flex-row w-full">
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
-          <div className="navs fixed bottom-0 sm:static w-full sm:w-auto border-r border-[#2a3852] order-2 sm:order-1">
+            <div className="navs fixed bottom-0 sm:static w-full sm:w-auto border-r border-[#2a3852] order-2 sm:order-1 z-50">
             <p className='hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
               NAVEGACIÓN
             </p>
@@ -67,7 +67,7 @@ export default function DashboardLayout() {
               ))}
             </ul>
           </div>
-          <div className="dashboard bg-[#202a3e] w-full sm:h-full relative order-1 sm:order-2" style={{ height: 'calc(var(--vh, 1vh) * 100 - 161px)' }}>
+            <div className="dashboard bg-[#202a3e] w-full relative order-1 sm:order-2 flex-1 overflow-auto pb-24 sm:pb-0">
             <Droppable parent={parent} items={items}>
               <Outlet />
             </Droppable>
