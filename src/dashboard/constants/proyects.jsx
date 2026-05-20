@@ -19,7 +19,9 @@ export const projects = [
       '/public/proyects/multi-shop/multi-shop-5.png',
       '/public/proyects/multi-shop/multi-shop-6.png',
       '/public/proyects/multi-shop/multi-shop-7.png',
-    ]
+    ],
+    frontendRepo: 'https://github.com/DeimerRoncancio/ecommerce-multi-shop',
+    backendRepo: 'https://github.com/DeimerRoncancio/multi-shop-api'
   },
   {
     title: 'Drop Shipping App',
@@ -38,7 +40,9 @@ export const projects = [
       '/public/proyects/drop-shipping/drop-shipping-6.png',
       '/public/proyects/drop-shipping/drop-shipping-7.png',
       '/public/proyects/drop-shipping/drop-shipping-8.png',
-    ]
+    ],
+    frontendRepo: 'https://github.com/Siwina-tech/drop-shipping-app',
+    backendRepo: 'https://github.com/Siwina-tech/drop-shipping-api'
   },
   {
     title: 'Panel Administrativo para Comercio Electronico',
@@ -55,7 +59,9 @@ export const projects = [
       '/public/proyects/admin-panel/admin-panel-4.png',
       '/public/proyects/admin-panel/admin-panel-5.png',
       '/public/proyects/admin-panel/admin-panel-6.png',
-    ]
+    ],
+    frontendRepo: 'https://github.com/DeimerRoncancio/control-panel-multi-shop',
+    backendRepo: 'https://github.com/DeimerRoncancio/multi-shop-api'
   },
   {
     title: 'Portafolio Personal',
@@ -73,6 +79,7 @@ export const projects = [
       '/public/proyects/portfolio/portfolio-5.png',
       '/public/proyects/portfolio/portfolio-6.png',
       '/public/proyects/portfolio/portfolio-7.png',
-    ]
+    ],
+    frontendRepo: 'https://github.com/DeimerRoncancio/Sitio-web-personal',
   }
 ];

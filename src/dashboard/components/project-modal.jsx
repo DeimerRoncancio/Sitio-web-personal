@@ -1,21 +1,14 @@
 import { useState, useRef, useEffect } from "react";
-import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiExternalLink } from "react-icons/fi";
+import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiExternalLink, FiMonitor } from "react-icons/fi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 export default function ProjectModal({ project, onClose }) {
-  const [currentImg, setCurrentImg] = useState(0);
-  const thumbnailsRef = useRef(null);
-
-  useEffect(() => {
-    if (thumbnailsRef.current) {
-      const activeThumb = thumbnailsRef.current.children[currentImg];
-      if (activeThumb) {
-        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
-    }
-  }, [currentImg]);
-
   if (!project) return null;
+
+  const [currentImg, setCurrentImg] = useState(0);
+  const [showLinksMenu, setShowLinksMenu] = useState(false);
+  const thumbnailsRef = useRef(null);
+  const menuRef = useRef(null);
 
   const nextImg = () => {
     setCurrentImg((prev) => (prev === project.images.length - 1 ? 0 : prev + 1));
@@ -24,13 +17,35 @@ export default function ProjectModal({ project, onClose }) {
   const prevImg = () => {
     setCurrentImg((prev) => (prev === 0 ? project.images.length - 1 : prev - 1));
   };
-
+  
   const scrollThumbnails = (dir) => {
     if (thumbnailsRef.current) {
       const scrollAmount = dir === 'left' ? -200 : 200;
       thumbnailsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
+  
+  useEffect(() => {
+    if (thumbnailsRef.current) {
+      const activeThumb = thumbnailsRef.current.children[currentImg];
+      if (activeThumb)
+        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [currentImg]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowLinksMenu(false);
+      }
+    };
+    if (showLinksMenu)
+      document.addEventListener("mousedown", handleClickOutside);
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showLinksMenu]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 animation-fadeInUp">
@@ -131,15 +146,45 @@ export default function ProjectModal({ project, onClose }) {
 
           <div className="w-full flex flex-col mt-8">
             <div className="mb-10 flex flex-col sm:flex-row gap-4 border-b border-white/10 pb-8">
-              <button
+              {/* <button
                 className="flex-1 flex justify-center items-center gap-2 py-3.5 md:py-4 rounded-xl font-bold transition-all text-white hover:brightness-110 shadow-lg text-sm md:text-base"
                 style={{ backgroundColor: project.theme.btn }}
               >
                 <FiExternalLink size={18} /> Ver Proyecto
-              </button>
-              <button className="flex-1 flex justify-center items-center gap-2 bg-[#161c27] hover:bg-[#1a212e] border border-white/5 text-white/90 py-3.5 md:py-4 rounded-xl font-bold transition-all shadow-sm text-sm md:text-base">
-                <FiGithub size={18} /> Ver Código Fuente
-              </button>
+              </button> */}
+              <div className="relative flex-1" ref={menuRef}>
+                <button 
+                  onClick={() => setShowLinksMenu(!showLinksMenu)}
+                  className="w-full h-full flex justify-center items-center gap-2 bg-[#161c27] hover:bg-[#1a212e] border border-white/5 text-white/90 py-3.5 md:py-4 rounded-xl font-bold transition-all shadow-sm text-sm md:text-base"
+                >
+                  <FiGithub size={18} /> Ver Código Fuente
+                </button>
+                
+                {showLinksMenu && (
+                  <div className="absolute top-full left-0 right-0 mt-3 p-2 bg-[#161c27] rounded-xl border border-white/10 shadow-2xl flex flex-col gap-2 z-20 animation-fadeInUp">
+                    <a
+                      href={project.frontendRepo || '#'} 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-white/5 transition-colors text-white/90 text-sm font-semibold"
+                    >
+                      <span className="p-2 rounded-lg bg-[#61DAFB]/10 text-[#61DAFB]"><FiMonitor size={16} /></span>
+                      Repositorio Frontend
+                    </a>
+                    {project.backendRepo && (
+                      <a 
+                        href={project.backendRepo || '#'} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-white/5 transition-colors text-white/90 text-sm font-semibold"
+                      >
+                        <span className="p-2 rounded-lg bg-[#6DB33F]/10 text-[#6DB33F]"><FiExternalLink size={16} /></span>
+                        Repositorio Backend
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
 
             <h4 className="text-xl font-bold text-white mb-3">Resumen del Proyecto</h4>
