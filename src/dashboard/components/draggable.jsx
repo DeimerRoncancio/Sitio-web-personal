@@ -11,7 +11,7 @@ export default function Draggable({ id, item: { icon, name, path } }, changePage
   const handleClick = (event) => navigate(path);
 
   return (
-    <div className="w-full h-fit relative">
+    <div className="w-fit h-fit relative">
       <li className={`absolute ${isDragging ? "opacity-50" : ""}`}>
         <ItemsDraggables
           icon={icon}
