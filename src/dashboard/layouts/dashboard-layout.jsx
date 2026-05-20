@@ -12,9 +12,22 @@ import NavBar from '../components/nav-bar';
 import { items } from '../constants/items';
 
 export default function DashboardLayout() {
-  const [parent, setParent] = useState(undefined);
+  const [parent, setParent] = useState(() => window.location.pathname === "/dashboard" ? undefined : "droppable");
   const navigate = useNavigate();
   const item = items.find((item) => item.path === window.location.pathname);
+
+  useEffect(() => {
+    const setVh = () => {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    };
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', setVh);
+    return () => {
+      window.removeEventListener('resize', setVh);
+      window.removeEventListener('orientationchange', setVh);
+    };
+  }, []);
 
   const changePage = (event) => {
     if (!event.operation.target) return;
@@ -35,7 +48,7 @@ export default function DashboardLayout() {
   }, [navigate])
 
   return (
-    <div className="main-page-styles overflow-y-hidden w-screen h-screen">
+    <div className="main-page-styles overflow-y-hidden w-screen" style={{ height: 'calc(var(--vh, 1vh) * 100)' }}>
       <NavBar items={items} />
       <div className="nav-h-container flex flex-col sm:flex-row w-full">
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
@@ -54,7 +67,7 @@ export default function DashboardLayout() {
               ))}
             </ul>
           </div>
-          <div className="dashboard bg-[#202a3e] w-full h-[calc(100vh-161px)] sm:h-full relative order-1 sm:order-2">
+          <div className="dashboard bg-[#202a3e] w-full sm:h-full relative order-1 sm:order-2" style={{ height: 'calc(var(--vh, 1vh) * 100 - 161px)' }}>
             <Droppable parent={parent} items={items}>
               <Outlet />
             </Droppable>

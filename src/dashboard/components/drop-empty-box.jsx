@@ -2,7 +2,7 @@ import { RiDragDropLine } from "react-icons/ri";
 
 export default function DropEmptyBox({ isDropTarget }) {
   return (
-    <div className='w-full h-full text-[#888] p-28 px-32'>
+    <div className='w-full h-full text-[#888] p-8 sm:p-28 px-6 sm:px-32'>
       <div className={`w-full h-full flex flex-col justify-center items-center
         outline-2 outline-[#888] outline-offset-2 border-2 border-dashed border-[#888888]
         ${isDropTarget && "outline-cyan-500 outline scale-105 !text-[#dfe1e6] !border-[#dfe1e6]"}
@@ -15,7 +15,7 @@ export default function DropEmptyBox({ isDropTarget }) {
           <RiDragDropLine size={35} className={`text-[#00a2ce] ${isDropTarget && "text-[#00c8ff]"} `} />
         </div>
         <h2 className='text-xl font-bold mb-2 text-[#eeeeee]'>Suelta los elementos aquí</h2>
-        <p className='text-center text-sm text-[#8f8f8f] font-medium w-96'>
+        <p className='text-center text-sm text-[#8f8f8f] font-medium max-w-md'>
           Arrastra o haz click en los elementos desde el panel izquierdo para ver su contenido aquí
         </p>
       </div>
