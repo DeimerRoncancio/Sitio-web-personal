@@ -1,6 +1,7 @@
 import { FiCheckCircle, FiGlobe, FiMonitor, FiSmartphone } from "react-icons/fi";
 import { IoBagOutline, IoCartOutline } from "react-icons/io5";
 import { MdWorkOutline } from "react-icons/md";
+import multiShop1 from '/public/proyects/multi-shop/multiShop1.png';
 
 export const projects = [
   {
@@ -12,7 +13,7 @@ export const projects = [
     icon: <IoCartOutline size={22} />,
     theme: { bg: '#1a415b', border: '#255090', btn: '#2C5675' },
     images: [
-      '/public/proyects/multi-shop/multi-shop-1.png',
+      multiShop1,
       '/public/proyects/multi-shop/multi-shop-2.png',
       '/public/proyects/multi-shop/multi-shop-3.png',
       '/public/proyects/multi-shop/multi-shop-4.png',
