@@ -10,8 +10,8 @@ export default function ItemsDraggables({ icon, name, isDragging, isShadow = fal
   ].filter(Boolean).join(' ');
 
   return (
-    <div className={`draggable ${tailwindClasses} flex w-[55px] h-[50px] 2xs:w-[65px] 2xs:h-[60px] sm:w-[95px] sm:h-[80px]  flex-col
-      justify-center transition-all duration-300 rounded-xl items-center p-1 text-lg sm:text-4xl border-2
+    <div className={`draggable ${tailwindClasses} flex w-[55px] h-[50px] 2xs:w-[65px] 2xs:h-[60px
+      sm:!w-[95px] sm:!h-[80px] flex-col justify-center transition-all duration-300 rounded-xl items-center p-1 text-lg sm:text-4xl border-2
       border-[#888] shadow-lg shadow-[#aaaaaa34] hover:scale-105 bg-gradient-to-tl from-[#424c5c] 
       to-[#171e2c]`
     }>
