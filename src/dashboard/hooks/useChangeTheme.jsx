@@ -25,19 +25,25 @@ export default function useChangeTheme() {
     toggleShowTheme(false);
   };
 
-  useEffect(() => {
+  const changeClassTheme = (theme) => {
     if (theme === 'dark') {
       document.querySelector('html').classList.add('dark');
       document.querySelector('html').classList.remove('light');
-    } else if (theme === 'light') {
+    } else {
       document.querySelector('html').classList.add('light');
       document.querySelector('html').classList.remove('dark');
-    } else {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches)
-        document.querySelector('html').classList.add('dark');
-      else
-        document.querySelector('html').classList.add('light');
     }
+  }
+
+  useEffect(() => {
+    if (theme === 'dark') changeClassTheme('dark');
+    else if (theme === 'light') changeClassTheme('light');
+    else
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+        changeClassTheme('dark');
+      else
+        changeClassTheme('light');
+
   }, [theme])
 
   useEffect(() => {
@@ -47,7 +53,6 @@ export default function useChangeTheme() {
     }
 
     if (showToggleTheme) document.addEventListener('mousedown', closeLinks);
-
     return () => document.removeEventListener('mousedown', closeLinks);
   }, [showToggleTheme]);
 
