@@ -7,42 +7,55 @@ import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
 import { BsFacebook, BsTwitter } from 'react-icons/bs'
 import { RiInstagramFill } from 'react-icons/ri'
 import { FiArrowRight } from 'react-icons/fi';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { use } from 'react';
+import useChangeTheme from '../../dashboard/hooks/useChangeTheme';
 
 export default function WelcomePageComponent() {
-  const [theme, setTheme] = useState(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
-    return 'light';
-  });
-
-  const toggleTheme = () => setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.querySelector('html').classList.add('dark');
-      document.querySelector('html').classList.remove('light');
-    } else {
-      document.querySelector('html').classList.add('light');
-      document.querySelector('html').classList.remove('dark');
-    }
-  }, [theme]);
+  const { menuRef, theme, showToggleTheme, toggleTheme, toggleShowTheme } = useChangeTheme();
 
   return (
-    <div className="relative flex w-screen h-screen bg-blue-700 dark:bg-[#171e2c] overflow-hidden selection:bg-cyan-500 selection:text-white font-sans">
+    <div className="relative flex w-screen h-screen bg-blue-900 dark:bg-[#171e2c] overflow-hidden selection:bg-cyan-500 selection:text-white font-sans">
       <div className='absolute top-0 left-0 m-6 md:m-8 z-20 animation-fadeInUp'>
         <a href="/" className="inline-block transition-transform hover:scale-105">
           <img className="w-[100px]" src={logo} alt="Logo" />
         </a>
       </div>
 
-      <div className='absolute top-0 right-0 m-6 md:m-8 z-20 animation-fadeInUp'>
+      <div className='absolute top-0 right-0 m-6 md:m-8 z-20 animation-fadeInUp' ref={menuRef}>
         <button
           aria-label="Cambiar tema"
           className="px-4 py-2 rounded-full text-sm text-white/70 bg-gradient-to-tr from-transparent to-white/2 border border-white/10 hover:bg-white/5 hover:text-white transition-colors shadow-sm backdrop-blur-sm"
-          onClick={toggleTheme}
+          onClick={toggleShowTheme}
         >
           Cambiar Tema
         </button>
+
+        {showToggleTheme && (
+          <div className="absolute right-0 mt-2 text-white w-48 bg-[#1b2435] border border-[#2a3852] rounded-lg shadow-lg p-4 flex flex-col gap-3">
+              <button
+                className={`w-full text-left px-3 py-2 rounded-md transition-colors disabled:bg-[#2a3852] disabled:text-[#5572a7] `}
+                onClick={() => toggleTheme('dark')}
+                disabled={theme === 'dark'}
+              >
+                Oscuro
+              </button>
+              <button
+                className={`w-full text-left px-3 py-2 rounded-md transition-colors disabled:bg-[#2a3852] disabled:text-[#5572a7] `}
+                onClick={() => toggleTheme('light')}
+                disabled={theme === 'light'}
+              >
+                Claro
+              </button>
+              <button
+                className={`w-full text-left px-3 py-2 rounded-md transition-colors disabled:bg-[#2a3852] disabled:text-[#5572a7] `}
+                onClick={() => toggleTheme('system')}
+                disabled={theme === 'system'}
+              >
+                Sistema
+              </button>
+          </div>
+        )}
       </div>
 
       <div className="hidden md:flex flex-col absolute left-8 top-1/2 -translate-y-1/2 z-20 animation-fadeInUp gap-6 after:content-[''] after:w-[1px] after:h-24 after:bg-gradient-to-b after:from-cyan-500/50 after:to-transparent after:mx-auto after:mt-4">

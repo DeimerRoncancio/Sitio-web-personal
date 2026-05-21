@@ -28,6 +28,7 @@ export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
     if (thumbnailsRef.current) {
       const activeThumb = thumbnailsRef.current.children[currentImg];
+
       if (activeThumb)
         activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
@@ -35,16 +36,13 @@ export default function ProjectModal({ project, onClose }) {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (menuRef.current && !menuRef.current.contains(event.target))
         setShowLinksMenu(false);
-      }
     };
-    if (showLinksMenu)
-      document.addEventListener("mousedown", handleClickOutside);
+
+    if (showLinksMenu) document.addEventListener("mousedown", handleClickOutside);
     
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showLinksMenu]);
 
   return (
