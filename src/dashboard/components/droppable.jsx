@@ -21,7 +21,7 @@ export default function Droppable({ children, parent, items }) {
                 {item?.icon}
               </div>
               <div>
-                <h2 className="text-xl font-bold">{item?.name}</h2>
+                <h2 className="text-lg sm:text-xl font-bold">{item?.name}</h2>
                 <p className="text-gray-400 text-xs">{item?.description}</p>
               </div>
             </div>

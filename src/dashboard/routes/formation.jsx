@@ -6,8 +6,8 @@ export default function Formation() {
     <div className="dropable-zone-container py-14 animation-fadeInUp">
       <div className="max-w-3xl space-y-10">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-4">Trayectoria Educativa</h1>
-          <p className="text-[#979fa1] text-lg leading-relaxed">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4">Trayectoria Educativa</h1>
+          <p className="text-[#979fa1] text-sm sm:text-lg leading-relaxed">
             A lo largo de mi carrera, el aprendizaje teórico y práctico ha sido un pilar fundamental. 
             Aquí detallo mi formación académica y las certificaciones con las que he validado 
             mis conocimientos.
@@ -21,12 +21,12 @@ export default function Formation() {
               <FaGraduationCap size={20} className="text-white" />
             </div>
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
-              <h2 className="text-2xl font-bold text-white">Tecnólogo en Desarrollo de Software</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-white">Tecnólogo en Desarrollo de Software</h2>
               <span className="flex items-center gap-2 text-xs font-semibold bg-[#1e273a] text-[#00a4ac] px-3 py-1.5 rounded-full w-max border border-[#2a3852]">
                 <FaCalendarAlt /> 2021 - 2023
               </span>
             </div>
-            <h3 className="text-lg font-medium text-[#00a4ac] mb-4">
+            <h3 className="text-sm sm:text-lg font-medium text-[#00a4ac] mb-4">
               Corporación Universitaría el Minuto de Dios
             </h3>
             <div className="text-[#979fa1] space-y-3 leading-relaxed">
@@ -64,7 +64,7 @@ export default function Formation() {
               <h4 className="text-lg font-bold text-white">
                 Spring Framework 6 & Spring Boot 3 desde cero a experto 2024
               </h4>
-              <span className="text-xs font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2024</span>
+              <span className="text-xs w-fit font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2024</span>
             </div>
             <p className="text-sm font-medium text-[#00a4ac] mb-2">Udemy</p>
             <p className="text-[#979fa1] text-sm leading-relaxed">
@@ -80,7 +80,7 @@ export default function Formation() {
             </div>
              <div className="flex flex-col md:flex-row md:items-center justify-between mb-1 gap-2">
               <h4 className="text-lg font-bold text-white">Diseñando páginas web con Bootstrap 4</h4>
-              <span className="text-xs font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2023</span>
+              <span className="text-xs w-fit font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2023</span>
             </div>
             <p className="text-sm font-medium text-[#00a4ac] mb-2">Coursera - Universidad Austral</p>
             <p className="text-[#979fa1] text-sm leading-relaxed">
@@ -96,7 +96,7 @@ export default function Formation() {
             </div>
              <div className="flex flex-col md:flex-row md:items-center justify-between mb-1 gap-2">
               <h4 className="text-lg font-bold text-white">Programación Básica</h4>
-              <span className="text-xs font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2023</span>
+              <span className="text-xs w-fit font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2023</span>
             </div>
             <p className="text-sm font-medium text-[#00a4ac] mb-2">Platzi</p>
             <p className="text-[#979fa1] text-sm leading-relaxed">

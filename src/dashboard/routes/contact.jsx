@@ -20,7 +20,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="flex gap-10">
+        <div className="flex flex-col sm:flex-row gap-10">
           <div className="space-y-6">
             <h2 className="text-xl font-semibold text-white mb-6">Información de contacto</h2>
             
