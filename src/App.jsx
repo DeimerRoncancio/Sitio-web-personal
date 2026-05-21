@@ -9,6 +9,7 @@ import Portfolio from './dashboard/routes/portfolio';
 import Skills from './dashboard/routes/skills';
 import Formation from './dashboard/routes/formation';
 import Contact from './dashboard/routes/contact';
+import { useEffect } from 'react';
 
 function App() {
   return (

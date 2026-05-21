@@ -24,10 +24,10 @@ export default function NavBar({ items }) {
           </button>
         </div>
         <div className='navs flex items-center text-base font-medium pl-5'>
-          <p className='nav-hover flex items-center space-x-3'>
+          <div className='nav-hover flex items-center space-x-3'>
             <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
             <h2>{item ? item.name : "Dashboard"}</h2>
-          </p>
+          </div>
         </div>
       </div>
       <div className="hidden xs:flex flex-row items-center space-x-4 pr-[2px]">

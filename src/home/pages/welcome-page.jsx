@@ -7,14 +7,42 @@ import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
 import { BsFacebook, BsTwitter } from 'react-icons/bs'
 import { RiInstagramFill } from 'react-icons/ri'
 import { FiArrowRight } from 'react-icons/fi';
+import { useEffect, useState } from 'react';
 
 export default function WelcomePageComponent() {
+  const [theme, setTheme] = useState(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+    return 'light';
+  });
+
+  const toggleTheme = () => setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.querySelector('html').classList.add('dark');
+      document.querySelector('html').classList.remove('light');
+    } else {
+      document.querySelector('html').classList.add('light');
+      document.querySelector('html').classList.remove('dark');
+    }
+  }, [theme]);
+
   return (
-    <div className="relative flex w-screen h-screen bg-[#171e2c] overflow-hidden selection:bg-cyan-500 selection:text-white font-sans">
+    <div className="relative flex w-screen h-screen bg-blue-700 dark:bg-[#171e2c] overflow-hidden selection:bg-cyan-500 selection:text-white font-sans">
       <div className='absolute top-0 left-0 m-6 md:m-8 z-20 animation-fadeInUp'>
         <a href="/" className="inline-block transition-transform hover:scale-105">
           <img className="w-[100px]" src={logo} alt="Logo" />
         </a>
+      </div>
+
+      <div className='absolute top-0 right-0 m-6 md:m-8 z-20 animation-fadeInUp'>
+        <button
+          aria-label="Cambiar tema"
+          className="px-4 py-2 rounded-full text-sm text-white/70 bg-gradient-to-tr from-transparent to-white/2 border border-white/10 hover:bg-white/5 hover:text-white transition-colors shadow-sm backdrop-blur-sm"
+          onClick={toggleTheme}
+        >
+          Cambiar Tema
+        </button>
       </div>
 
       <div className="hidden md:flex flex-col absolute left-8 top-1/2 -translate-y-1/2 z-20 animation-fadeInUp gap-6 after:content-[''] after:w-[1px] after:h-24 after:bg-gradient-to-b after:from-cyan-500/50 after:to-transparent after:mx-auto after:mt-4">
