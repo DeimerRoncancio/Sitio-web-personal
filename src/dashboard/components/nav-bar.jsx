@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { PiBroom } from "react-icons/pi";
 import { IoEyeOutline } from "react-icons/io5";
+import { FiSun, FiMoon, FiMonitor, FiCheck } from 'react-icons/fi';
 import { useEffect, useRef, useState } from "react";
 import useChangeTheme from "../hooks/useChangeTheme";
 
@@ -27,7 +28,7 @@ export default function NavBar({ items }) {
             <RiHomeLine className='text-2xl' />
           </button>
         </div>
-        <div className='navs flex items-center text-base font-medium pl-5'>
+        <div className='bg-[#1e3a8a] dark:bg-[#171e2c] flex items-center text-base font-medium pl-5'>
           <div className='nav-hover flex items-center space-x-3'>
             <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
             <h2>{item ? item.name : "Dashboard"}</h2>
@@ -48,28 +49,27 @@ export default function NavBar({ items }) {
           </button>
 
           {showToggleTheme && (
-            <div className="absolute right-0 mt-2 w-48 bg-[#1b2435] border border-[#2a3852] rounded-lg
-            shadow-lg p-4 flex text-white flex-col gap-3 z-50">
+            <div className="absolute right-0 mt-3 w-48 bg-white dark:bg-[#1b2435] border border-gray-100 dark:border-[#2a3852] rounded-xl shadow-2xl p-1.5 flex flex-col gap-1 z-50 transform origin-top-right transition-all">
               <button
-                className={`w-full text-left px-3 py-2 rounded-md transition-colors disabled:bg-[#2a3852] disabled:text-[#5572a7] `}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'dark' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
                 onClick={() => toggleTheme('dark')}
-                disabled={theme === 'dark'}
               >
-                Oscuro
+                <div className="flex items-center gap-3"><FiMoon size={16} /><span>Oscuro</span></div>
+                {theme === 'dark' && <FiCheck size={16} />}
               </button>
               <button
-                className={`w-full text-left px-3 py-2 rounded-md transition-colors disabled:bg-[#2a3852] disabled:text-[#5572a7] `}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'light' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
                 onClick={() => toggleTheme('light')}
-                disabled={theme === 'light'}
               >
-                Claro
+                <div className="flex items-center gap-3"><FiSun size={16} /><span>Claro</span></div>
+                {theme === 'light' && <FiCheck size={16} />}
               </button>
               <button
-                className={`w-full text-left px-3 py-2 rounded-md transition-colors disabled:bg-[#2a3852] disabled:text-[#5572a7] `}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'system' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
                 onClick={() => toggleTheme('system')}
-                disabled={theme === 'system'}
               >
-                Sistema
+                <div className="flex items-center gap-3"><FiMonitor size={16} /><span>Sistema</span></div>
+                {theme === 'system' && <FiCheck size={16} />}
               </button>
             </div>
           )}

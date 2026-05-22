@@ -12,6 +12,8 @@ import Contact from './dashboard/routes/contact';
 import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => localStorage.setItem('view', 'normal'), [])
+  
   return (
     <main>
       <Routes>
