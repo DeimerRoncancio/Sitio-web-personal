@@ -8,7 +8,7 @@ import { FiSun, FiMoon, FiMonitor, FiCheck } from 'react-icons/fi';
 import { useEffect, useRef, useState } from "react";
 import useChangeTheme from "../hooks/useChangeTheme";
 
-export default function NavBar({ items }) {
+export default function NavBar({ items, changeView, handleChangeView }) {
   const { theme, menuRef, showToggleTheme, toggleTheme, toggleShowTheme } = useChangeTheme();
 
   const navigate = useNavigate();
@@ -35,8 +35,29 @@ export default function NavBar({ items }) {
           </div>
         </div>
       </div>
+      <div className="flex items-center space-x-3">
+        <nav
+        style={{ display: changeView === 'dashboard' ? 'none' : 'flex' }}
+        className="items-center space-x-2">
+          <button className="nav-button px-3 py-1 text-sm" onClick={() => navigate("/dashboard/about")}>
+            Sobre Mi
+          </button>
+          <button className="nav-button px-3 py-1 text-sm" onClick={() => navigate("/dashboard/skills")}>
+            Skills
+          </button>
+          <button className="nav-button px-3 py-1 text-sm" onClick={() => navigate("/dashboard/portfolio")}>
+            Proyectos
+          </button>
+          <button className="nav-button px-3 py-1 text-sm" onClick={() => navigate("/dashboard/formation")}>
+            Formación
+          </button>
+          <button className="nav-button px-3 py-1 text-sm" onClick={() => navigate("/dashboard/contact")}>
+            Contacto
+          </button>
+        </nav>
+      </div>
       <div className="hidden xs:flex flex-row items-center space-x-4 pr-[2px]">
-        <button className='nav-button flex space-x-2 items-center' onClick={() => navigate("/")}>
+        <button type="button" className='nav-button flex space-x-2 items-center' onClick={handleChangeView}>
           <IoEyeOutline className='text-xl' />
           <p className="text-sm text-[#c4c8ce]">Cambiar Vista</p>
         </button>

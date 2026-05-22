@@ -6,16 +6,19 @@ import Draggable from '../components/draggable'
 import Droppable from '../components/droppable';
 
 import { DragDropProvider } from '@dnd-kit/react'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { RiHomeLine } from 'react-icons/ri';
 import NavBar from '../components/nav-bar';
 import { items } from '../constants/items';
+import useChangeView from '../hooks/useChangeView';
 
 export default function DashboardLayout() {
-  const [parent, setParent] = useState(undefined);
+  const location = useLocation();
   const navigate = useNavigate();
+  const [parent, setParent] = useState(undefined);
   const item = items.find((item) => item.path === window.location.pathname);
-
+  const { changeView, handleChangeView } = useChangeView();
+  
   const changePage = (event) => {
     if (!event.operation.target) return;
     const id = event.operation.source.id;
@@ -25,21 +28,22 @@ export default function DashboardLayout() {
     if (id === 2) navigate("/dashboard/portfolio");
     if (id === 3) navigate("/dashboard/formation");
     if (id === 4) navigate("/dashboard/contact");
-
+    
     setParent(event.operation.target?.id);
   }
 
   useEffect(() => {
-    if (window.location.pathname === "/dashboard") setParent(undefined);
-    if (window.location.pathname !== "/dashboard") setParent("droppable");
-  }, [navigate])
+    if (location.pathname === "/dashboard") setParent(undefined);
+    if (location.pathname !== "/dashboard") setParent("droppable");
+  }, [location.pathname])
 
   return (
     <div className="main-page-styles overflow-hidden w-screen h-screen">
-      <NavBar items={items} />
+      <NavBar items={items} changeView={changeView} handleChangeView={handleChangeView} />
       <div className="nav-h-container flex flex-col sm:flex-row w-full">
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
-          <div style={{ display: localStorage.getItem('view') === 'dashboard' ? 'flex' : 'none' }} className="bg-[#171e2c] flex sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
+          <div style={{ display: changeView === 'dashboard' ? 'flex' : 'none' }}
+          className="bg-[#171e2c] sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
           border-r border-[#2a3852] fixed bottom-0 sm:static order-2 sm:order-1 z-50">
             <p className='hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
               NAVEGACIÓN
