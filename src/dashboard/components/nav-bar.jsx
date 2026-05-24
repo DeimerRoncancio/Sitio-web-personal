@@ -31,7 +31,7 @@ export default function NavBar({ items, currentView, changeView }) {
   }, []);
 
   return (
-    <div className="grid grid-cols-[max-content_1fr] xl:!grid-cols-3 bg-blue-900 dark:bg-[#171e2c] border-b border-[#2a3852] px-8 py-[11px]">
+    <div className="grid grid-cols-[max-content_1fr] xl:!grid-cols-3 bg-blue-900 dark:bg-[#171e2c] border-b border-[#2a3852] px-3 xs:px-8 py-[11px]">
       <div className="flex">
         <div className='flex justify-center items-center space-x-3'>
           <button className='nav-hover' onClick={() => navigate(-1)}>
