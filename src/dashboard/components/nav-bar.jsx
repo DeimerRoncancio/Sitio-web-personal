@@ -1,6 +1,6 @@
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import { RiHomeLine } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { PiBroom } from "react-icons/pi";
 import { IoEyeOutline } from "react-icons/io5";
@@ -8,11 +8,18 @@ import { FiSun, FiMoon, FiMonitor, FiCheck } from 'react-icons/fi';
 import { useEffect, useRef, useState } from "react";
 import useChangeTheme from "../hooks/useChangeTheme";
 
-export default function NavBar({ items, changeView, handleChangeView }) {
+export default function NavBar({ items, currentView, changeView }) {
   const { theme, menuRef, showToggleTheme, toggleTheme, toggleShowTheme } = useChangeTheme();
 
   const navigate = useNavigate();
+  const location = useLocation();
   const item = items.find((item) => item.path === window.location.pathname);
+
+  const handleCurrentView = () => {
+    changeView();
+    if (currentView === 'dashboard' && location.pathname === "/dashboard")
+      navigate("/dashboard/about");
+  }
 
   return (
     <div className="flex justify-between bg-blue-900 dark:bg-[#171e2c] border-b border-[#2a3852] px-8 py-[11px]">
@@ -37,7 +44,7 @@ export default function NavBar({ items, changeView, handleChangeView }) {
       </div>
       <div className="flex items-center space-x-3">
         <nav
-        style={{ display: changeView === 'dashboard' ? 'none' : 'flex' }}
+        style={{ display: currentView === 'dashboard' ? 'none' : 'flex' }}
         className="items-center space-x-2">
           <button className="nav-button px-3 py-1 text-sm" onClick={() => navigate("/dashboard/about")}>
             Sobre Mi
@@ -57,7 +64,8 @@ export default function NavBar({ items, changeView, handleChangeView }) {
         </nav>
       </div>
       <div className="hidden xs:flex flex-row items-center space-x-4 pr-[2px]">
-        <button type="button" className='nav-button flex space-x-2 items-center' onClick={handleChangeView}>
+        <button type="button" className='nav-button flex space-x-2 items-center'
+        onClick={handleCurrentView}>
           <IoEyeOutline className='text-xl' />
           <p className="text-sm text-[#c4c8ce]">Cambiar Vista</p>
         </button>

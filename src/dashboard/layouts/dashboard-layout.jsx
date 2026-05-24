@@ -10,24 +10,27 @@ import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { RiHomeLine } from 'react-icons/ri';
 import NavBar from '../components/nav-bar';
 import { items } from '../constants/items';
-import useChangeView from '../hooks/useChangeView';
+import { useContext } from 'react';
+import { viewContext } from '../../context/viewContext';
 
 export default function DashboardLayout() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [parent, setParent] = useState(undefined);
+  const [parent, setParent] = useState(() => location.pathname === "/dashboard" ? undefined : "droppable");
   const item = items.find((item) => item.path === window.location.pathname);
-  const { changeView, handleChangeView } = useChangeView();
-  
+  const { changeView, currentView } = useContext(viewContext);
+
   const changePage = (event) => {
     if (!event.operation.target) return;
     const id = event.operation.source.id;
 
-    if (id === 0) navigate("/dashboard/about");
-    if (id === 1) navigate("/dashboard/skills");
-    if (id === 2) navigate("/dashboard/portfolio");
-    if (id === 3) navigate("/dashboard/formation");
-    if (id === 4) navigate("/dashboard/contact");
+    const navOptions = { state: { fromDashboard: true } };
+
+    if (id === 0) navigate("/dashboard/about", navOptions);
+    if (id === 1) navigate("/dashboard/skills", navOptions);
+    if (id === 2) navigate("/dashboard/portfolio", navOptions);
+    if (id === 3) navigate("/dashboard/formation", navOptions);
+    if (id === 4) navigate("/dashboard/contact", navOptions);
     
     setParent(event.operation.target?.id);
   }
@@ -39,10 +42,10 @@ export default function DashboardLayout() {
 
   return (
     <div className="main-page-styles overflow-hidden w-screen h-screen">
-      <NavBar items={items} changeView={changeView} handleChangeView={handleChangeView} />
+      <NavBar items={items} currentView={currentView} changeView={changeView} />
       <div className="nav-h-container flex flex-col sm:flex-row w-full">
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
-          <div style={{ display: changeView === 'dashboard' ? 'flex' : 'none' }}
+          <div style={{ display: currentView === 'dashboard' ? 'flex' : 'none' }}
           className="bg-[#171e2c] sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
           border-r border-[#2a3852] fixed bottom-0 sm:static order-2 sm:order-1 z-50">
             <p className='hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import logo from '/public/brand/Logo.webp';
 import logoLg from '/public/brand/LogoLg.webp';
@@ -10,9 +10,13 @@ import { FiArrowRight, FiSun, FiMoon, FiMonitor, FiCheck } from 'react-icons/fi'
 import { useEffect, useRef, useState } from 'react';
 import { use } from 'react';
 import useChangeTheme from '../../dashboard/hooks/useChangeTheme';
+import { useContext } from 'react';
+import { viewContext } from '../../context/viewContext';
 
 export default function WelcomePageComponent() {
+  const navigate = useNavigate();
   const { menuRef, theme, showToggleTheme, toggleTheme, toggleShowTheme } = useChangeTheme();
+  const { blockPage } = useContext(viewContext);
 
   return (
     <div className="relative flex w-screen h-screen bg-blue-900 dark:bg-[#171e2c] overflow-hidden selection:bg-cyan-500 selection:text-white font-sans">
@@ -102,15 +106,16 @@ export default function WelcomePageComponent() {
         </div>
 
         <div className="animation-fadeInUp" style={{ animationDelay: '0.3s' }}>
-          <Link to='/dashboard'>
-            <button className="group relative flex items-center gap-3 bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 rounded-full px-8 md:px-10 py-4 hover:scale-105 shadow-xl backdrop-blur-sm overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-emerald-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              <span className="relative z-10 text-base md:text-lg font-bold text-white tracking-wider">
-                Ver Portafolio
-              </span>
-              <FiArrowRight className="relative z-10 text-cyan-400 group-hover:translate-x-1 transition-transform" size={22} />
-            </button>
-          </Link>
+          <button 
+            onClick={() => navigate(`${!blockPage ? "/dashboard" : "/dashboard/about"}`)}
+            className="group relative flex items-center gap-3 bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 rounded-full px-8 md:px-10 py-4 hover:scale-105 shadow-xl backdrop-blur-sm overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-emerald-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+            <span className="relative z-10 text-base md:text-lg font-bold text-white tracking-wider">
+              Ver Portafolio
+            </span>
+            <FiArrowRight className="relative z-10 text-cyan-400 group-hover:translate-x-1 transition-transform" size={22} />
+          </button>
         </div>
 
         <div className="md:hidden flex gap-6 mt-16 text-white/40 animation-fadeInUp" style={{ animationDelay: '0.4s' }}>

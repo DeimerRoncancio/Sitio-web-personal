@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import ViewState from './context/ViewState.jsx';
+import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import '../css/style.css'
 
-import { BrowserRouter } from 'react-router-dom'
-
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <ViewState>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ViewState>
 )
