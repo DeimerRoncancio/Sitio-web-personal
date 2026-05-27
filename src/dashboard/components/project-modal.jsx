@@ -53,12 +53,12 @@ export default function ProjectModal({ project, onClose }) {
       />
 
       <div
-        className="relative w-full max-w-3xl max-h-[90vh] flex flex-col rounded-3xl overflow-hidden shadow-2xl border border-white/5"
+        className="theme-modal relative w-full max-w-3xl max-h-[90vh] flex flex-col rounded-3xl overflow-hidden shadow-2xl border border-white/5"
         style={{ backgroundColor: '#10151f' }}
       >
         <div className="h-2 w-full" style={{ backgroundColor: project.theme.bg }} />
 
-        <div className="flex justify-between items-center p-4 md:px-8 md:pt-6 pb-2 relative z-10 bg-[#10151f]">
+        <div className="theme-modal-section flex justify-between items-center p-4 md:px-8 md:pt-6 pb-2 relative z-10 bg-[#10151f]">
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-2xl" style={{ backgroundColor: project.theme.bg }}>
               <div className="text-white">
@@ -66,8 +66,8 @@ export default function ProjectModal({ project, onClose }) {
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-white leading-tight">{project.title}</h3>
-              <div className="flex items-center gap-1.5 text-white/50 text-sm mt-1">
+              <h3 className="theme-text text-2xl font-bold text-white leading-tight">{project.title}</h3>
+              <div className="theme-muted flex items-center gap-1.5 text-white/50 text-sm mt-1">
                 <FaRegCalendarAlt size={12} />
                 <span>{project.year}</span>
               </div>
@@ -75,13 +75,13 @@ export default function ProjectModal({ project, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-white/50 hover:text-white bg-black/20 hover:bg-black/40 rounded-full transition-colors flex-shrink-0"
+            className="theme-project-action p-2 text-white/50 hover:text-white bg-black/20 hover:bg-black/40 rounded-full transition-colors flex-shrink-0"
           >
             <FiX size={24} />
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto w-full flex flex-col pt-0 pb-6 md:pb-8 px-4 md:px-8 no-scrollbar bg-[#10151f]">
+        <div className="theme-modal-section flex-1 overflow-y-auto w-full flex flex-col pt-0 pb-6 md:pb-8 px-4 md:px-8 no-scrollbar bg-[#10151f]">
           {project.images && project.images.length > 0 && (
             <div className="flex flex-col gap-4 mt-4">
               <div className="relative w-full aspect-video rounded-2xl md:rounded-3xl overflow-hidden group border border-white/10 shadow-lg">
@@ -143,7 +143,7 @@ export default function ProjectModal({ project, onClose }) {
           )}
 
           <div className="w-full flex flex-col mt-8">
-            <div className="mb-10 flex flex-col sm:flex-row gap-4 border-b border-white/10 pb-8">
+            <div className="theme-border mb-10 flex flex-col sm:flex-row gap-4 border-b border-white/10 pb-8">
               {/* <button
                 className="flex-1 flex justify-center items-center gap-2 py-3.5 md:py-4 rounded-xl font-bold transition-all text-white hover:brightness-110 shadow-lg text-sm md:text-base"
                 style={{ backgroundColor: project.theme.btn }}
@@ -153,18 +153,18 @@ export default function ProjectModal({ project, onClose }) {
               <div className="relative flex-1" ref={menuRef}>
                 <button 
                   onClick={() => setShowLinksMenu(!showLinksMenu)}
-                  className="w-full h-full flex justify-center items-center gap-2 bg-[#161c27] hover:bg-[#1a212e] border border-white/5 text-white/90 py-3.5 md:py-4 rounded-xl font-bold transition-all shadow-sm text-sm md:text-base"
+                  className="theme-project-action w-full h-full flex justify-center items-center gap-2 bg-[#161c27] hover:bg-[#1a212e] border border-white/5 text-white/90 py-3.5 md:py-4 rounded-xl font-bold transition-all shadow-sm text-sm md:text-base"
                 >
                   <FiGithub size={18} /> Ver Código Fuente
                 </button>
                 
                 {showLinksMenu && (
-                  <div className="absolute top-full left-0 right-0 mt-3 p-2 bg-[#161c27] rounded-xl border border-white/10 shadow-2xl flex flex-col gap-2 z-20 animation-fadeInUp">
+                  <div className="theme-modal-soft absolute top-full left-0 right-0 mt-3 p-2 bg-[#161c27] rounded-xl border border-white/10 shadow-2xl flex flex-col gap-2 z-20 animation-fadeInUp">
                     <a
                       href={project.frontendRepo || '#'} 
                       target="_blank" 
                       rel="noreferrer"
-                      className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-white/5 transition-colors text-white/90 text-sm font-semibold"
+                      className="theme-text flex items-center gap-3 w-full p-3 rounded-lg hover:bg-white/5 transition-colors text-white/90 text-sm font-semibold"
                     >
                       <span className="p-2 rounded-lg bg-[#61DAFB]/10 text-[#61DAFB]"><FiMonitor size={16} /></span>
                       Repositorio Frontend
@@ -174,7 +174,7 @@ export default function ProjectModal({ project, onClose }) {
                         href={project.backendRepo || '#'} 
                         target="_blank" 
                         rel="noreferrer"
-                        className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-white/5 transition-colors text-white/90 text-sm font-semibold"
+                        className="theme-text flex items-center gap-3 w-full p-3 rounded-lg hover:bg-white/5 transition-colors text-white/90 text-sm font-semibold"
                       >
                         <span className="p-2 rounded-lg bg-[#6DB33F]/10 text-[#6DB33F]"><FiExternalLink size={16} /></span>
                         Repositorio Backend
@@ -185,19 +185,19 @@ export default function ProjectModal({ project, onClose }) {
               </div>
             </div>
 
-            <h4 className="text-xl font-bold text-white mb-3">Resumen del Proyecto</h4>
-            <div className="p-5 md:p-6 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner">
-              <p className="text-white/70 text-[15px] md:text-base leading-relaxed">
+            <h4 className="theme-text text-xl font-bold text-white mb-3">Resumen del Proyecto</h4>
+            <div className="theme-modal-soft p-5 md:p-6 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner">
+              <p className="theme-muted text-white/70 text-[15px] md:text-base leading-relaxed">
                 {project.longDescription || project.description}
               </p>
             </div>
 
-            <h4 className="text-xl font-bold text-white mt-8 mb-4">Tecnologías Utilizadas</h4>
+            <h4 className="theme-text text-xl font-bold text-white mt-8 mb-4">Tecnologías Utilizadas</h4>
             <div className="flex flex-wrap gap-2.5">
               {project.tags.map(tag => (
                 <span
                   key={tag}
-                  className="bg-[#161c27] text-white/80 text-sm font-semibold px-4 py-2 rounded-xl border border-white/5 shadow-sm"
+                  className="theme-chip bg-[#161c27] text-white/80 text-sm font-semibold px-4 py-2 rounded-xl border border-white/5 shadow-sm"
                 >
                   {tag}
                 </span>

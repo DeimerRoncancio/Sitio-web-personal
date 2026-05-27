@@ -9,7 +9,7 @@ export default function Skills() {
     <div className="dropable-zone-container animation-fadeInUp py-14 font-sans">
       <div className="space-y-10">
         <div className="space-y-4">
-          <h2 className="text-lg sm:text-xl font-semibold text-white">
+          <h2 className="theme-text text-lg sm:text-xl font-semibold text-white">
             <LuBadgeCheck className="inline-block text-[#6db33f] mr-2" size={24} />
             Tecnologías Principales
           </h2>
@@ -21,7 +21,7 @@ export default function Skills() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-lg sm:text-xl font-semibold text-white">
+          <h2 className="theme-text text-lg sm:text-xl font-semibold text-white">
             <TbLayersSubtract className="inline-block text-[#00a4ac] mr-2" size={24} />
             Tecnologías Complementarias
           </h2>
@@ -33,7 +33,7 @@ export default function Skills() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-lg sm:text-xl font-semibold text-white">
+          <h2 className="theme-text text-lg sm:text-xl font-semibold text-white">
             <LuMessagesSquare className="inline-block text-[#a78bfa] mr-2" size={24} />
             Habilidades Blandas
           </h2>

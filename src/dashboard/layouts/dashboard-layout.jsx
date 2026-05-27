@@ -46,9 +46,9 @@ export default function DashboardLayout() {
       <div className="nav-h-container flex flex-col sm:flex-row w-full">
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
           <div style={{ display: currentView === 'dashboard' ? 'flex' : 'none' }}
-          className="bg-[rgb(23,30,44)] sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
+          className="theme-sidebar bg-[rgb(23,30,44)] sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
           border-r border-[#2a3852] fixed bottom-0 sm:static order-2 sm:order-1 z-40">
-            <p className='hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
+            <p className='theme-muted hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
               NAVEGACIÓN
             </p>
             <ul className='flex w-full xs:space-x-3 xs:w-auto justify-between sm:flex-col p-3 sm:space-y-3 
@@ -63,7 +63,7 @@ export default function DashboardLayout() {
               ))}
             </ul>
           </div>
-          <div className={`dashboard bg-[#202a3e] w-full sm:!h-full relative order-1 sm:order-2
+          <div className={`theme-dashboard dashboard bg-[#202a3e] w-full sm:!h-full relative order-1 sm:order-2
           ${currentView === 'dashboard' ? 'h-[calc(100vh-121px)]' : 'h-full'}`}>
             <Droppable parent={parent} items={items}>
               <Outlet />

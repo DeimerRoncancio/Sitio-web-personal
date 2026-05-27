@@ -17,8 +17,8 @@ export default function ProjectCard({ project, onOpen }) {
 
   return (
     <div
-      className="group relative rounded-2xl flex flex-col p-6 overflow-hidden border-2 shadow-lg hover:-translate-y-1 transition-all duration-300"
-      style={{ backgroundColor: project.theme.bg, borderColor: project.theme.border }}
+      className="theme-project-card group relative rounded-2xl flex flex-col p-6 overflow-hidden border-2 shadow-lg hover:-translate-y-1 transition-all duration-300"
+      style={{ backgroundColor: project.theme.bg, borderColor: project.theme.border, '--project-bg': project.theme.bg, '--project-border': project.theme.border }}
     >
       <div className="absolute top-0 right-0 w-20 h-20 bg-white/5 rounded-bl-[100px] transition-all
         duration-500 ease-out transform origin-top-right group-hover:scale-[1.5] group-hover:bg-white/10
@@ -27,10 +27,10 @@ export default function ProjectCard({ project, onOpen }) {
 
       <div className="relative z-10 flex flex-col h-full">
         <div className="flex justify-between items-center mb-4">
-          <div className="bg-black/20 p-2.5 rounded-2xl border border-white/10 text-white/90">
+          <div className="theme-chip bg-black/20 p-2.5 rounded-2xl border border-white/10 text-white/90">
             {project.icon}
           </div>
-          <div className="flex items-center gap-1.5 text-white/70 font-medium text-sm">
+          <div className="theme-text-soft flex items-center gap-1.5 text-white/70 font-medium text-sm">
             <FaRegCalendarAlt />
             <span>{project.year}</span>
           </div>
@@ -64,8 +64,8 @@ export default function ProjectCard({ project, onOpen }) {
           </div>
         )}
 
-        <h4 className="text-white text-lg font-bold mb-1">{project.title}</h4>
-        <p className="text-white/70 text-sm mb-4 min-h-[40px] leading-relaxed flex-grow">
+        <h4 className="theme-text text-white text-lg font-bold mb-1">{project.title}</h4>
+        <p className="theme-text-soft text-white/70 text-sm mb-4 min-h-[40px] leading-relaxed flex-grow">
           {project.description}
         </p>
 
@@ -73,7 +73,7 @@ export default function ProjectCard({ project, onOpen }) {
           {project.tags.map(tag => (
             <span
               key={tag}
-              className="bg-black/30 text-white/80 text-[11px] font-semibold tracking-wider px-3 py-1 rounded-full"
+              className="theme-chip bg-black/30 text-white/80 text-[11px] font-semibold tracking-wider px-3 py-1 rounded-full"
             >
               {tag}
             </span>
@@ -83,7 +83,7 @@ export default function ProjectCard({ project, onOpen }) {
         <div className="flex mt-auto">
           <button
             onClick={onOpen}
-            className="flex-1 flex items-center justify-center gap-2 bg-[#10151f] hover:bg-black/60 text-white/90 text-sm font-semibold py-2 rounded-xl transition-colors border border-transparent hover:border-white/10"
+            className="theme-project-action flex-1 flex items-center justify-center gap-2 bg-[#10151f] hover:bg-black/60 text-white/90 text-sm font-semibold py-2 rounded-xl transition-colors border border-transparent hover:border-white/10"
           >
             <FiEye size={16} /> Ver Proyecto
           </button>

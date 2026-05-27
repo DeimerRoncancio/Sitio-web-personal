@@ -31,7 +31,7 @@ export default function NavBar({ items, currentView, changeView }) {
   }, []);
 
   return (
-    <div className="grid grid-cols-[max-content_1fr] xl:!grid-cols-3 bg-blue-900 dark:bg-[#171e2c] border-b border-[#2a3852] px-3 xs:px-8 py-[11px]">
+    <div className="theme-nav-bar grid grid-cols-[max-content_1fr] xl:!grid-cols-3 bg-blue-900 dark:bg-[#171e2c] border-b border-[#2a3852] px-3 xs:px-8 py-[11px]">
       <div className="flex">
         <div className='flex justify-center items-center space-x-3'>
           <button className='nav-hover' onClick={() => navigate(-1)}>
@@ -44,7 +44,7 @@ export default function NavBar({ items, currentView, changeView }) {
             <RiHomeLine className='text-2xl' />
           </button>
         </div>
-        <div className='bg-[#1e3a8a] dark:bg-[#171e2c] flex items-center text-base font-medium pl-5'>
+        <div className='theme-nav-title bg-[#1e3a8a] dark:bg-[#171e2c] flex items-center text-base font-medium pl-5'>
           <div className='nav-hover flex items-center space-x-3'>
             <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
             <h2>{item ? item.name : "Dashboard"}</h2>
@@ -77,7 +77,7 @@ export default function NavBar({ items, currentView, changeView }) {
           <button type="button" className='nav-button flex space-x-2 items-center'
             onClick={handleCurrentView}>
             <IoEyeOutline className='text-xl' />
-            <p className="hidden sm:block text-sm text-[#c4c8ce]">Cambiar Vista</p>
+            <p className="theme-muted hidden sm:block text-sm text-[#c4c8ce]">Cambiar Vista</p>
           </button>
           <button title="Limpiar" className='nav-button' onClick={() => navigate("/dashboard")}>
             <PiBroom className='text-xl' />
@@ -125,7 +125,7 @@ export default function NavBar({ items, currentView, changeView }) {
       {showMobileMenu && (
         <div className="fixed inset-0 z-50 flex">
           <div className="absolute inset-0 bg-black/40" onClick={() => setShowMobileMenu(false)} />
-          <aside className="relative ml-auto w-72 max-w-full bg-white dark:bg-[#0f1724] border-l border-gray-100 dark:border-[#172034] p-4 shadow-2xl">
+          <aside className="theme-mobile-drawer relative ml-auto w-72 max-w-full bg-white dark:bg-[#0f1724] border-l border-gray-100 dark:border-[#172034] p-4 shadow-2xl">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold">Navegación</h3>
               <button className="nav-button" onClick={() => setShowMobileMenu(false)} aria-label="Cerrar menú">
@@ -143,7 +143,7 @@ export default function NavBar({ items, currentView, changeView }) {
               <button type="button" className='nav-button flex space-x-2 items-center'
                 onClick={handleCurrentView}>
                 <IoEyeOutline className='text-xl' />
-                <p className="hidden sm:block text-sm text-[#c4c8ce]">Cambiar Vista</p>
+                <p className="theme-muted hidden sm:block text-sm text-[#c4c8ce]">Cambiar Vista</p>
               </button>
               <button title="Limpiar" className='nav-button' onClick={() => navigate("/dashboard")}>
                 <PiBroom className='text-xl' />

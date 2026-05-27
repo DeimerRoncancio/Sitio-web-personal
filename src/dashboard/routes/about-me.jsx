@@ -4,9 +4,9 @@ export default function AboutMe() {
   return (
     <div className="dropable-zone-container flex py-14 sm:py-6 sm:h-[calc(100%-77px)] items-center">
       <div className="flex flex-col gap-7 animation-fadeInUp">
-        <div className="w-full bg-[#1b2435] border border-[#2a3852] rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-lg">
+        <div className="theme-surface w-full bg-[#1b2435] border border-[#2a3852] rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-lg">
           <div className="relative">
-            <div className="w-28 h-28 rounded-2xl bg-gradient-to-tl from-[#283755] to-[#0f1826] border-4 border-[#2a3852] flex items-center
+            <div className="theme-surface-soft w-28 h-28 rounded-2xl bg-gradient-to-tl from-[#283755] to-[#0f1826] border-4 border-[#2a3852] flex items-center
             justify-center">
               <svg className="w-12 h-12 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -20,15 +20,15 @@ export default function AboutMe() {
           </div>
 
           <div className="flex flex-col gap-2 w-full items-center sm:items-start">
-            <h1 className="text-2xl font-bold text-[#eaecf1]">Deimer Roncancio</h1>
-            <div className="flex items-center text-cyan-400 font-medium">
+            <h1 className="theme-text text-2xl font-bold text-[#eaecf1]">Deimer Roncancio</h1>
+            <div className="theme-accent-text flex items-center text-cyan-400 font-medium">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               Desarrollador Fullstack
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-[#9aa3b2]">
+            <div className="theme-muted flex flex-wrap items-center gap-4 text-sm text-[#9aa3b2]">
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -45,11 +45,11 @@ export default function AboutMe() {
         </div>
 
         <div className="">
-          <h3 className="text-lg font-semibold text-[#eaecf1] flex items-center gap-2 mb-3">
+            <h3 className="theme-text text-lg font-semibold text-[#eaecf1] flex items-center gap-2 mb-3">
             <span className="text-[#ff6467] text-3xl">♡</span>
             About Me
           </h3>
-          <p className="text-[#9aa3b2] leading-relaxed">
+          <p className="theme-muted text-[#9aa3b2] leading-relaxed">
             Desarrollador Fullstack especializado en Backend con <span className="text-cyan-400 font-medium">Java </span> 
             y <span className="text-cyan-400 font-medium">Spring Boot</span>, y sólida experiencia 
             en Frontend con <span className="text-cyan-400 font-medium"> React</span>. Me enfoco en 
@@ -61,7 +61,7 @@ export default function AboutMe() {
 
         <div className="flex gap-3 flex-wrap xxs:flex-nowrap text-xs xs:text-sm xs:font-medium">
           <a
-            className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/60 bg-[#162233] px-4 py-2 font-medium text-cyan-200 transition-colors duration-200 hover:bg-[#1b2b41]"
+            className="theme-surface-soft theme-accent-text inline-flex items-center gap-2 rounded-xl border border-cyan-500/60 bg-[#162233] px-4 py-2 font-medium text-cyan-200 transition-colors duration-200 hover:bg-[#1b2b41]"
             href="mailto:deimerroncancio@email.com"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ export default function AboutMe() {
             Email
           </a>
           <a
-            className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
+            className="theme-surface-soft theme-text inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
             href="https://www.linkedin.com/in/deimer-roncancio/"
             target="_blank"
             rel="noreferrer"
@@ -81,7 +81,7 @@ export default function AboutMe() {
             LinkedIn
           </a>
           <a
-            className="inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
+            className="theme-surface-soft theme-text inline-flex items-center gap-2 rounded-xl border border-[#2a3852] bg-[#171e2c] px-4 py-2 font-medium text-[#e6ebf2] transition-colors duration-200 hover:bg-[#1b2435]"
             href="https://github.com/DeimerRoncancio"
             target="_blank"
             rel="noreferrer"
