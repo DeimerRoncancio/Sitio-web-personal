@@ -24,25 +24,25 @@ export default function Contact() {
           <div className="space-y-6">
             <h2 className="theme-text text-xl font-semibold text-white mb-6">Información de contacto</h2>
             
-            <a href="https://linkedin.com/in/deimer-roncancio" target="_blank" rel="noreferrer" className="theme-muted flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
+            <a href="https://linkedin.com/in/deimer-roncancio" target="_blank" rel="noreferrer" className="theme-contact-link theme-muted flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
               <div className="theme-surface-soft p-3 bg-[#1e273a] border border-[#2a3852] rounded-xl group-hover:bg-[#2a3852]">
                 <FaLinkedin size={20} className="text-[#347fca]" />
               </div>
-              <span>LinkedIn</span>
+              <span className="theme-contact-link-text transition-colors">LinkedIn</span>
             </a>
             
-            <a href="https://github.com/DeimerRoncancio" target="_blank" rel="noreferrer" className="theme-muted flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
+            <a href="https://github.com/DeimerRoncancio" target="_blank" rel="noreferrer" className="theme-contact-link theme-muted flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
               <div className="theme-surface-soft p-3 bg-[#1e273a] border border-[#2a3852] rounded-xl group-hover:bg-[#2a3852]">
                 <FaGithub size={20} className="theme-text text-[#f0f6fc]" />
               </div>
-              <span>GitHub</span>
+              <span className="theme-contact-link-text transition-colors">GitHub</span>
             </a>
 
-            <a href="mailto:deimerroncancio@gmail.com" target="_blank" rel="noreferrer" className="theme-muted flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
+            <a href="mailto:deimerroncancio@gmail.com" target="_blank" rel="noreferrer" className="theme-contact-link theme-muted flex items-center gap-4 text-[#979fa1] hover:text-white transition-colors">
               <div className="theme-surface-soft p-3 bg-[#1e273a] border border-[#2a3852] rounded-xl group-hover:bg-[#2a3852]">
                 <FaEnvelope size={20} className="text-[#61dafb]" />
               </div>
-              <span>deimerroncancio@gmail.com</span>
+              <span className="theme-contact-link-text transition-colors">deimerroncancio@gmail.com</span>
             </a>
             
             <div className="theme-muted flex items-center gap-4 text-[#979fa1]">

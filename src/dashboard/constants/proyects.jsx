@@ -10,7 +10,7 @@ export const projects = [
     tags: ['Spring Boot', 'Java', 'React', 'Stripe', 'MySQL', 'Hibernate', 'JWT', 'Spring Security'],
     year: 'Nov 2024 - Sep 2025',
     icon: <IoCartOutline size={22} />,
-    theme: { bg: '#1a415b', border: '#255090', btn: '#2C5675' },
+    theme: { bg: '#1a415b', border: '#3f86d5', btn: '#2C5675', lightBg: '#b8dcf6', lightBorder: '#3f86d5' },
     images: [
       '/proyects/multi-shop/multi-shop-1.webp',
       '/proyects/multi-shop/multi-shop-2.webp',
@@ -30,7 +30,7 @@ export const projects = [
     tags: ['Spring Boot', 'Java', 'React', 'ePayco', 'MySQL', 'JWT', 'Spring Security'],
     year: 'Nov - 2025 - Feb 2026',
     icon: <IoBagOutline size={22} />,
-    theme: { bg: '#1a4a3d', border: '#137046', btn: '#266954' },
+    theme: { bg: '#1a4a3d', border: '#27956b', btn: '#266954', lightBg: '#b8eadc', lightBorder: '#27956b' },
     images: [
       '/proyects/drop-shipping/drop-shipping-1.webp',
       '/proyects/drop-shipping/drop-shipping-2.webp',
@@ -51,7 +51,7 @@ export const projects = [
     tags: ['Spring Boot', 'Java', 'React', 'MySQL'],
     year: 'Mar 2025 - Mar 2026',
     icon: <FiMonitor size={22} />,
-    theme: { bg: '#423056', border: '#63378a', btn: '#523775' },
+    theme: { bg: '#423056', border: '#7a52bd', btn: '#523775', lightBg: '#d5c2f0', lightBorder: '#7a52bd' },
     images: [
       '/proyects/admin-panel/admin-panel-1.webp',
       '/proyects/admin-panel/admin-panel-2.webp',
@@ -70,7 +70,7 @@ export const projects = [
     tags: ['React', 'JavaScript', 'Tailwind CSS', 'React Router'],
     year: 'Oct 2023 - Presente',
     icon: <MdWorkOutline size={22} />,
-    theme: { bg: '#4d3a2b', border: '#844a1e', btn: '#724B34' },
+    theme: { bg: '#4d3a2b', border: '#cf7830', btn: '#724B34', lightBg: '#f3c99f', lightBorder: '#cf7830' },
     images: [
       '/proyects/portfolio/portfolio-1.webp',
       '/proyects/portfolio/portfolio-2.webp',

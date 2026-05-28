@@ -130,6 +130,10 @@ html.light .theme-social-link:hover {
   filter: drop-shadow(0 8px 14px rgba(0, 122, 156, 0.28));
 }
 
+html.light .theme-social-rail::after {
+  background-image: linear-gradient(to bottom, rgba(0, 122, 156, 0.72), rgba(0, 122, 156, 0));
+}
+
 html.light .theme-welcome-theme-button:hover {
   background: rgba(237, 248, 255, 0.82);
   border-color: #9cc8df;
@@ -142,14 +146,18 @@ html.light .theme-welcome-theme-button {
 }
 
 html.light .theme-nav-bar {
-  background: linear-gradient(90deg, #d9ecfa 0%, #eaf6fd 54%, #d4ebf8 100%);
-  border-color: var(--light-border);
+  background: #c2dff2;
+  border-color: #83b4d8;
 }
 
-html.light .theme-nav-title,
+html.light .theme-nav-title {
+  background: #c2dff2;
+  border-color: #83b4d8;
+}
+
 html.light .theme-sidebar {
-  background: linear-gradient(180deg, #e6f5fc 0%, #d5ebf8 100%);
-  border-color: var(--light-border);
+  background: #b7d7ed;
+  border-color: #83b4d8;
 }
 
 html.light .theme-dashboard {
@@ -205,8 +213,31 @@ html.light div.theme-surface-soft {
 }
 
 html.light div.theme-surface-soft:hover {
-  background: #b4daf2;
-  border-color: #2f8bbb;
+  background: #c4e3f6;
+  border-color: #62a9d4;
+}
+
+html.light .theme-about-avatar {
+  background: linear-gradient(135deg, #d8effb 0%, #aacfe8 100%) !important;
+  border-color: #5c94c4 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.58),
+    0 12px 24px rgba(40, 104, 150, 0.16);
+}
+
+html.light .theme-about-avatar svg {
+  color: #007f9e;
+}
+
+html.light .theme-about-status {
+  border-color: #d6eafa;
+  box-shadow: 0 5px 12px rgba(16, 185, 129, 0.24);
+}
+
+html.light .theme-availability {
+  background: #c8f5e1;
+  border-color: #5ec99a;
+  color: #08764d;
 }
 
 html.light .theme-text {
@@ -219,6 +250,15 @@ html.light .theme-text-soft {
 
 html.light .theme-muted {
   color: var(--light-muted);
+}
+
+html.light .theme-contact-link:hover .theme-contact-link-text {
+  color: #243447;
+}
+
+html.light .theme-project-thumb-active {
+  border-color: #3f86d5 !important;
+  box-shadow: 0 0 0 1px rgba(63, 134, 213, 0.34), 0 0 12px rgba(63, 134, 213, 0.22);
 }
 
 html.light .theme-border {
@@ -245,14 +285,14 @@ html.light .nav-hover:hover {
 }
 
 html.light .nav-button {
-  background-color: #d1eafb;
+  background-color: #c2dff2;
   border: 0;
   color: var(--light-text);
   box-shadow: none;
 }
 
 html.light .nav-button:hover {
-  background-color: #bce2f8;
+  background-color: #d1eafb;
   box-shadow: none;
   color: #10243a;
 }
@@ -298,6 +338,10 @@ html.light .theme-draggable-active {
   opacity: 1;
 }
 
+html.light .theme-draggable-active svg {
+  color: #314155;
+}
+
 html.light .theme-draggable-active:hover {
   background: linear-gradient(to top left, #bff0fb 0%, #5fcfe1 100%);
   border-color: #006f8d !important;
@@ -306,6 +350,10 @@ html.light .theme-draggable-active:hover {
     inset 0 -10px 22px rgba(0, 111, 141, 0.16),
     0 16px 30px rgba(8, 76, 116, 0.24);
   color: var(--light-text);
+}
+
+html.light .theme-draggable-active:hover svg {
+  color: #314155;
 }
 
 html.light .theme-draggable-active h3 {
@@ -325,10 +373,30 @@ html.light .theme-empty-box-inner {
   outline-color: var(--light-border-strong);
 }
 
+html.light .theme-empty-box-inner-active {
+  border-color: #4f9fc0 !important;
+  outline-color: #00a2ce !important;
+}
+
+html.light .theme-empty-box-icon svg {
+  color: #007f9e;
+}
+
+html.light .theme-empty-box-icon-active svg {
+  color: #00a1ce;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.55)) drop-shadow(0 0 8px rgba(0, 127, 158, 0.28));
+}
+
 html.light .theme-input {
   background-color: #f0f7fc;
   border-color: var(--light-border);
   color: var(--light-text);
+}
+
+html.light .theme-input:focus {
+  background-color: #f7fcff;
+  border-color: #00c8ff;
+  box-shadow: none;
 }
 
 html.light .theme-input::placeholder {
@@ -347,22 +415,23 @@ html.light .theme-timeline-icon {
 
 html.light .theme-project-card {
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 36%),
-    linear-gradient(145deg, color-mix(in srgb, var(--project-border) 58%, #def2ff), color-mix(in srgb, var(--project-bg) 30%, #edf9ff) 72%) !important;
-  border-color: color-mix(in srgb, var(--project-border) 96%, #bfe5fb) !important;
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 34%),
+    radial-gradient(circle at 88% 0%, color-mix(in srgb, var(--project-light-border) 22%, transparent), rgba(255, 255, 255, 0) 42%),
+    linear-gradient(145deg, color-mix(in srgb, var(--project-light-bg) 82%, #f7fbff), color-mix(in srgb, var(--project-light-border) 16%, var(--project-light-bg)) 76%) !important;
+  border-color: color-mix(in srgb, var(--project-light-border) 72%, #ffffff) !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.42),
-    var(--light-shadow);
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 16px 32px rgba(30, 111, 172, 0.14);
 }
 
 html.light .theme-project-card .theme-chip {
-  background-color: color-mix(in srgb, var(--project-border) 30%, #e7f7ff);
-  border: 1px solid color-mix(in srgb, var(--project-border) 52%, #cdeafb);
+  background-color: color-mix(in srgb, var(--project-light-border) 11%, rgba(255, 255, 255, 0.7));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--project-light-border) 48%, #ffffff);
 }
 
 html.light .theme-project-card .theme-project-action {
-  background-color: color-mix(in srgb, var(--project-border) 26%, #e0f4ff);
-  border-color: color-mix(in srgb, var(--project-border) 68%, #c1e5fb);
+  background-color: color-mix(in srgb, var(--project-light-border) 10%, rgba(255, 255, 255, 0.74));
+  border-color: color-mix(in srgb, var(--project-light-border) 58%, #ffffff);
 }
 
 html.light .theme-chip,
@@ -389,6 +458,18 @@ html.light .theme-modal-section {
 html.light .theme-modal-soft {
   background-color: var(--light-surface-soft);
   border-color: var(--light-border);
+}
+
+html.light .theme-modal-soft a:hover {
+  background-color: #a7cbe5 !important;
+}
+
+html.light .theme-modal-soft a:hover span {
+  background-color: rgba(255, 255, 255, 0.42);
+}
+
+html.light .theme-modal-soft a:hover svg {
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.65));
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -27,6 +27,24 @@
     background: #237280; /* ¡Tu cian de Tailwind! 🚀 */
   }
 
+  html.light ::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #eaf6fd 0%, #cfe7f8 100%);
+  }
+
+  html.light ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #5c94c4 0%, #007f9e 100%);
+    border: 3px solid #eaf6fd;
+    border-radius: 999px;
+  }
+
+  html.light ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #3f83bb 0%, #006f8d 100%);
+  }
+
+  html.light {
+    scrollbar-color: #007f9e #eaf6fd;
+  }
+
   /* Compatibilidad obligatoria para Firefox */
   /* * {
     scrollbar-width: thin;

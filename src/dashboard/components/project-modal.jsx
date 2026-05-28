@@ -121,7 +121,7 @@ export default function ProjectModal({ project, onClose }) {
                       <button
                         key={idx}
                         onClick={() => setCurrentImg(idx)}
-                        className={`relative flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden transition-all duration-300 border-2 ${idx === currentImg ? 'border-white brightness-100' : 'border-transparent brightness-50 hover:brightness-75'
+                        className={`theme-project-thumb relative flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden transition-all duration-300 border-2 ${idx === currentImg ? 'theme-project-thumb-active border-white brightness-100' : 'border-transparent brightness-50 hover:brightness-75'
                           }`}
                       >
                         <img src={img} alt={`thumbnail ${idx}`} className="w-full h-full object-cover" />

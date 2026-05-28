@@ -62,7 +62,7 @@ export default function WelcomePageComponent() {
         )}
       </div>
 
-      <div className="hidden md:flex flex-col absolute left-8 top-1/2 -translate-y-1/2 z-20 animation-fadeInUp gap-6 after:content-[''] after:w-[1px] after:h-24 after:bg-gradient-to-b after:from-cyan-500/50 after:to-transparent after:mx-auto after:mt-4">
+      <div className="theme-social-rail hidden md:flex flex-col absolute left-8 top-1/2 -translate-y-1/2 z-20 animation-fadeInUp gap-6 after:content-[''] after:w-[1px] after:h-24 after:bg-gradient-to-b after:from-cyan-500/50 after:to-transparent after:mx-auto after:mt-4">
         {[
           { icon: <AiFillLinkedin />, href: "https://www.linkedin.com/in/deimer-roncancio" },
           { icon: <AiFillGithub />, href: "https://github.com/DeimerRoncancio" },

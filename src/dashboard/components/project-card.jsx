@@ -18,7 +18,14 @@ export default function ProjectCard({ project, onOpen }) {
   return (
     <div
       className="theme-project-card group relative rounded-2xl flex flex-col p-6 overflow-hidden border-2 shadow-lg hover:-translate-y-1 transition-all duration-300"
-      style={{ backgroundColor: project.theme.bg, borderColor: project.theme.border, '--project-bg': project.theme.bg, '--project-border': project.theme.border }}
+      style={{
+        backgroundColor: project.theme.bg,
+        borderColor: project.theme.border,
+        '--project-bg': project.theme.bg,
+        '--project-border': project.theme.border,
+        '--project-light-bg': project.theme.lightBg,
+        '--project-light-border': project.theme.lightBorder,
+      }}
     >
       <div className="absolute top-0 right-0 w-20 h-20 bg-white/5 rounded-bl-[100px] transition-all
         duration-500 ease-out transform origin-top-right group-hover:scale-[1.5] group-hover:bg-white/10
