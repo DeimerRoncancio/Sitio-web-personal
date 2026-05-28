@@ -88,7 +88,7 @@ export default function NavBar({ items, currentView, changeView }) {
             </button>
 
             {showToggleTheme && (
-              <div className="absolute right-0 mt-3 w-48 bg-white dark:bg-[#1b2435] border border-gray-100 dark:border-[#2a3852] rounded-xl shadow-2xl p-1.5 flex flex-col gap-1 z-50 transform origin-top-right transition-all">
+              <div className="theme-menu-dropdown absolute right-0 mt-3 w-48 bg-white dark:bg-[#1b2435] border border-gray-100 dark:border-[#2a3852] rounded-xl shadow-2xl p-1.5 flex flex-col gap-1 z-50 transform origin-top-right transition-all">
                 <button
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'dark' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
                   onClick={() => toggleTheme('dark')}
@@ -125,7 +125,7 @@ export default function NavBar({ items, currentView, changeView }) {
       {showMobileMenu && (
         <div className="mobile-drawer-shell fixed inset-0 z-50 flex">
           <div className="mobile-drawer-backdrop absolute inset-0 bg-black/40" onClick={() => setShowMobileMenu(false)} />
-          <aside className="theme-mobile-drawer mobile-drawer-panel relative ml-auto flex h-full w-72 max-w-full flex-col bg-white dark:bg-[#0f1724] border-l border-gray-100 dark:border-[#172034] p-4 shadow-2xl">
+          <aside className={`theme-mobile-drawer mobile-drawer-panel ${currentView === 'dashboard' ? 'mobile-drawer-dashboard-mode' : ''} relative ml-auto flex h-full w-72 max-w-full flex-col bg-white dark:bg-[#0f1724] border-l border-gray-100 dark:border-[#172034] p-4 shadow-2xl`}>
             <div className="mobile-drawer-header flex items-center justify-between mb-5 pb-4 border-b border-gray-100 dark:border-[#172034]">
               <div>
                 <p className="theme-muted text-xs font-semibold uppercase tracking-[0.22em]">Panel</p>
@@ -155,7 +155,7 @@ export default function NavBar({ items, currentView, changeView }) {
               })}
             </nav>
             <div className="mobile-drawer-actions mt-auto pt-4 border-t border-gray-100 dark:border-[#172034] flex xs:hidden flex-row items-center justify-between gap-2">
-              <button type="button" className='mobile-drawer-action-button'
+              <button type="button" title="Cambiar Vista" className='mobile-drawer-action-button'
                 onClick={handleCurrentView}>
                 <IoEyeOutline className='text-xl' />
               </button>
@@ -168,7 +168,7 @@ export default function NavBar({ items, currentView, changeView }) {
                 </button>
 
                 {showToggleTheme && (
-                  <div className="absolute right-0 bottom-full mb-3 w-48 bg-white dark:bg-[#1b2435] border border-gray-100 dark:border-[#2a3852] rounded-xl shadow-2xl p-1.5 flex flex-col gap-1 z-50 transform origin-bottom-right transition-all">
+                  <div className={`theme-menu-dropdown absolute right-0 w-48 bg-white dark:bg-[#1b2435] border border-gray-100 dark:border-[#2a3852] rounded-xl shadow-2xl p-1.5 flex flex-col gap-1 z-50 transform transition-all ${currentView === 'dashboard' ? 'top-full mt-3 origin-top-right' : 'bottom-full mb-3 origin-bottom-right'}`}>
                     <button
                       className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'dark' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
                       onClick={() => toggleTheme('dark')}
