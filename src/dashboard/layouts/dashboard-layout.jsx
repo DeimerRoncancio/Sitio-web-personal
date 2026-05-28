@@ -64,7 +64,7 @@ export default function DashboardLayout() {
             </ul>
           </div>
           <div className={`theme-dashboard dashboard bg-[#202a3e] w-full sm:!h-full relative order-1 sm:order-2 z-30
-          ${currentView === 'dashboard' ? 'h-[calc(100vh-135px)]' : 'h-full'}`}>
+          ${currentView === 'dashboard' ? 'h-[calc(100vh-135px)] xs:h-[calc(100vh-131px)]' : 'h-full'}`}>
             <Droppable parent={parent} items={items}>
               <Outlet />
             </Droppable>
