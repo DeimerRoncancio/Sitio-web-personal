@@ -58,19 +58,39 @@ export default function NavBar({ items, currentView, changeView }) {
         <nav
           style={{ display: currentView === 'dashboard' ? 'none' : 'flex' }}
           className="items-center space-x-2">
-          <button className="nav-button px-3 py-1 text-xs xl:text-sm" onClick={() => navigate("/dashboard/about")}>
+          <button
+            className="text-[#314155] dark:text-[#eaecf1] hover:text-[#14a3ca] dark:hover:text-[#22d3ee]
+            px-3 py-1 text-xs xl:text-sm"
+            onClick={() => navigate("/dashboard/about")}
+          >
             Sobre Mi
           </button>
-          <button className="nav-button px-3 py-1 text-xs xl:text-sm" onClick={() => navigate("/dashboard/skills")}>
+          <button
+            className="text-[#314155] dark:text-[#eaecf1] hover:text-[#14a3ca] dark:hover:text-[#22d3ee]
+            px-3 py-1 text-xs xl:text-sm"
+            onClick={() => navigate("/dashboard/skills")}
+          >
             Skills
           </button>
-          <button className="nav-button px-3 py-1 text-xs xl:text-sm" onClick={() => navigate("/dashboard/portfolio")}>
+          <button
+            className="text-[#314155] dark:text-[#eaecf1] hover:text-[#14a3ca] dark:hover:text-[#22d3ee]
+            px-3 py-1 text-xs xl:text-sm"
+            onClick={() => navigate("/dashboard/portfolio")}
+          >
             Proyectos
           </button>
-          <button className="nav-button px-3 py-1 text-xs xl:text-sm" onClick={() => navigate("/dashboard/formation")}>
+          <button
+            className="text-[#314155] dark:text-[#eaecf1] hover:text-[#14a3ca] dark:hover:text-[#22d3ee]
+            px-3 py-1 text-xs xl:text-sm"
+            onClick={() => navigate("/dashboard/formation")}
+          >
             Formación
           </button>
-          <button className="nav-button px-3 py-1 text-xs xl:text-sm" onClick={() => navigate("/dashboard/contact")}>
+          <button
+            className="text-[#314155] dark:text-[#eaecf1] hover:text-[#14a3ca] dark:hover:text-[#22d3ee]
+            px-3 py-1 text-xs xl:text-sm"
+            onClick={() => navigate("/dashboard/contact")}
+          >
             Contacto
           </button>
         </nav>
