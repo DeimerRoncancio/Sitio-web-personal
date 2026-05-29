@@ -47,7 +47,7 @@ export default function DashboardLayout() {
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
           <div style={{ display: currentView === 'dashboard' ? 'flex' : 'none' }}
           className="theme-sidebar bg-[rgb(23,30,44)] sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
-          border-t sm:border-r border-[#2a3852] fixed bottom-0 sm:static order-2 sm:order-1 z-40">
+          border-t sm:border-t-0 sm:border-r border-[#2a3852] fixed bottom-0 sm:static order-2 sm:order-1 z-40">
             <p className='theme-muted hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
               NAVEGACIÓN
             </p>
