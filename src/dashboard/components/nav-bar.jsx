@@ -6,11 +6,10 @@ import { PiBroom } from "react-icons/pi";
 import { IoEyeOutline } from "react-icons/io5";
 import { FiSun, FiMoon, FiMonitor, FiCheck, FiMenu, FiX } from 'react-icons/fi';
 import { useEffect, useRef, useState } from "react";
-import useChangeTheme from "../hooks/useChangeTheme";
+import ToggleTheme from "./toggle-theme";
+import MobileMenu from "./mobile-menu.jsx";
 
 export default function NavBar({ items, currentView, changeView }) {
-  const { theme, menuRef, showToggleTheme, toggleTheme, toggleShowTheme } = useChangeTheme();
-
   const navigate = useNavigate();
   const location = useLocation();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -20,7 +19,11 @@ export default function NavBar({ items, currentView, changeView }) {
     changeView();
     if (currentView === 'dashboard' && location.pathname === "/dashboard")
       navigate("/dashboard/about");
+
+    setShowMobileMenu(false);
   }
+
+  const closeMobileMenu = () => setShowMobileMenu(false);
 
   useEffect(() => setShowMobileMenu(false), [location.pathname]);
 
@@ -82,37 +85,7 @@ export default function NavBar({ items, currentView, changeView }) {
           <button title="Limpiar" className='nav-button' onClick={() => navigate("/dashboard")}>
             <PiBroom className='text-xl' />
           </button>
-          <div ref={menuRef}>
-            <button title="Cambiar Tema" className='nav-button' onClick={toggleShowTheme}>
-              <MdOutlineWbSunny className='text-xl' />
-            </button>
-
-            {showToggleTheme && (
-              <div className="theme-menu-dropdown absolute right-0 mt-3 w-48 bg-white dark:bg-[#1b2435] border border-gray-100 dark:border-[#2a3852] rounded-xl shadow-2xl p-1.5 flex flex-col gap-1 z-50 transform origin-top-right transition-all">
-                <button
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'dark' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
-                  onClick={() => toggleTheme('dark')}
-                >
-                  <div className="flex items-center gap-3"><FiMoon size={16} /><span>Oscuro</span></div>
-                  {theme === 'dark' && <FiCheck size={16} />}
-                </button>
-                <button
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'light' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
-                  onClick={() => toggleTheme('light')}
-                >
-                  <div className="flex items-center gap-3"><FiSun size={16} /><span>Claro</span></div>
-                  {theme === 'light' && <FiCheck size={16} />}
-                </button>
-                <button
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'system' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
-                  onClick={() => toggleTheme('system')}
-                >
-                  <div className="flex items-center gap-3"><FiMonitor size={16} /><span>Sistema</span></div>
-                  {theme === 'system' && <FiCheck size={16} />}
-                </button>
-              </div>
-            )}
-          </div>
+          <ToggleTheme currentView={currentView} />
         </div>
         <button
           className={`mobile-menu-trigger flex ${currentView === 'dashboard' ? 'xs:hidden' : 'xl:hidden'} nav-button`}
@@ -122,81 +95,15 @@ export default function NavBar({ items, currentView, changeView }) {
           <FiMenu className="w-6 h-6" />
         </button>
       </div>
-      {showMobileMenu && (
-        <div className="mobile-drawer-shell fixed inset-0 z-50 flex">
-          <div className="mobile-drawer-backdrop absolute inset-0 bg-black/40" onClick={() => setShowMobileMenu(false)} />
-          <aside className={`theme-mobile-drawer mobile-drawer-panel ${currentView === 'dashboard' ? 'mobile-drawer-dashboard-mode' : ''} relative ml-auto flex h-full w-72 max-w-full flex-col bg-white dark:bg-[#0f1724] border-l border-gray-100 dark:border-[#172034] p-4 shadow-2xl`}>
-            <div className="mobile-drawer-header flex items-center justify-between mb-5 pb-4 border-b border-gray-100 dark:border-[#172034]">
-              <div>
-                <p className="theme-muted text-xs font-semibold uppercase tracking-[0.22em]">Panel</p>
-                <h3 className="theme-text text-lg font-semibold leading-tight">{item ? item.name : "Dashboard"}</h3>
-              </div>
-              <button className="nav-button mobile-drawer-close" onClick={() => setShowMobileMenu(false)} aria-label="Cerrar menú">
-                <FiX className="w-6 h-6" />
-              </button>
-            </div>
-            <nav className={`mobile-drawer-nav flex flex-col gap-2 ${currentView === 'dashboard' ? 'hidden' : 'flex'}`}>
-              {items.map((navItem) => {
-                const isActive = navItem.path === location.pathname;
-
-                return (
-                  <button
-                    key={navItem.id}
-                    className={`mobile-drawer-link ${isActive ? 'mobile-drawer-link-active' : ''}`}
-                    onClick={() => { navigate(navItem.path); setShowMobileMenu(false); }}
-                  >
-                    <span className="mobile-drawer-link-icon">{navItem.icon}</span>
-                    <span className="mobile-drawer-link-text">
-                      <span>{navItem.name}</span>
-                      <small>{navItem.description}</small>
-                    </span>
-                  </button>
-                )
-              })}
-            </nav>
-            <div className="mobile-drawer-actions mt-auto pt-4 border-t border-gray-100 dark:border-[#172034] flex xs:hidden flex-row items-center justify-between gap-2">
-              <button type="button" title="Cambiar Vista" className='mobile-drawer-action-button'
-                onClick={handleCurrentView}>
-                <IoEyeOutline className='text-xl' />
-              </button>
-              <button title="Limpiar" className='mobile-drawer-action-button' onClick={() => navigate("/dashboard")}>
-                <PiBroom className='text-xl' />
-              </button>
-              <div ref={menuRef} className="relative">
-                <button title="Cambiar Tema" className='mobile-drawer-action-button' onClick={toggleShowTheme}>
-                  <MdOutlineWbSunny className='text-xl' />
-                </button>
-
-                {showToggleTheme && (
-                  <div className={`theme-menu-dropdown absolute right-0 w-48 bg-white dark:bg-[#1b2435] border border-gray-100 dark:border-[#2a3852] rounded-xl shadow-2xl p-1.5 flex flex-col gap-1 z-50 transform transition-all ${currentView === 'dashboard' ? 'top-full mt-3 origin-top-right' : 'bottom-full mb-3 origin-bottom-right'}`}>
-                    <button
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'dark' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
-                      onClick={() => toggleTheme('dark')}
-                    >
-                      <div className="flex items-center gap-3"><FiMoon size={16} /><span>Oscuro</span></div>
-                      {theme === 'dark' && <FiCheck size={16} />}
-                    </button>
-                    <button
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'light' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
-                      onClick={() => toggleTheme('light')}
-                    >
-                      <div className="flex items-center gap-3"><FiSun size={16} /><span>Claro</span></div>
-                      {theme === 'light' && <FiCheck size={16} />}
-                    </button>
-                    <button
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 text-sm font-medium ${theme === 'system' ? 'bg-blue-50 text-blue-600 dark:bg-cyan-500/10 dark:text-cyan-400' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-[#2a3852] dark:hover:text-white'}`}
-                      onClick={() => toggleTheme('system')}
-                    >
-                      <div className="flex items-center gap-3"><FiMonitor size={16} /><span>Sistema</span></div>
-                      {theme === 'system' && <FiCheck size={16} />}
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          </aside>
-        </div>
-      )}
+      {showMobileMenu &&
+        <MobileMenu
+          items={items}
+          item={item}
+          closeMenu={closeMobileMenu}
+          handleCurrentView={handleCurrentView}
+          currentView={currentView}
+        />
+      }
     </div>
   );
 }
