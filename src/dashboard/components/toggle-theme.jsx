@@ -7,7 +7,11 @@ export default function ToggleTheme({ isMobile = false, currentView }) {
   
   return (
     <div ref={menuRef} className="relative">
-      <button title="Cambiar Tema" className={`${isMobile ? 'mobile-drawer-action-button' : 'nav-button'}`} onClick={toggleShowTheme}>
+      <button
+        title="Cambiar Tema"
+        className={`${isMobile ? 'mobile-drawer-action-button' : 'nav-button'}`}
+        onClick={toggleShowTheme}
+      >
         <MdOutlineWbSunny className='text-xl' />
       </button>
 

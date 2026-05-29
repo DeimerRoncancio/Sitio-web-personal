@@ -3,6 +3,7 @@ import { PiBroom } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import ToggleTheme from "./toggle-theme";
 import { FiX } from "react-icons/fi";
+import { RiHomeLine } from "react-icons/ri";
 
 export default function MobileMenu({ items, item, currentView, closeMenu, handleCurrentView }) {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ export default function MobileMenu({ items, item, currentView, closeMenu, handle
             <IoEyeOutline className='text-xl' />
           </button>
           <button title="Limpiar" className='mobile-drawer-action-button' onClick={() => onLinkClick("/dashboard")}>
-            <PiBroom className='text-xl' />
+            {currentView === 'dashboard' ? <PiBroom  className='text-xl' /> : <RiHomeLine className='text-xl' />}
           </button>
           <ToggleTheme isMobile={true} currentView={currentView} />
         </div>

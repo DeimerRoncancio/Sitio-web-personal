@@ -82,9 +82,11 @@ export default function NavBar({ items, currentView, changeView }) {
             <IoEyeOutline className='text-xl' />
             <p className="theme-muted hidden sm:block text-sm text-[#c4c8ce]">Cambiar Vista</p>
           </button>
-          <button title="Limpiar" className='nav-button' onClick={() => navigate("/dashboard")}>
-            <PiBroom className='text-xl' />
-          </button>
+          {currentView === 'dashboard' && (
+            <button title="Limpiar" className='nav-button' onClick={() => navigate("/dashboard")}>
+              <PiBroom className='text-xl' />
+            </button>
+          )}
           <ToggleTheme currentView={currentView} />
         </div>
         <button
