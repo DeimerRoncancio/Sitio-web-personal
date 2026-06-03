@@ -1,5 +1,5 @@
 html.light .theme-drop-header {
-  box-shadow: 0 8px 22px var(--light-drop-header-shadow);
+  box-shadow: none;
 }
 
 html.light .theme-surface {
@@ -62,9 +62,25 @@ html.light .theme-about-action-secondary {
   color: var(--light-text-link);
 }
 
+html.light .theme-about-action-primary {
+  background: color-mix(in srgb, var(--light-accent-cyan) 24%, var(--light-surface-link));
+  border-color: #008fb6;
+  color: #064f65;
+}
+
+html.light .theme-about-action-primary svg {
+  color: #006f8d;
+}
+
 html.light .theme-about-action-primary:hover,
 html.light .theme-about-action-secondary:hover {
   color: var(--light-text-link-hover);
+}
+
+html.light .theme-about-action-primary:hover {
+  background: color-mix(in srgb, var(--light-accent-cyan) 36%, var(--light-surface-link));
+  border-color: #008fb6;
+  color: #043f52;
 }
 
 html.light .theme-project-thumb-active {
@@ -162,7 +178,6 @@ html.light .theme-draggable-active {
   background: linear-gradient(to top left, var(--light-draggable-active-from) 0%, var(--light-draggable-active-to) 100%);
   border-color: var(--light-draggable-active-border) !important;
   box-shadow:
-    inset 0 1px 0 var(--light-white-active),
     inset 0 -10px 20px var(--light-draggable-active-inner-shadow),
     0 14px 28px var(--light-draggable-active-shadow);
   color: var(--light-text);
@@ -177,7 +192,6 @@ html.light .theme-draggable-active:hover {
   background: linear-gradient(to top left, var(--light-draggable-active-from-hover) 0%, var(--light-draggable-active-to-hover) 100%);
   border-color: var(--light-draggable-active-border-hover) !important;
   box-shadow:
-    inset 0 1px 0 var(--light-white-active-hover),
     inset 0 -10px 22px var(--light-draggable-active-inner-shadow-hover),
     0 16px 30px var(--light-draggable-active-shadow-hover);
   color: var(--light-text);
