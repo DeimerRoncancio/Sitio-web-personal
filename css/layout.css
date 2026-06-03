@@ -1,0 +1,61 @@
+.animation-fadeInUp {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.nav-hover {
+  color: var(--theme-text);
+  transition: all 0.2s;
+}
+
+.nav-button {
+  background-color: var(--theme-nav-bg);
+  border-radius: 11px;
+  padding: 7px;
+  color: var(--theme-text);
+  transition: all 0.2s;
+}
+
+.nav-button:hover {
+  background-color: var(--theme-nav-hover-bg);
+}
+
+.nav-hover:hover {
+  color: var(--theme-text-soft);
+}
+
+.theme-nav-link {
+  color: var(--theme-text-soft);
+}
+
+.theme-nav-link:hover {
+  color: var(--theme-nav-link-hover-text);
+}
+
+.droppable-zone-container {
+  background-color: var(--theme-content-bg);
+  color: var(--theme-text);
+  max-width: 810px;
+  margin: auto;
+  padding: 24px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.theme-sidebar {
+  background: var(--theme-sidebar-bg);
+  border-color: var(--theme-mobile-drawer-panel-border);
+}
+
+.theme-dashboard {
+  background-color: var(--theme-dashboard-bg);
+}
+
+.theme-drop-header {
+  background-color: var(--theme-drop-header-bg);
+  border-color: var(--theme-border);
+}
+
+.theme-drop-icon {
+  background-color: var(--theme-drop-icon-bg);
+  color: var(--theme-drop-icon-text);
+}

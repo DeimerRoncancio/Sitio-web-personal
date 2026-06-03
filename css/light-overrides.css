@@ -1,0 +1,321 @@
+html.light .theme-drop-header {
+  box-shadow: 0 8px 22px var(--light-drop-header-shadow);
+}
+
+html.light .theme-surface {
+  box-shadow: var(--light-shadow);
+}
+
+html.light .theme-surface.theme-welcome-theme-button {
+  box-shadow: none;
+}
+
+html.light a.theme-surface-soft {
+  background: var(--light-surface-link) !important;
+  border-color: var(--light-border-link) !important;
+  color: var(--light-text-link);
+}
+
+html.light a.theme-surface-soft:hover {
+  background: var(--light-surface-link-hover) !important;
+  border-color: var(--light-border-link-hover) !important;
+  color: var(--light-text-link-hover);
+}
+
+html.light div.theme-surface-soft {
+  background: var(--light-surface-div);
+  border-color: var(--light-border-div);
+}
+
+html.light div.theme-surface-soft:hover {
+  background: var(--light-surface-div);
+  border-color: var(--light-border-div);
+}
+
+html.light div.theme-skill-box:hover {
+  background-color: #c4e3f6 !important;
+  border-color: #62a9d4 !important;
+}
+
+html.light .theme-about-avatar {
+  background: linear-gradient(135deg, var(--light-about-avatar-from) 0%, var(--light-about-avatar-to) 100%) !important;
+  border-color: var(--light-border-strong) !important;
+  box-shadow:
+    inset 0 1px 0 var(--light-white-stronger),
+    0 12px 24px var(--light-about-avatar-shadow);
+}
+
+html.light .theme-about-avatar svg {
+  color: var(--light-accent);
+}
+
+html.light .theme-about-status {
+  box-shadow: 0 5px 12px var(--light-accent-success-shadow);
+}
+
+html.light .theme-contact-link:hover .theme-contact-link-text {
+  color: var(--light-text-contact-hover);
+}
+
+html.light .theme-about-action-primary,
+html.light .theme-about-action-secondary {
+  color: var(--light-text-link);
+}
+
+html.light .theme-about-action-primary:hover,
+html.light .theme-about-action-secondary:hover {
+  color: var(--light-text-link-hover);
+}
+
+html.light .theme-project-thumb-active {
+  border-color: var(--light-accent-blue) !important;
+  box-shadow: 0 0 0 1px var(--light-accent-blue-shadow), 0 0 12px var(--light-accent-blue-glow);
+}
+
+html.light .text-cyan-400,
+html.light .text-cyan-500,
+html.light [class~="text-[#00a4ac]"],
+html.light [class~="text-[#0fc6f8]"] {
+  color: var(--light-accent-hover);
+}
+
+html.light .nav-hover {
+  color: var(--light-text);
+}
+
+html.light .nav-hover:hover {
+  color: var(--light-text-soft);
+}
+
+html.light .nav-button {
+  background-color: var(--light-nav-panel-bg);
+  border: 0;
+  color: var(--light-text);
+  box-shadow: none;
+}
+
+html.light .nav-button:hover {
+  background-color: var(--light-nav-hover-bg);
+  box-shadow: none;
+  color: var(--light-nav-hover-text);
+}
+
+html.light .theme-menu-dropdown {
+  background: var(--light-menu-bg);
+  border-color: var(--light-menu-border);
+  box-shadow: 0 18px 36px var(--light-menu-shadow);
+}
+
+html.light .theme-menu-dropdown button {
+  color: var(--light-text-soft);
+}
+
+html.light .theme-menu-dropdown button:hover {
+  background: var(--light-menu-hover-bg);
+  color: var(--light-text);
+}
+
+html.light .theme-menu-dropdown button.bg-blue-50 {
+  background: var(--light-menu-active-bg);
+  color: var(--light-menu-active-text);
+}
+
+html.light .theme-mobile-drawer {
+  background-color: var(--light-surface);
+  border-color: var(--light-border);
+  color: var(--light-text);
+}
+
+html.light .theme-mobile-drawer .nav-button {
+  background-color: var(--light-mobile-drawer-action-bg);
+}
+
+html.light .theme-mobile-drawer .nav-button:hover {
+  background-color: var(--light-nav-panel-bg);
+}
+
+html.light .theme-draggable {
+  background: linear-gradient(to top left, var(--light-draggable-from) 0%, var(--light-draggable-to) 100%);
+  border-color: var(--light-draggable-border);
+  box-shadow:
+    0 10px 22px var(--light-draggable-shadow);
+  color: var(--light-text-soft);
+}
+
+html.light .theme-draggable h3 {
+  color: var(--light-text-soft);
+}
+
+html.light .theme-draggable:hover {
+  background: linear-gradient(to top left, var(--light-draggable-from) 0%, var(--light-draggable-to) 100%);
+  border-color: var(--light-draggable-border-hover);
+  box-shadow:
+    0 12px 24px var(--light-draggable-shadow-hover);
+  color: var(--light-text);
+}
+
+html.light .theme-draggable:hover h3 {
+  color: var(--light-text);
+}
+
+html.light .theme-draggable-active {
+  background: linear-gradient(to top left, var(--light-draggable-active-from) 0%, var(--light-draggable-active-to) 100%);
+  border-color: var(--light-draggable-active-border) !important;
+  box-shadow:
+    inset 0 1px 0 var(--light-white-active),
+    inset 0 -10px 20px var(--light-draggable-active-inner-shadow),
+    0 14px 28px var(--light-draggable-active-shadow);
+  color: var(--light-text);
+  opacity: 1;
+}
+
+html.light .theme-draggable-active svg {
+  color: var(--light-text-soft);
+}
+
+html.light .theme-draggable-active:hover {
+  background: linear-gradient(to top left, var(--light-draggable-active-from-hover) 0%, var(--light-draggable-active-to-hover) 100%);
+  border-color: var(--light-draggable-active-border-hover) !important;
+  box-shadow:
+    inset 0 1px 0 var(--light-white-active-hover),
+    inset 0 -10px 22px var(--light-draggable-active-inner-shadow-hover),
+    0 16px 30px var(--light-draggable-active-shadow-hover);
+  color: var(--light-text);
+}
+
+html.light .theme-draggable-active:hover svg {
+  color: var(--light-text-soft);
+}
+
+html.light .theme-draggable-active h3 {
+  color: var(--light-text);
+}
+
+html.light .theme-draggable-active:hover h3 {
+  color: var(--light-text);
+}
+
+html.light .theme-empty-box-inner-active {
+  border-color: var(--light-border-empty-active) !important;
+  outline-color: var(--light-accent-cyan) !important;
+}
+
+html.light .theme-empty-box-icon svg {
+  color: var(--light-accent);
+}
+
+html.light .theme-empty-box-icon-active svg {
+  color: var(--light-accent-cyan-active);
+  filter: drop-shadow(0 1px 0 var(--light-white-strong)) drop-shadow(0 0 8px var(--light-accent-cyan-shadow));
+}
+
+html.light .theme-input {
+  background-color: var(--light-input-bg);
+  border-color: var(--light-border);
+  color: var(--light-text);
+}
+
+html.light .theme-input:focus {
+  background-color: var(--light-input-focus-bg);
+  border-color: var(--light-border-focus);
+  box-shadow: none;
+}
+
+html.light .theme-input::placeholder {
+  color: var(--light-muted);
+}
+
+html.light .theme-timeline-marker {
+  background: linear-gradient(135deg, var(--light-timeline-from) 0%, var(--light-timeline-to) 100%);
+  border-color: #a978ff;
+  box-shadow: 0 8px 18px rgba(124, 80, 210, 0.2);
+}
+
+html.light .theme-timeline-icon {
+  color: var(--light-accent-hover);
+}
+
+html.light .theme-timeline-dot {
+  background: var(--light-border-strong);
+  box-shadow: 0 5px 12px var(--light-timeline-shadow);
+}
+
+html.light .theme-certification-marker {
+  background: #d8f5dd;
+  border-color: #42a84d;
+  box-shadow: 0 8px 18px rgba(66, 168, 77, 0.18);
+}
+
+html.light .theme-formation-date,
+html.light .theme-formation-year {
+  background: var(--light-surface-link);
+  border-color: var(--light-border-link);
+  color: var(--light-text-link);
+}
+
+html.light .theme-project-card {
+  background:
+    radial-gradient(circle at 18% 12%, var(--light-white-strong), var(--light-white-transparent) 34%),
+    radial-gradient(circle at 88% 0%, color-mix(in srgb, var(--project-light-border) 22%, transparent), var(--light-white-transparent) 42%),
+    linear-gradient(145deg, color-mix(in srgb, var(--project-light-bg) 82%, var(--light-input-focus-bg)), color-mix(in srgb, var(--project-light-border) 16%, var(--project-light-bg)) 76%) !important;
+  border-color: color-mix(in srgb, var(--project-light-border) 72%, var(--light-white)) !important;
+  box-shadow:
+    inset 0 1px 0 var(--light-white-medium),
+    0 16px 32px var(--light-project-shadow);
+}
+
+html.light .theme-project-card .theme-chip {
+  background-color: color-mix(in srgb, var(--project-light-border) 30%, var(--light-white-active-hover));
+  border-color: color-mix(in srgb, var(--project-light-border) 72%, var(--light-white));
+  box-shadow: none;
+}
+
+html.light .theme-project-card .theme-project-action {
+  background-color: color-mix(in srgb, var(--project-light-border) 16%, var(--light-white));
+  border-color: color-mix(in srgb, var(--project-light-border) 60%, var(--light-white));
+  color: var(--light-text-link);
+}
+
+html.light .theme-chip,
+html.light .theme-modal .theme-project-action {
+  background-color: var(--light-surface-soft);
+  border-color: var(--light-border);
+  color: var(--light-text-soft);
+}
+
+html.light .theme-project-card .theme-project-action:hover {
+  background-color: color-mix(in srgb, var(--project-light-border) 22%, var(--light-white));
+  border-color: color-mix(in srgb, var(--project-light-border) 68%, var(--light-white));
+  color: var(--light-text);
+}
+
+html.light .theme-modal .theme-project-action:hover {
+  background-color: var(--light-hover);
+  color: var(--light-text);
+}
+
+html.light .theme-modal {
+  background-color: var(--light-surface);
+  border-color: var(--light-border);
+}
+
+html.light .theme-modal-section {
+  background-color: var(--light-surface);
+}
+
+html.light .theme-modal-soft {
+  background-color: var(--light-surface-soft);
+  border-color: var(--light-border);
+}
+
+html.light .theme-modal-soft a:hover {
+  background-color: var(--light-modal-link-hover-bg) !important;
+}
+
+html.light .theme-modal-soft a:hover span {
+  background-color: var(--light-white-soft);
+}
+
+html.light .theme-modal-soft a:hover svg {
+  filter: drop-shadow(0 1px 0 var(--light-white-active));
+}

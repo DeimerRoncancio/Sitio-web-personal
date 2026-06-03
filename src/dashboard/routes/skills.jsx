@@ -1,4 +1,3 @@
-import '../../../css/style.css';
 import { LuBadgeCheck, LuMessagesSquare } from "react-icons/lu";
 import { TbLayersSubtract } from "react-icons/tb";
 import { skills } from '../constants/skills';
@@ -6,7 +5,7 @@ import SkillBox from '../components/SkillBox';
 
 export default function Skills() {
   return (
-    <div className="dropable-zone-container animation-fadeInUp py-14 font-sans">
+    <div className="droppable-zone-container animation-fadeInUp font-sans">
       <div className="space-y-10">
         <div className="space-y-4">
           <h2 className="theme-text text-lg sm:text-xl font-semibold text-white">

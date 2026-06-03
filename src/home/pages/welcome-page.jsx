@@ -108,7 +108,7 @@ export default function WelcomePageComponent() {
         <div className="animation-fadeInUp" style={{ animationDelay: '0.3s' }}>
           <button 
             onClick={() => navigate(`${!blockPage ? "/dashboard" : "/dashboard/about"}`)}
-            className="theme-surface group relative flex items-center gap-3 bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 rounded-full px-8 md:px-10 py-4 hover:scale-105 shadow-xl backdrop-blur-sm overflow-hidden"
+            className="theme-surface theme-welcome-portfolio-button group relative flex items-center gap-3 bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-400/50 transition-all duration-300 rounded-full px-8 md:px-10 py-4 hover:scale-105 shadow-xl backdrop-blur-sm overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-emerald-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             <span className="theme-text relative z-10 text-base md:text-lg font-bold text-white tracking-wider">

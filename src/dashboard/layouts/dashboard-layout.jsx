@@ -41,14 +41,14 @@ export default function DashboardLayout() {
   }, [location.pathname])
 
   return (
-    <div className="main-page-styles overflow-hidden w-screen h-screen">
+    <div className="bg-[var(--theme-app-bg)] overflow-hidden w-screen h-screen">
       <NavBar items={items} currentView={currentView} changeView={changeView} />
-      <div className="nav-h-container flex flex-col sm:flex-row w-full">
+      <div className="h-[calc(100%-47px)] flex flex-col sm:flex-row w-full">
         <DragDropProvider onDragEnd={(event) => changePage(event)} >
           <div style={{ display: currentView === 'dashboard' ? 'flex' : 'none' }}
-          className="theme-sidebar bg-[rgb(23,30,44)] sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
-          border-t sm:border-t-0 sm:border-r border-[#2a3852] fixed bottom-0 sm:static order-2 sm:order-1 z-40">
-            <p className='theme-muted hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4 text-[#979fa1]'>
+          className="theme-sidebar sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
+          border-t sm:border-t-0 sm:border-r fixed bottom-0 sm:static order-2 sm:order-1 z-40">
+            <p className='theme-muted hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4'>
               NAVEGACIÓN
             </p>
             <ul className='flex w-full xs:space-x-3 xs:w-auto justify-between sm:flex-col p-3 sm:space-y-3 
@@ -63,7 +63,7 @@ export default function DashboardLayout() {
               ))}
             </ul>
           </div>
-          <div className={`theme-dashboard dashboard bg-[#202a3e] w-full sm:!h-full relative order-1 sm:order-2 z-30
+          <div className={`theme-dashboard w-full min-w-0 flex-1 sm:!h-full relative order-1 sm:order-2
           ${currentView === 'dashboard' ? 'h-[calc(100vh-135px)] xs:h-[calc(100vh-131px)]' : 'h-full'}`}>
             <Droppable parent={parent} items={items}>
               <Outlet />
@@ -72,5 +72,5 @@ export default function DashboardLayout() {
         </DragDropProvider>
       </div>
     </div>
-  )
+  );
 }

@@ -1,0 +1,166 @@
+.theme-nav-bar,
+.theme-nav-title {
+  background: var(--theme-nav-bg);
+  border-color: var(--theme-mobile-drawer-panel-border);
+}
+
+.theme-surface {
+  background-color: var(--theme-surface);
+  border-color: var(--theme-border);
+}
+
+.theme-surface-soft {
+  background-color: var(--theme-surface-soft);
+  border-color: var(--theme-border);
+}
+
+.theme-text {
+  color: var(--theme-text);
+}
+
+.theme-text-soft {
+  color: var(--theme-text-soft);
+}
+
+.theme-muted {
+  color: var(--theme-text-muted);
+}
+
+.theme-accent-text {
+  color: var(--theme-accent);
+}
+
+.theme-border {
+  border-color: var(--theme-border);
+}
+
+.theme-skill-box {
+  background-color: var(--theme-surface-soft);
+  border-color: var(--theme-border);
+}
+
+.theme-skill-box:hover {
+  background-color: #2a3852;
+  border-color: var(--theme-border);
+}
+
+.theme-about-avatar {
+  background: linear-gradient(to top left, #283755, #0f1826);
+  border-color: var(--theme-border-strong);
+}
+
+.theme-about-status {
+  background-color: var(--theme-success-bg);
+  border-color: var(--theme-about-status-border);
+}
+
+.theme-availability {
+  background: var(--theme-status-bg);
+  border-color: var(--theme-status-border);
+  color: var(--theme-status-text);
+}
+
+.theme-availability-dot {
+  background: var(--theme-status-dot);
+}
+
+.theme-heart {
+  color: var(--theme-heart);
+}
+
+.theme-about-action-primary {
+  background: var(--theme-surface-accent-action);
+  border-color: var(--theme-surface-accent-action-border);
+  color: var(--theme-surface-accent-action-text);
+}
+
+.theme-about-action-primary:hover {
+  background: var(--theme-surface-accent-action-hover);
+  border-color: var(--theme-surface-accent-action-hover-border);
+}
+
+.theme-about-action-secondary {
+  background: var(--theme-surface-action);
+  border-color: var(--theme-surface-action-border);
+  color: var(--theme-surface-action-text);
+}
+
+.theme-about-action-secondary:hover {
+  background: var(--theme-surface-action-hover);
+  border-color: var(--theme-surface-action-hover-border);
+}
+
+.theme-contact-panel {
+  background: var(--theme-contact-panel-bg);
+  border-color: var(--theme-contact-panel-border);
+  border-left-color: var(--theme-contact-panel-border-left);
+}
+
+.theme-contact-icon {
+  background: var(--theme-contact-icon-bg);
+  border-color: var(--theme-contact-icon-border);
+}
+
+.theme-contact-form {
+  background: var(--theme-contact-form-bg);
+  border-color: var(--theme-contact-form-border);
+}
+
+.theme-contact-link:hover {
+  color: var(--theme-text-inverse);
+}
+
+.theme-input {
+  background-color: var(--theme-input-bg);
+  border-color: var(--theme-border);
+  color: var(--theme-text-inverse);
+}
+
+.theme-input:focus {
+  background-color: var(--theme-input-focus-bg);
+  border-color: var(--theme-input-focus-border);
+}
+
+.theme-submit-button {
+  background: var(--theme-accent);
+  color: var(--theme-text-inverse);
+}
+
+.theme-submit-button:hover {
+  background: #008f96;
+}
+
+.theme-empty-box {
+  color: var(--theme-empty-text);
+}
+
+.theme-empty-box-inner {
+  border-color: var(--theme-empty-border);
+  outline-color: var(--theme-empty-border);
+}
+
+.theme-empty-box-inner-active {
+  border-color: var(--theme-empty-active) !important;
+  outline-color: var(--theme-empty-active) !important;
+  color: var(--theme-empty-active) !important;
+}
+
+.theme-empty-box-icon {
+  background: linear-gradient(to bottom right, var(--theme-empty-icon-from), var(--theme-empty-icon-to));
+}
+
+.theme-empty-box-icon svg {
+  color: var(--theme-accent-bright);
+}
+
+.theme-empty-box-icon-active svg {
+  color: var(--theme-input-focus-border);
+}
+
+.theme-empty-box-title {
+  color: var(--theme-empty-title);
+}
+
+.theme-empty-box-description {
+  color: var(--theme-empty-muted);
+}
