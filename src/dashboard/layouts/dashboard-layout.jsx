@@ -65,7 +65,7 @@ export default function DashboardLayout() {
           </div>
           <div className={`theme-dashboard w-full min-w-0 flex-1 sm:!h-full relative order-1 sm:order-2
           ${currentView === 'dashboard' ? 'h-[calc(100vh-135px)] xs:h-[calc(100vh-131px)]' : 'h-full'}`}>
-            <Droppable parent={parent} items={items}>
+            <Droppable parent={parent} items={items} hasMobileBottomNav={currentView === 'dashboard'}>
               <Outlet />
             </Droppable>
           </div>

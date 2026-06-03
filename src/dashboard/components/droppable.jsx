@@ -3,7 +3,7 @@ import { RiDragDropLine } from "react-icons/ri";
 import DropEmptyBox from "./drop-empty-box";
 import { useEffect, useRef, useState } from "react";
 
-export default function Droppable({ children, parent, items }) {
+export default function Droppable({ children, parent, items, hasMobileBottomNav }) {
   const { isDropTarget, ref } = useDroppable({ id: "droppable" });
   const scrollRef = useRef(null);
   const dragRef = useRef({ startY: 0, startTop: 0 });
@@ -89,7 +89,7 @@ export default function Droppable({ children, parent, items }) {
     }>
       {parent === "droppable"
         ? (<div className="relative h-full w-full">
-          <div ref={scrollRef} className="dashboard-scroll h-full w-full overflow-y-auto pb-20 sm:pb-0">
+          <div ref={scrollRef} className={`dashboard-scroll h-full w-full overflow-y-auto ${hasMobileBottomNav ? 'pb-20 sm:pb-0' : ''}`}>
             <div className="theme-drop-header w-full flex p-4 border-b sticky top-0 z-20 items-center">
               <div className="theme-drop-icon text-2xl p-2 rounded-xl mr-5">
                 {item?.icon}
