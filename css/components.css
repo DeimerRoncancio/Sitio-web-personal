@@ -141,7 +141,7 @@
 
 .theme-empty-box-inner-active {
   border-color: var(--theme-empty-active) !important;
-  outline-color: var(--theme-empty-active) !important;
+  outline-color: var(--theme-input-focus-border) !important;
   color: var(--theme-empty-active) !important;
 }
 
