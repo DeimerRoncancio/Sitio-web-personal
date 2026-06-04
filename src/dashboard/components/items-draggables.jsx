@@ -4,7 +4,7 @@ export default function ItemsDraggables({ icon, name, isDragging, isShadow = fal
   const tailwindClasses = [
     isHighlighted ? 'theme-draggable-active !border-cyan-500 !from-[#3b4355] !to-[#00586e] !opacity-100' : 'opacity-50 hover:opacity-100 hover:border-[#acacac]',
     (isDragging && isShadow) ? 'scale-95' : '',
-    (isDragging && !isShadow) ? 'scale-110 w-[70px] h-[70px] sm:h-[95px]' : '',
+    (isDragging && !isShadow) ? 'scale-110 w-[70px] h-[70px] sm:!h-[95px]' : '',
   ].filter(Boolean).join(' ');
 
   return (
