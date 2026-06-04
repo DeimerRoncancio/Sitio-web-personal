@@ -12,7 +12,6 @@
   /* 2. La pista (El fondo por donde se mueve) */
   ::-webkit-scrollbar-track {
     background: #0f172a; /* Slate 900 (o el fondo de tu app) */
-    border-radius: 4px;
   }
 
   /* 3. La barra / tirador (Lo que arrastras con el ratón) */
@@ -33,120 +32,46 @@
     height: 0;
   }
 
-  html.light::-webkit-scrollbar-track,
-  html.light body::-webkit-scrollbar-track,
-  html.light *::-webkit-scrollbar-track {
-    background: #d6eafa;
-  }
-
-  html.light::-webkit-scrollbar,
-  html.light body::-webkit-scrollbar,
-  html.light *::-webkit-scrollbar {
-    width: 8px;
+  /* 2. La pista (El fondo por donde se mueve) */
+  html.light .dashboard-native-scroll::-webkit-scrollbar {
+    width: 12px;
     height: 8px;
   }
 
-  html.light::-webkit-scrollbar-button {
-    -webkit-appearance: none !important;
-    background: #d6eafa !important;
-    background-image: none !important;
-    border: 0 !important;
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
+  html.light .dashboard-native-scroll::-webkit-scrollbar-track {
+    background: #ecf5fc;
   }
 
-  html.light::-webkit-scrollbar-button:vertical,
-  html.light::-webkit-scrollbar-button:vertical:decrement,
-  html.light::-webkit-scrollbar-button:vertical:increment,
-  html.light::-webkit-scrollbar-button:vertical:start,
-  html.light::-webkit-scrollbar-button:vertical:end {
-    -webkit-appearance: none !important;
-    background: #d6eafa !important;
-    background-image: none !important;
-    border: 0 !important;
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  html.light body::-webkit-scrollbar-button {
-    -webkit-appearance: none !important;
-    background: #d6eafa !important;
-    background-image: none !important;
-    border: 0 !important;
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  html.light body::-webkit-scrollbar-button:vertical,
-  html.light body::-webkit-scrollbar-button:vertical:decrement,
-  html.light body::-webkit-scrollbar-button:vertical:increment,
-  html.light body::-webkit-scrollbar-button:vertical:start,
-  html.light body::-webkit-scrollbar-button:vertical:end {
-    -webkit-appearance: none !important;
-    background: #d6eafa !important;
-    background-image: none !important;
-    border: 0 !important;
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  html.light *::-webkit-scrollbar-button {
-    -webkit-appearance: none !important;
-    background: #d6eafa !important;
-    background-image: none !important;
-    border: 0 !important;
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  html.light *::-webkit-scrollbar-button:vertical,
-  html.light *::-webkit-scrollbar-button:vertical:decrement,
-  html.light *::-webkit-scrollbar-button:vertical:increment,
-  html.light *::-webkit-scrollbar-button:vertical:start,
-  html.light *::-webkit-scrollbar-button:vertical:end {
-    -webkit-appearance: none !important;
-    background: #d6eafa !important;
-    background-image: none !important;
-    border: 0 !important;
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  html.light::-webkit-scrollbar-thumb,
-  html.light body::-webkit-scrollbar-thumb,
-  html.light *::-webkit-scrollbar-thumb {
-    background: #7f96b4;
-    border: 2px solid #d6eafa;
+  /* 3. La barra / tirador (Lo que arrastras con el ratón) */
+  html.light .dashboard-native-scroll::-webkit-scrollbar-thumb {
+    background: #007f9e;
+    border: 4px solid #ecf5fc;
     border-radius: 15px;
   }
 
-  html.light::-webkit-scrollbar-thumb:hover,
-  html.light body::-webkit-scrollbar-thumb:hover,
-  html.light *::-webkit-scrollbar-thumb:hover {
-    background: #5f789b;
+  /* 4. El tirador cuando pasas el ratón por encima (Hover) */
+  html.light .dashboard-native-scroll::-webkit-scrollbar-thumb:hover {
+    background: #21b8d6;
   }
 
-  html.light {
-    scrollbar-color: #7f96b4 #d6eafa;
-    scrollbar-width: thin;
-  }
-
-  /* Compatibilidad obligatoria para Firefox */
-  /* * {
-    scrollbar-width: thin;
-    scrollbar-color: #1e293b #0f172a;
-  } */
-
-  /* Ocultar scrollbar pero permitir scroll */
-  .no-scrollbar::-webkit-scrollbar {
+  html.light .dashboard-native-scroll::-webkit-scrollbar-button {
     display: none;
+    width: 0;
+    height: 0;
   }
+
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #1e293b #0f172a;
+    }
+
+    html.light .dashboard-native-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: #007f9e #ecf5fc;
+    }
+  }
+
   .no-scrollbar {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */

@@ -2,7 +2,7 @@ import { RiDragDropLine } from "react-icons/ri";
 
 export default function DropEmptyBox({ isDropTarget }) {
   return (
-    <div className='theme-empty-box w-full h-full box-border px-4 pt-20 pb-36 sm:p-28 sm:px-32'>
+    <div className='theme-empty-box w-full h-full p-28 px-4 sm:px-32'>
       <div className={`theme-empty-box-inner ${isDropTarget ? 'theme-empty-box-inner-active' : ''} w-full h-full flex flex-col justify-center items-center
         outline-2 outline-offset-2 border-2 border-dashed
         ${isDropTarget && "outline scale-105"}

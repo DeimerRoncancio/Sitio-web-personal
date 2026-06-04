@@ -110,7 +110,7 @@ export default function NavBar({ items, currentView, changeView }) {
           <ToggleTheme currentView={currentView} />
         </div>
         <button
-          className={`mobile-menu-trigger flex ${currentView === 'dashboard' ? 'xs:hidden' : 'xl:hidden'} nav-button`}
+          className={`mobile-menu-trigger flex ${currentView === 'dashboard' ? 'xs:!hidden' : 'xl:hidden'} nav-button`}
           onClick={() => setShowMobileMenu(true)}
           aria-label="Abrir menú"
         >
