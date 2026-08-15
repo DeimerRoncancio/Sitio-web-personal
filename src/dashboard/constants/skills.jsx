@@ -1,4 +1,4 @@
-import { SiHtml5, SiCss3, SiJavascript, SiSpringboot, SiHibernate, SiMysql, SiPostgresql, SiGit, SiGithub, SiDocker, SiPostman, SiTailwindcss, SiSpringsecurity, SiInsomnia, SiReactrouter, SiJsonwebtokens, SiBootstrap } from 'react-icons/si';
+import { SiKubernetes, SiSpring, SiHtml5, SiCss3, SiJavascript, SiSpringboot, SiHibernate, SiMysql, SiPostgresql, SiGit, SiGithub, SiDocker, SiPostman, SiTailwindcss, SiSpringsecurity, SiInsomnia, SiReactrouter, SiJsonwebtokens, SiBootstrap } from 'react-icons/si';
 import { FaJava, FaReact, FaUsers, FaLightbulb, FaBrain, FaComments } from 'react-icons/fa';
 import { TbBrandReactNative } from 'react-icons/tb';
 
@@ -12,9 +12,11 @@ export const skills = {
   complementarias: [
     { name: 'Hibernate', icon: <SiHibernate className="text-[#59666C]" size={36} /> },
     { name: 'Spring Security', icon: <SiSpringsecurity className="text-[#6DB33F]" size={36} /> },
+    { name: 'Spring Cloud', icon: <SiSpring className="text-[#6DB33F]" size={36} /> },
     { name: 'MySQL', icon: <SiMysql className="text-[#4479A1]" size={36} /> },
     { name: 'JWT', icon: <SiJsonwebtokens className="theme-text text-white" size={36} /> },
     { name: 'Docker', icon: <SiDocker className="text-[#2496ED]" size={36} /> },
+    { name: 'Kubernetes', icon: <SiKubernetes className="text-[#326ce5]" size={36} /> },
     { name: 'Git', icon: <SiGit className="text-[#F05032]" size={36} /> },
     { name: 'Github', icon: <SiGithub className="theme-text text-white" size={36} /> },
     { name: 'JavaScript', icon: <SiJavascript className="text-[#F7DF1E]" size={36} /> },
