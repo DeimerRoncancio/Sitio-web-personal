@@ -101,7 +101,7 @@ export default function WelcomePageComponent() {
           <h3 className="text-sm md:text-base text-cyan-400 font-medium tracking-wide mb-8 flex items-center justify-center gap-2">
             Desarrollador de Software
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Fullstack
+            Fullstack Java
           </h3>
         </div>
 
