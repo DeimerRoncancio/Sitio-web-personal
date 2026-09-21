@@ -143,7 +143,7 @@ html.themed {
   --theme-mobile-drawer-title-text: #edf6ff;
   --theme-mobile-drawer-eyebrow: var(--theme-accent-soft);
   --theme-mobile-drawer-action-text: #e7eef8;
-  /* ---- Themed palette: base values (Teal by default) --------------------
+  /* ---- Themed palette: base values (Teal) -------------------------------
      Every html.theme-<name> block redefines only this group; everything
      below it is derived. */
   --light-app-bg: #082b35;
@@ -327,38 +327,10 @@ html.themed body {
 }
 
 /* ---------------------------------------------------------------------------
-   Themed palettes. Teal uses the :root defaults above; each other theme only
+   Themed palettes. Teal uses the :root defaults above; each other theme
    swaps the base values. The html.themed layer does the rest.
    --------------------------------------------------------------------------- */
 
-/* Vino — burgundy with coral */
-html.theme-vino {
-  --light-app-bg: #2c1119;
-  --light-nav-panel-bg: #37151f;
-  --light-overlay-bg: #36141e;
-  --light-action-bg: #37151f;
-  --light-sunk: #3e1823;
-  --light-action-hover: #401925;
-  --light-dashboard-bg: #481c29;
-  --light-overlay-surface-soft: #512130;
-  --light-nav-hover-bg: #512230;
-  --light-module-bg: #562332;
-  --light-surface: #542231;
-  --light-accent-soft: #5a2636;
-  --light-surface-soft: #6b2f41;
-  --light-about-avatar-from: #662c3d;
-  --light-about-avatar-to: #3f1924;
-  --light-border: #753b4d;
-  --light-border-strong: #8e5264;
-  --light-border-empty-active: #a87887;
-  --light-shade: #14070b;
-  --light-text: #f7ebee;
-  --light-text-soft: #e4c8d0;
-  --light-muted: #cca4b0;
-  --light-accent: #fb7185;
-  --light-accent-hover: #fda4af;
-  --light-accent-blue: #f472b6;
-}
 
 /* Café — charcoal brown with amber */
 html.theme-cafe {
@@ -389,6 +361,66 @@ html.theme-cafe {
   --light-accent-blue: #fb923c;
 }
 
+
+/* Grafito — neutral graphite with lime */
+html.theme-grafito {
+  --light-app-bg: #1c1e21;
+  --light-nav-panel-bg: #232529;
+  --light-overlay-bg: #222428;
+  --light-action-bg: #232529;
+  --light-sunk: #282a2e;
+  --light-action-hover: #292b30;
+  --light-dashboard-bg: #2e3136;
+  --light-overlay-surface-soft: #35383d;
+  --light-nav-hover-bg: #36383d;
+  --light-module-bg: #383b41;
+  --light-surface: #373a3f;
+  --light-accent-soft: #3c3f44;
+  --light-surface-soft: #484b52;
+  --light-about-avatar-from: #44474e;
+  --light-about-avatar-to: #292b2f;
+  --light-border: #53565d;
+  --light-border-strong: #6b6e75;
+  --light-border-empty-active: #8c8f94;
+  --light-shade: #0c0d0f;
+  --light-text: #eceef1;
+  --light-text-soft: #cfd3d9;
+  --light-muted: #a4a9b1;
+  --light-accent: #a3e635;
+  --light-accent-hover: #bef264;
+  --light-accent-blue: #84cc16;
+}
+
+
+/* Terminal — near-black with phosphor green */
+html.theme-terminal {
+  --light-app-bg: #0b150f;
+  --light-nav-panel-bg: #0e1913;
+  --light-overlay-bg: #0e1912;
+  --light-action-bg: #0e1a13;
+  --light-sunk: #101d15;
+  --light-action-hover: #111e16;
+  --light-dashboard-bg: #132119;
+  --light-overlay-surface-soft: #16261c;
+  --light-nav-hover-bg: #16261d;
+  --light-module-bg: #17281e;
+  --light-surface: #16271d;
+  --light-accent-soft: #192a20;
+  --light-surface-soft: #1e3226;
+  --light-about-avatar-from: #1c3024;
+  --light-about-avatar-to: #101d16;
+  --light-border: #2c4637;
+  --light-border-strong: #4a6957;
+  --light-border-empty-active: #638371;
+  --light-shade: #050907;
+  --light-text: #c8f5d6;
+  --light-text-soft: #a6dcb8;
+  --light-muted: #7fb893;
+  --light-accent: #39ff88;
+  --light-accent-hover: #86ffb5;
+  --light-accent-blue: #22c55e;
+}
+
 /* Índigo — deep violet with lavender */
 html.theme-indigo {
   --light-app-bg: #15112c;
@@ -416,4 +448,62 @@ html.theme-indigo {
   --light-accent: #a78bfa;
   --light-accent-hover: #c4b5fd;
   --light-accent-blue: #818cf8;
+}
+
+/* Vino — burgundy with coral */
+html.theme-vino {
+  --light-app-bg: #2c1119;
+  --light-nav-panel-bg: #37151f;
+  --light-overlay-bg: #36141e;
+  --light-action-bg: #37151f;
+  --light-sunk: #3e1823;
+  --light-action-hover: #401925;
+  --light-dashboard-bg: #481c29;
+  --light-overlay-surface-soft: #512130;
+  --light-nav-hover-bg: #512230;
+  --light-module-bg: #562332;
+  --light-surface: #542231;
+  --light-accent-soft: #5a2636;
+  --light-surface-soft: #6b2f41;
+  --light-about-avatar-from: #662c3d;
+  --light-about-avatar-to: #3f1924;
+  --light-border: #753b4d;
+  --light-border-strong: #8e5264;
+  --light-border-empty-active: #a87887;
+  --light-shade: #14070b;
+  --light-text: #f7ebee;
+  --light-text-soft: #e4c8d0;
+  --light-muted: #cca4b0;
+  --light-accent: #fb7185;
+  --light-accent-hover: #fda4af;
+  --light-accent-blue: #f472b6;
+}
+
+/* Bosque — deep forest with mint */
+html.theme-bosque {
+  --light-app-bg: #112c22;
+  --light-nav-panel-bg: #16362a;
+  --light-overlay-bg: #153529;
+  --light-action-bg: #16362a;
+  --light-sunk: #193d30;
+  --light-action-hover: #1a3f31;
+  --light-dashboard-bg: #1e4637;
+  --light-overlay-surface-soft: #234f3f;
+  --light-nav-hover-bg: #244f3f;
+  --light-module-bg: #255443;
+  --light-surface: #245241;
+  --light-accent-soft: #285846;
+  --light-surface-soft: #316955;
+  --light-about-avatar-from: #2e6450;
+  --light-about-avatar-to: #1a3e31;
+  --light-border: #3d735f;
+  --light-border-strong: #548c78;
+  --light-border-empty-active: #7aa696;
+  --light-shade: #07140f;
+  --light-text: #e8f5ef;
+  --light-text-soft: #c3e3d4;
+  --light-muted: #98c7b1;
+  --light-accent: #34d399;
+  --light-accent-hover: #6ee7b7;
+  --light-accent-blue: #10b981;
 }
