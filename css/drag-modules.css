@@ -27,6 +27,10 @@
   --module-active-border: var(--accent-line);
   --module-active-text: var(--theme-text);
   --module-active-glow: 0 0 0 transparent;
+  /* Solid ledge under a lifted module: this is what reads as 3D. */
+  --module-edge: color-mix(in srgb, var(--theme-border-strong) 65%, var(--theme-app-bg));
+  --module-active-edge: var(--module-edge);
+  --module-lift: -4px;
 }
 
 /* Themed: idle modules recede into the rail, the active one lights up. */
@@ -117,10 +121,10 @@ html.themed {
 }
 
 .nav-module:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--module-lift));
   border-color: var(--accent-line);
   color: var(--theme-text);
-  box-shadow: var(--elev-2);
+  box-shadow: 0 4px 0 var(--module-edge), var(--elev-2);
 }
 
 .nav-module:hover .nav-module__grip {
@@ -135,10 +139,16 @@ html.themed {
 
 /* Active: the module whose page is currently loaded in the canvas. */
 .nav-module.is-active {
+  transform: translateY(var(--module-lift));
   background: var(--module-active-bg);
   border-color: var(--module-active-border);
   color: var(--module-active-text);
-  box-shadow: var(--elev-2), var(--module-active-glow);
+  box-shadow: 0 4px 0 var(--module-active-edge), var(--elev-2), var(--module-active-glow);
+}
+
+.nav-module.is-active:hover {
+  transform: translateY(calc(var(--module-lift) - 1px));
+  box-shadow: 0 5px 0 var(--module-active-edge), var(--elev-3), var(--module-active-glow);
 }
 
 .nav-module.is-active::before {
@@ -152,9 +162,12 @@ html.themed {
 
 /* Lifted copy that follows the pointer. */
 .nav-module.is-dragging {
-  transform: scale(1.06);
+  transform: translateY(var(--module-lift)) scale(1.06);
   border-color: var(--theme-accent-bright);
-  box-shadow: var(--elev-3), 0 0 0 1px var(--accent-line);
+  box-shadow:
+    0 6px 0 var(--module-edge),
+    var(--elev-3),
+    0 0 0 1px var(--accent-line);
   cursor: grabbing;
 }
 
@@ -204,7 +217,10 @@ html.themed {
     transition-duration: 1ms;
   }
 
-  .nav-module:hover {
+  .nav-module:hover,
+  .nav-module.is-active,
+  .nav-module.is-active:hover,
+  .nav-module.is-dragging {
     transform: none;
   }
 }
