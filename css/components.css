@@ -1,6 +1,6 @@
 .theme-nav-bar {
   background: var(--theme-nav-bg);
-  border-color: var(--theme-mobile-drawer-panel-border);
+  border-color: var(--theme-chrome-border);
 }
 
 .theme-surface {
@@ -110,13 +110,17 @@
   border-color: var(--theme-input-focus-border);
 }
 
+.theme-accent-icon {
+  color: var(--theme-accent-bright);
+}
+
 .theme-submit-button {
   background: var(--theme-accent);
   color: var(--theme-text-inverse);
 }
 
 .theme-submit-button:hover {
-  background: #008f96;
+  background: color-mix(in srgb, var(--theme-accent) 82%, #000000);
 }
 
 /* --- Theme menu ------------------------------------------------------------ */
@@ -165,4 +169,11 @@
   display: flex;
   align-items: center;
   gap: 11px;
+}
+
+.theme-menu__swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--theme-border-strong);
 }

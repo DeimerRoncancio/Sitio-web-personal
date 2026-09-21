@@ -173,6 +173,11 @@
     box-shadow var(--dur-base) var(--ease-out);
 }
 
+/* Themed: tags and action sink below the card. */
+html.themed .project-card {
+  --theme-surface-soft: var(--light-sunk);
+}
+
 .project-card::before {
   content: "";
   position: absolute;
@@ -354,8 +359,8 @@
   backdrop-filter: blur(4px);
 }
 
-html.light .modal-backdrop {
-  background: rgba(14, 40, 64, 0.38);
+html.themed .modal-backdrop {
+  background: color-mix(in srgb, var(--light-shade) 66%, transparent);
 }
 
 .modal-shell {

@@ -39,7 +39,7 @@ export default function Contact() {
 
             <a href="mailto:deimerroncancio@gmail.com" target="_blank" rel="noreferrer" className="theme-contact-link theme-muted flex items-center gap-4 transition-colors">
               <div className="theme-contact-icon p-3 border rounded-xl">
-                <FaEnvelope size={20} className="text-[#61dafb]" />
+                <FaEnvelope size={20} className="theme-accent-icon" />
               </div>
               <span className="theme-contact-link-text transition-colors">deimerroncancio@gmail.com</span>
             </a>

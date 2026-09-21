@@ -48,7 +48,7 @@ export default function NavBar({ items, currentView, changeView }) {
         </div>
 
         <div className="flex items-center gap-2.5 min-w-0">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+          <span className="nav-pulse w-1.5 h-1.5 rounded-full animate-pulse shrink-0" />
           <div className="flex flex-col leading-tight min-w-0">
             <span className="nav-crumb hidden xs:block">Dashboard</span>
             <span className="nav-current truncate max-w-[130px] xs:max-w-none">

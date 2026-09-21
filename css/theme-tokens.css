@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------------------
    Design primitives — shape, elevation and motion.
-   Theme-independent; colour lives in the :root / html.light token blocks below.
+   Theme-independent; colour lives in the :root / html.themed token blocks below.
    --------------------------------------------------------------------------- */
 :root {
   --radius-sm: 10px;
@@ -26,15 +26,17 @@
   --dur-base: 220ms;
 }
 
-html.light {
-  --elev-1: 0 1px 2px rgba(12, 84, 135, 0.10);
-  --elev-2: 0 6px 18px rgba(12, 84, 135, 0.13);
-  --elev-3: 0 18px 42px rgba(12, 84, 135, 0.17);
+html.themed {
+  /* Derived from each theme's palette: shade for depth, accent for glow,
+     text for the blueprint lines. */
+  --elev-1: 0 1px 2px color-mix(in srgb, var(--light-shade) 30%, transparent);
+  --elev-2: 0 6px 18px color-mix(in srgb, var(--light-shade) 36%, transparent);
+  --elev-3: 0 18px 42px color-mix(in srgb, var(--light-shade) 46%, transparent);
 
-  --accent-glow: rgba(0, 127, 158, 0.12);
-  --accent-line: rgba(0, 127, 158, 0.30);
-  --grid-line: rgba(12, 84, 135, 0.055);
-  --drop-dash: rgba(12, 84, 135, 0.26);
+  --accent-glow: color-mix(in srgb, var(--light-accent) 16%, transparent);
+  --accent-line: color-mix(in srgb, var(--light-accent) 34%, transparent);
+  --grid-line: color-mix(in srgb, var(--light-text-soft) 5%, transparent);
+  --drop-dash: color-mix(in srgb, var(--light-text-soft) 22%, transparent);
 }
 
 :root {
@@ -52,6 +54,19 @@ html.light {
   --theme-overlay-surface: #1e2739;
   --theme-overlay-surface-soft: #232d42;
   --drop-zone-fill: #1a2334;
+
+  /* Cromo = barra superior, riel de navegacion y cabecera de pagina.
+     En oscuro apuntan a los valores normales: la indireccion solo existe
+     para que el tema claro pueda invertir el texto sobre cromo oscuro. */
+  --theme-chrome-text: var(--theme-text);
+  --theme-chrome-text-soft: var(--theme-text-soft);
+  --theme-chrome-muted: var(--theme-text-muted);
+  --theme-chrome-border: var(--theme-border);
+  --theme-chrome-fill: color-mix(in srgb, var(--theme-surface) 55%, transparent);
+  --theme-chrome-hover: var(--theme-nav-hover-bg);
+  --theme-chrome-accent: var(--theme-accent-bright);
+  --theme-chrome-icon-bg: var(--theme-drop-icon-bg);
+  --theme-chrome-icon-text: var(--theme-drop-icon-text);
   --theme-surface-soft: #2d3a53;
   --theme-surface-action: #171e2c;
   --theme-surface-action-hover: #1b2435;
@@ -94,8 +109,8 @@ html.light {
   --theme-empty-active: #dfe1e6;
   --theme-empty-title: #eeeeee;
   --theme-empty-muted: #8f8f8f;
-  --theme-empty-icon-from: #00a1cd59;
-  --theme-empty-icon-to: #0080a038;
+  --theme-empty-icon-from: color-mix(in srgb, var(--light-accent) 35%, transparent);
+  --theme-empty-icon-to: color-mix(in srgb, var(--light-accent) 20%, transparent);
   --theme-surface-muted: #28334a;
   --theme-mobile-nav-shadow: rgba(4, 10, 20, 0.18);
   --theme-mobile-nav-icon-hover-bg: rgba(255, 255, 255, 0.07);
@@ -126,161 +141,116 @@ html.light {
   --theme-mobile-drawer-link-icon-text: #8eeaff;
   --theme-mobile-drawer-link-small-text: #8f9aad;
   --theme-mobile-drawer-title-text: #edf6ff;
+  --theme-mobile-drawer-eyebrow: var(--theme-accent-soft);
   --theme-mobile-drawer-action-text: #e7eef8;
-  --light-app-bg: #c6def4;
-  --light-dashboard-bg: #d6eafa;
-  /* Light theme: welcome */
-  --light-welcome-radial-primary: rgba(174, 234, 246, 0.75);
-  --light-welcome-radial-primary-transparent: rgba(174, 234, 246, 0);
-  --light-welcome-radial-secondary: rgba(125, 211, 252, 0.35);
-  --light-welcome-radial-secondary-transparent: rgba(125, 211, 252, 0);
-  --light-welcome-gradient-from: #d7ecfb;
-  --light-welcome-gradient-via: #c8e0f5;
-  --light-welcome-gradient-to: #b8d4ec;
-  --light-welcome-button-hover-bg: rgba(237, 248, 255, 0.82);
-  --light-welcome-button-hover-border: #9cc8df;
-  --light-welcome-button-hover-text: #24435b;
-  --light-social-rail-from: rgba(0, 122, 156, 0.72);
-  --light-social-rail-to: rgba(0, 122, 156, 0);
-  --light-social-shadow: rgba(0, 122, 156, 0.28);
+  /* ---- Themed palette: base values (Teal by default) --------------------
+     Every html.theme-<name> block redefines only this group; everything
+     below it is derived. */
+  --light-app-bg: #082b35;
+  --light-nav-panel-bg: #0b3541;
+  --light-overlay-bg: #0a3440;
+  --light-action-bg: #0a3642;
+  --light-sunk: #0c3d4a;
+  --light-action-hover: #0d3f4c;
+  --light-dashboard-bg: #0f4655;
+  --light-overlay-surface-soft: #134f5f;
+  --light-nav-hover-bg: #14505f;
+  --light-module-bg: #145565;
+  --light-surface: #135263;
+  --light-accent-soft: #16566a;
+  --light-surface-soft: #1c6a7e;
+  --light-about-avatar-from: #1a6478;
+  --light-about-avatar-to: #0d3e4b;
+  --light-border: #2a7186;
+  --light-border-strong: #3f8ba1;
+  --light-border-empty-active: #6aa5b6;
+  --light-shade: #031218;
+  --light-text: #eaf6f9;
+  --light-text-soft: #c2e0e8;
+  --light-muted: #93c3cf;
+  --light-accent: #3ddcf5;
+  --light-accent-hover: #7ae9fb;
+  --light-accent-blue: #5aa9e6;
 
-  /* Light theme: navigation */
-  --light-nav-panel-bg: #c2dff2;
-  --light-nav-panel-border: #83b4d8;
-  --light-nav-hover-bg: #d1eafb;
-  --light-nav-hover-text: #10243a;
-  --light-mobile-nav-shadow: rgba(40, 104, 150, 0.12);
-  --light-mobile-nav-icon-hover-bg: rgba(255, 255, 255, 0.36);
-  --light-mobile-nav-title-border: rgba(95, 146, 185, 0.35);
+  /* ---- Themed palette: derived ------------------------------------------ */
+  --light-sidebar-bg: var(--light-nav-panel-bg);
+  --light-nav-panel-border: var(--light-border);
+  --light-accent-cyan: var(--light-accent);
+  --light-border-focus: var(--light-accent);
+  --light-border-link: var(--light-border);
+  --light-border-link-hover: var(--light-border-strong);
+  --light-border-div: var(--light-border);
+  --light-surface-link: var(--light-surface);
+  --light-surface-link-hover: var(--light-surface-soft);
+  --light-surface-div: var(--light-surface-soft);
+  --light-input-bg: var(--light-sunk);
+  --light-input-focus-bg: var(--light-sunk);
+  --light-text-link: var(--light-text);
+  --light-text-link-hover: #ffffff;
+  --light-text-contact-hover: #ffffff;
+  --light-white: #ffffff;
+  --light-white-stronger: rgba(255, 255, 255, 0.58);
 
-  /* Light theme: mobile drawer */
-  --light-mobile-drawer-bg: #e7f5fc;
-  --light-mobile-drawer-backdrop: rgba(14, 40, 64, 0.32);
-  --light-mobile-drawer-shadow: rgba(40, 104, 150, 0.18);
-  --light-mobile-drawer-border-soft: rgba(95, 146, 185, 0.34);
-  --light-mobile-drawer-action-bg: #d8edf9;
-  --light-mobile-drawer-action-dashboard-bg: #e7f5fc;
-  --light-mobile-drawer-action-dashboard-hover-text: #10243a;
-  --light-mobile-drawer-link-hover-bg: #d8edf9;
-  --light-mobile-drawer-link-active-bg: #d1eafb;
-  --light-mobile-drawer-link-icon-bg: #c2dff2;
-  --light-mobile-drawer-link-icon-active-bg: #b7d7ed;
-  --light-mobile-drawer-link-icon-active-text: #005f78;
-  --light-mobile-drawer-actions-bg: #c8e0f2;
-  --light-mobile-drawer-actions-border: #9ac3e1;
+  --light-mobile-nav-shadow: color-mix(in srgb, var(--light-shade) 30%, transparent);
+  --light-mobile-nav-icon-hover-bg: color-mix(in srgb, var(--light-text) 9%, transparent);
+  --light-mobile-nav-title-border: color-mix(in srgb, var(--light-text) 12%, transparent);
+  --light-mobile-drawer-bg: var(--light-dashboard-bg);
+  --light-mobile-drawer-backdrop: color-mix(in srgb, var(--light-shade) 60%, transparent);
+  --light-mobile-drawer-shadow: color-mix(in srgb, var(--light-shade) 50%, transparent);
+  --light-mobile-drawer-border-soft: color-mix(in srgb, var(--light-text) 12%, transparent);
+  --light-mobile-drawer-action-bg: var(--light-surface);
+  --light-mobile-drawer-action-dashboard-bg: var(--light-nav-hover-bg);
+  --light-mobile-drawer-action-dashboard-hover-text: var(--light-text);
+  --light-mobile-drawer-link-hover-bg: var(--light-surface);
+  --light-mobile-drawer-link-active-bg: var(--light-accent-soft);
+  --light-mobile-drawer-link-icon-bg: var(--light-nav-hover-bg);
+  --light-mobile-drawer-link-icon-active-bg: var(--light-accent-soft);
+  --light-mobile-drawer-link-icon-active-text: var(--light-accent-hover);
+  --light-mobile-drawer-actions-bg: var(--light-surface);
+  --light-mobile-drawer-actions-border: var(--light-border);
 
-  /* Light theme: surfaces and borders */
-  --light-surface: #edf8ff;
-  --light-surface-soft: #d1eafb;
-  --light-surface-link: #b9def5;
-  --light-surface-link-hover: #a7d4ef;
-  --light-surface-div: #c4e3f6;
-  --light-about-avatar-from: #d8effb;
-  --light-about-avatar-to: #aacfe8;
-  --light-hover: #bce2f8;
-  --light-border: #8fbde0;
-  --light-border-strong: #5c94c4;
-  --light-border-link: #4c9ccc;
-  --light-border-link-hover: #247fae;
-  --light-border-div: #62a9d4;
-  --light-border-focus: #00c8ff;
-  --light-border-empty-active: #4f9fc0;
-  --light-border-timeline: #75b7d5;
-
-  /* Light theme: text */
-  --light-text: #142033;
-  --light-text-soft: #314155;
-  --light-muted: #64748b;
-  --light-text-link: #08253f;
-  --light-text-link-hover: #061d33;
-  --light-text-contact-hover: #243447;
-
-  /* Light theme: accents */
-  --light-accent: #007f9e;
-  --light-accent-hover: #007a9c;
-  --light-accent-soft: #aeeaf6;
-  --light-accent-blue: #3f86d5;
-  --light-accent-blue-shadow: rgba(63, 134, 213, 0.34);
-  --light-accent-blue-glow: rgba(63, 134, 213, 0.22);
-  --light-accent-cyan: #00a2ce;
-  --light-accent-cyan-active: #00a1ce;
-  --light-accent-cyan-shadow: rgba(0, 127, 158, 0.28);
-  --light-accent-success-bg: #c8f5e1;
-  --light-accent-success-border: #5ec99a;
-  --light-accent-success-text: #08764d;
+  --light-accent-success-bg: #0b3a2c;
+  --light-accent-success-border: #1a6a4f;
+  --light-accent-success-text: #5ee9b5;
   --light-accent-success-shadow: rgba(16, 185, 129, 0.24);
 
-  /* Light theme: components */
-  --light-sidebar-bg: #b7d7ed;
-  --light-menu-bg: #e7f5fc;
-  --light-menu-border: #9ac3e1;
-  --light-menu-shadow: rgba(40, 104, 150, 0.18);
-  --light-menu-hover-bg: #d8edf9;
-  --light-menu-active-bg: #c8e0f2;
-  --light-menu-active-text: #005f78;
-  --light-input-bg: #f0f7fc;
-  --light-input-focus-bg: #f7fcff;
-  --light-modal-link-hover-bg: #a7cbe5;
-  --light-white: #ffffff;
-  --light-white-soft: rgba(255, 255, 255, 0.42);
-  --light-white-medium: rgba(255, 255, 255, 0.5);
-  --light-white-strong: rgba(255, 255, 255, 0.55);
-  --light-white-stronger: rgba(255, 255, 255, 0.58);
-  --light-white-active: rgba(255, 255, 255, 0.65);
-  --light-white-active-hover: rgba(255, 255, 255, 0.7);
-  --light-white-project-action: rgba(255, 255, 255, 0.74);
-  --light-white-transparent: rgba(255, 255, 255, 0);
-
-  /* Light theme: draggable */
-  --light-draggable-from: #d7ebfa;
-  --light-draggable-to: #a8cbe8;
-  --light-draggable-border: #6f8eaa;
-  --light-draggable-border-hover: #375b7b;
-  --light-draggable-shadow: rgba(12, 84, 135, 0.16);
-  --light-draggable-shadow-hover: rgba(12, 84, 135, 0.2);
-  --light-draggable-active-from: #c9f2fb;
-  --light-draggable-active-to: #74d4e4;
-  --light-draggable-active-from-hover: #bff0fb;
-  --light-draggable-active-to-hover: #5fcfe1;
-  --light-draggable-active-border: #0087a8;
-  --light-draggable-active-border-hover: #006f8d;
-  --light-draggable-active-inner-shadow: rgba(0, 135, 168, 0.12);
-  --light-draggable-active-inner-shadow-hover: rgba(0, 111, 141, 0.16);
-  --light-draggable-active-shadow: rgba(8, 76, 116, 0.2);
-  --light-draggable-active-shadow-hover: rgba(8, 76, 116, 0.24);
-  --light-timeline-from: #d7effb;
-  --light-timeline-to: #b9e4f5;
-
-  /* Light theme: shadows */
-  --light-shadow: 0 18px 42px rgba(12, 84, 135, 0.17);
-  --light-drop-header-shadow: rgba(40, 75, 115, 0.08);
-  --light-about-avatar-shadow: rgba(40, 104, 150, 0.16);
-  --light-timeline-shadow: rgba(12, 84, 135, 0.16);
-  --light-project-shadow: rgba(30, 111, 172, 0.14);
+  --light-shadow: 0 18px 42px color-mix(in srgb, var(--light-shade) 42%, transparent);
+  --light-about-avatar-shadow: color-mix(in srgb, var(--light-shade) 36%, transparent);
 }
 
-html.light {
+html.themed {
   --theme-app-bg: var(--light-app-bg);
   --theme-dashboard-bg: var(--light-dashboard-bg);
   --theme-nav-bg: var(--light-nav-panel-bg);
   --theme-nav-hover-bg: var(--light-nav-hover-bg);
-  --theme-nav-link-hover-text: #14a3ca;
+  --theme-nav-link-hover-text: var(--light-accent);
   --theme-sidebar-bg: var(--light-sidebar-bg);
-  --theme-drop-header-bg: var(--light-surface);
+  --theme-drop-header-bg: var(--light-nav-panel-bg);
   --theme-drop-icon-bg: var(--light-accent-soft);
   --theme-drop-icon-text: var(--light-accent);
   --theme-surface: var(--light-surface);
-  --theme-overlay-bg: var(--light-surface);
-  --theme-overlay-surface: var(--light-surface);
-  --theme-overlay-surface-soft: var(--light-surface-soft);
-  --drop-zone-fill: #cae1f4;
+  --theme-overlay-bg: var(--light-overlay-bg);
+  --theme-overlay-surface: var(--light-dashboard-bg);
+  --theme-overlay-surface-soft: var(--light-overlay-surface-soft);
+  --drop-zone-fill: var(--light-sunk);
+
+  /* Themed chrome is dark with light text, so the indirection is a no-op. */
+  --theme-chrome-text: var(--light-text);
+  --theme-chrome-text-soft: var(--light-text-soft);
+  --theme-chrome-muted: var(--light-muted);
+  --theme-chrome-border: var(--light-nav-panel-border);
+  --theme-chrome-fill: color-mix(in srgb, var(--light-text) 7%, transparent);
+  --theme-chrome-hover: var(--light-nav-hover-bg);
+  --theme-chrome-accent: var(--light-accent);
+  --theme-chrome-icon-bg: var(--light-accent-soft);
+  --theme-chrome-icon-text: var(--light-accent);
   --theme-surface-soft: var(--light-surface-soft);
-  --theme-surface-action: var(--light-surface-link);
-  --theme-surface-action-hover: var(--light-surface-link-hover);
+  --theme-surface-action: var(--light-action-bg);
+  --theme-surface-action-hover: var(--light-action-hover);
   --theme-surface-action-border: var(--light-border-link);
   --theme-surface-action-hover-border: var(--light-border-link-hover);
-  --theme-surface-accent-action: var(--light-surface-link);
-  --theme-surface-accent-action-hover: var(--light-surface-link-hover);
+  --theme-surface-accent-action: var(--light-action-bg);
+  --theme-surface-accent-action-hover: var(--light-action-hover);
   --theme-surface-accent-action-border: var(--light-border-link);
   --theme-surface-accent-action-hover-border: var(--light-border-link-hover);
   --theme-surface-accent-action-text: var(--light-text-link);
@@ -297,12 +267,12 @@ html.light {
   --theme-input-bg: var(--light-input-bg);
   --theme-input-focus-bg: var(--light-input-focus-bg);
   --theme-input-focus-border: var(--light-border-focus);
-  --theme-contact-panel-bg: var(--light-surface-div);
+  --theme-contact-panel-bg: var(--light-surface);
   --theme-contact-panel-border: var(--light-border-div);
   --theme-contact-panel-border-left: var(--light-border-div);
-  --theme-contact-icon-bg: var(--light-surface-div);
+  --theme-contact-icon-bg: var(--light-sunk);
   --theme-contact-icon-border: var(--light-border-div);
-  --theme-contact-form-bg: var(--light-surface-soft);
+  --theme-contact-form-bg: var(--light-surface);
   --theme-contact-form-border: var(--light-border);
   --theme-status-bg: var(--light-accent-success-bg);
   --theme-status-border: var(--light-accent-success-border);
@@ -347,10 +317,103 @@ html.light {
   --theme-mobile-drawer-link-icon-text: var(--light-accent);
   --theme-mobile-drawer-link-small-text: var(--light-muted);
   --theme-mobile-drawer-title-text: var(--light-text);
+  --theme-mobile-drawer-eyebrow: var(--light-accent);
   --theme-mobile-drawer-action-text: var(--light-text);
 }
 
-html.light body {
+html.themed body {
   background-color: var(--light-app-bg);
   color: var(--light-text);
+}
+
+/* ---------------------------------------------------------------------------
+   Themed palettes. Teal uses the :root defaults above; each other theme only
+   swaps the base values. The html.themed layer does the rest.
+   --------------------------------------------------------------------------- */
+
+/* Vino — burgundy with coral */
+html.theme-vino {
+  --light-app-bg: #2c1119;
+  --light-nav-panel-bg: #37151f;
+  --light-overlay-bg: #36141e;
+  --light-action-bg: #37151f;
+  --light-sunk: #3e1823;
+  --light-action-hover: #401925;
+  --light-dashboard-bg: #481c29;
+  --light-overlay-surface-soft: #512130;
+  --light-nav-hover-bg: #512230;
+  --light-module-bg: #562332;
+  --light-surface: #542231;
+  --light-accent-soft: #5a2636;
+  --light-surface-soft: #6b2f41;
+  --light-about-avatar-from: #662c3d;
+  --light-about-avatar-to: #3f1924;
+  --light-border: #753b4d;
+  --light-border-strong: #8e5264;
+  --light-border-empty-active: #a87887;
+  --light-shade: #14070b;
+  --light-text: #f7ebee;
+  --light-text-soft: #e4c8d0;
+  --light-muted: #cca4b0;
+  --light-accent: #fb7185;
+  --light-accent-hover: #fda4af;
+  --light-accent-blue: #f472b6;
+}
+
+/* Café — charcoal brown with amber */
+html.theme-cafe {
+  --light-app-bg: #291d14;
+  --light-nav-panel-bg: #332519;
+  --light-overlay-bg: #322418;
+  --light-action-bg: #332519;
+  --light-sunk: #3a2a1c;
+  --light-action-hover: #3c2b1d;
+  --light-dashboard-bg: #433021;
+  --light-overlay-surface-soft: #4b3727;
+  --light-nav-hover-bg: #4c3828;
+  --light-module-bg: #503b29;
+  --light-surface: #4e3928;
+  --light-accent-soft: #543e2c;
+  --light-surface-soft: #654b35;
+  --light-about-avatar-from: #604732;
+  --light-about-avatar-to: #3b2b1d;
+  --light-border: #6e5642;
+  --light-border-strong: #886e58;
+  --light-border-empty-active: #a28e7e;
+  --light-shade: #130d08;
+  --light-text: #f7f0eb;
+  --light-text-soft: #e4d5c8;
+  --light-muted: #ccb6a4;
+  --light-accent: #f5a524;
+  --light-accent-hover: #fcc566;
+  --light-accent-blue: #fb923c;
+}
+
+/* Índigo — deep violet with lavender */
+html.theme-indigo {
+  --light-app-bg: #15112c;
+  --light-nav-panel-bg: #1b1537;
+  --light-overlay-bg: #1a1436;
+  --light-action-bg: #1a1537;
+  --light-sunk: #1e183e;
+  --light-action-hover: #1f1940;
+  --light-dashboard-bg: #241c48;
+  --light-overlay-surface-soft: #292151;
+  --light-nav-hover-bg: #2a2251;
+  --light-module-bg: #2c2356;
+  --light-surface: #2a2254;
+  --light-accent-soft: #2f265a;
+  --light-surface-soft: #392f6b;
+  --light-about-avatar-from: #362c66;
+  --light-about-avatar-to: #1f193f;
+  --light-border: #453b75;
+  --light-border-strong: #5c528e;
+  --light-border-empty-active: #8078a8;
+  --light-shade: #090714;
+  --light-text: #edebf7;
+  --light-text-soft: #cdc8e4;
+  --light-muted: #aaa4cc;
+  --light-accent: #a78bfa;
+  --light-accent-hover: #c4b5fd;
+  --light-accent-blue: #818cf8;
 }

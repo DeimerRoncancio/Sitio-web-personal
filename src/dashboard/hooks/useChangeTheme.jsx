@@ -1,50 +1,44 @@
 import { useEffect, useRef, useState } from "react";
+import { DEFAULT_THEME, THEMES } from "../constants/themes";
+
+const THEME_CLASSES = THEMES.map(({ value }) => `theme-${value}`);
+
+// Values saved before themes existed.
+const LEGACY_THEMES = { dark: 'navy', light: 'teal' };
+
+function readStoredTheme() {
+  const stored = localStorage.getItem('theme');
+  const theme = LEGACY_THEMES[stored] ?? stored;
+  return THEMES.some(({ value }) => value === theme) ? theme : DEFAULT_THEME;
+}
+
+/**
+ * Navy is the base palette (:root) and keeps the `dark` class for Tailwind's
+ * dark: variants. Every other theme gets `themed`, which maps the --theme-*
+ * tokens onto its palette, plus its own `theme-<name>` class.
+ */
+function applyThemeClass(theme) {
+  const html = document.documentElement;
+  html.classList.remove('dark', 'themed', 'light', ...THEME_CLASSES);
+  html.classList.add(theme === 'navy' ? 'dark' : 'themed', `theme-${theme}`);
+}
 
 export default function useChangeTheme() {
   const [showToggleTheme, setShowToggleTheme] = useState(false);
   const menuRef = useRef(null);
+  const [theme, setTheme] = useState(readStoredTheme);
 
-  const [theme, setToggleTheme] = useState(() => {
-    const storageTheme = localStorage.getItem('theme');
-    if (storageTheme) return storageTheme;
-    return 'system';
-  });
-
-  const toggleShowTheme = () => setShowToggleTheme(prevValue => prevValue === true ? false : true);
+  const toggleShowTheme = () => setShowToggleTheme(prevValue => !prevValue);
 
   const toggleTheme = (newTheme) => {
-    setToggleTheme(newTheme)
-
-    if (newTheme === 'light')
-      localStorage.setItem('theme', 'light');
-    else if (newTheme ==='dark')
-      localStorage.setItem('theme', 'dark');
-    else
-      localStorage.removeItem('theme');
-
-    toggleShowTheme(false);
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    setShowToggleTheme(false);
   };
 
-  const changeClassTheme = (theme) => {
-    if (theme === 'dark') {
-      document.querySelector('html').classList.add('dark');
-      document.querySelector('html').classList.remove('light');
-    } else {
-      document.querySelector('html').classList.add('light');
-      document.querySelector('html').classList.remove('dark');
-    }
-  }
-
   useEffect(() => {
-    if (theme === 'dark') changeClassTheme('dark');
-    else if (theme === 'light') changeClassTheme('light');
-    else
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches)
-        changeClassTheme('dark');
-      else
-        changeClassTheme('light');
-
-  }, [theme])
+    applyThemeClass(theme);
+  }, [theme]);
 
   useEffect(() => {
     const closeLinks = (evt) => {

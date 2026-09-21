@@ -6,12 +6,7 @@ export default function Droppable({ children, parent, items }) {
   const item = items.find((item) => item.path === window.location.pathname);
 
   return (
-    <div ref={ref} className={`theme-text w-full h-full after:shadow-cyan-800/50 after:inset-0
-      after:absolute after:transition-all ease-in after:duration-200 after:z-40
-      ${isDropTarget
-        ? "after:shadow-[inset_0px_0px_75px_20px] after:opacity-100 after:visible"
-        : "after:opacity-0 after:invisible after:duration-75"}`
-    }>
+    <div ref={ref} className={`theme-text droppable-glow w-full h-full ${isDropTarget ? 'is-target' : ''}`}>
       {parent === "droppable"
         ? (<div className="relative h-full w-full">
           <div className="dashboard-native-scroll h-full w-full overflow-y-auto">

@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
    Drag-and-drop workspace — navigation rail, draggable modules and drop zone.
    This is the signature interaction of the site, so it carries the strongest
-   accent treatment. Fully token-driven: light mode needs no overrides.
+   accent treatment. Fully token-driven: themes need no overrides.
    --------------------------------------------------------------------------- */
 
 /* --- Navigation rail ------------------------------------------------------- */
@@ -12,10 +12,34 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--theme-text-muted);
+  color: var(--theme-chrome-muted);
 }
 
 /* --- Draggable module ------------------------------------------------------ */
+
+/* Module states as tokens so each theme can tune the active/idle contrast. */
+:root {
+  --module-bg: var(--theme-surface);
+  --module-border: var(--theme-border);
+  --module-text: var(--theme-text-soft);
+  --module-shadow: var(--elev-1);
+  --module-active-bg: color-mix(in srgb, var(--theme-accent-bright) 12%, var(--theme-surface));
+  --module-active-border: var(--accent-line);
+  --module-active-text: var(--theme-text);
+  --module-active-glow: 0 0 0 transparent;
+}
+
+/* Themed: idle modules recede into the rail, the active one lights up. */
+html.themed {
+  --module-bg: var(--light-module-bg);
+  --module-border: var(--light-border);
+  --module-text: var(--light-text-soft);
+  --module-shadow: var(--elev-1);
+  --module-active-bg: color-mix(in srgb, var(--theme-accent-bright) 17%, var(--light-surface));
+  --module-active-border: color-mix(in srgb, var(--light-accent) 60%, transparent);
+  --module-active-text: #ffffff;
+  --module-active-glow: 0 0 16px color-mix(in srgb, var(--light-accent) 16%, transparent);
+}
 
 .nav-module {
   position: relative;
@@ -29,10 +53,10 @@
   padding: 6px 4px;
   font-size: 18px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--theme-border);
-  background: var(--theme-surface);
-  color: var(--theme-text-soft);
-  box-shadow: var(--elev-1);
+  border: 1px solid var(--module-border);
+  background: var(--module-bg);
+  color: var(--module-text);
+  box-shadow: var(--module-shadow);
   cursor: grab;
   overflow: hidden;
   transition:
@@ -111,10 +135,10 @@
 
 /* Active: the module whose page is currently loaded in the canvas. */
 .nav-module.is-active {
-  background: color-mix(in srgb, var(--theme-accent-bright) 12%, var(--theme-surface));
-  border-color: var(--accent-line);
-  color: var(--theme-text);
-  box-shadow: var(--elev-2);
+  background: var(--module-active-bg);
+  border-color: var(--module-active-border);
+  color: var(--module-active-text);
+  box-shadow: var(--elev-2), var(--module-active-glow);
 }
 
 .nav-module.is-active::before {
@@ -186,6 +210,25 @@
 }
 
 /* --- Drop zone ------------------------------------------------------------- */
+
+/* Inner glow over the whole canvas while a module hovers it. */
+.droppable-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  box-shadow: inset 0 0 75px 20px color-mix(in srgb, var(--theme-accent-bright) 26%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 75ms ease-in, visibility 75ms ease-in;
+}
+
+.droppable-glow.is-target::after {
+  opacity: 1;
+  visibility: visible;
+  transition-duration: 200ms;
+}
 
 .drop-zone {
   width: 100%;

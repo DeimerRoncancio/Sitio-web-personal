@@ -50,7 +50,7 @@
   }
 
   .mobile-drawer-header .theme-muted {
-    color: var(--theme-accent-soft);
+    color: var(--theme-mobile-drawer-eyebrow);
   }
 
   .mobile-drawer-header .theme-text {

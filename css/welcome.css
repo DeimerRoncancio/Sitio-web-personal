@@ -12,10 +12,10 @@
   --welcome-vignette: rgba(13, 18, 28, 0.5);
 }
 
-html.light {
-  --welcome-base: #dcecfa;
-  --welcome-glow: rgba(125, 211, 252, 0.5);
-  --welcome-vignette: rgba(255, 255, 255, 0.4);
+html.themed {
+  --welcome-base: var(--light-dashboard-bg);
+  --welcome-glow: color-mix(in srgb, var(--light-accent) 16%, transparent);
+  --welcome-vignette: color-mix(in srgb, var(--light-shade) 45%, transparent);
 }
 
 .welcome {
@@ -190,12 +190,6 @@ html.light {
   height: 84px;
   margin: 14px auto 0;
   background: linear-gradient(to bottom, var(--accent-line), transparent);
-}
-
-/* Logos are authored light; invert them for the light theme. */
-html.light .theme-brand-logo {
-  filter: brightness(0) saturate(100%) invert(18%) sepia(20%) saturate(1161%)
-    hue-rotate(177deg) brightness(92%) contrast(88%);
 }
 
 @media (min-width: 768px) {

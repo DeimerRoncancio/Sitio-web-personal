@@ -16,7 +16,7 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       /* Theme tokens exposed to Tailwind so components stop hardcoding hex values.
-         Every one of these flips automatically under `html.light`. */
+         Every one of these flips automatically under `html.themed`. */
       colors: {
         surface: 'var(--theme-surface)',
         'surface-soft': 'var(--theme-surface-soft)',

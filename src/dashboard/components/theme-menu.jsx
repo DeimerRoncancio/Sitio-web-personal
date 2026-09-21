@@ -1,16 +1,11 @@
-import { FiCheck, FiMonitor, FiMoon, FiSun } from "react-icons/fi";
-
-const options = [
-  { value: 'dark', label: 'Oscuro', icon: <FiMoon size={15} /> },
-  { value: 'light', label: 'Claro', icon: <FiSun size={15} /> },
-  { value: 'system', label: 'Sistema', icon: <FiMonitor size={15} /> },
-];
+import { FiCheck } from "react-icons/fi";
+import { THEMES } from "../constants/themes";
 
 /** Shared by the navbar toggle and the welcome page so both stay identical. */
 export default function ThemeMenu({ theme, onSelect, className = '' }) {
   return (
     <div className={`theme-menu ${className}`} role="menu">
-      {options.map(({ value, label, icon }) => (
+      {THEMES.map(({ value, label, canvas, accent }) => (
         <button
           key={value}
           type="button"
@@ -20,7 +15,11 @@ export default function ThemeMenu({ theme, onSelect, className = '' }) {
           onClick={() => onSelect(value)}
         >
           <span className="theme-menu__label">
-            {icon}
+            <span
+              className="theme-menu__swatch"
+              style={{ background: `linear-gradient(135deg, ${canvas} 50%, ${accent} 50%)` }}
+              aria-hidden="true"
+            />
             <span>{label}</span>
           </span>
           {theme === value && <FiCheck size={15} />}
