@@ -1,5 +1,4 @@
-.theme-nav-bar,
-.theme-nav-title {
+.theme-nav-bar {
   background: var(--theme-nav-bg);
   border-color: var(--theme-mobile-drawer-panel-border);
 }
@@ -31,16 +30,6 @@
 }
 
 .theme-border {
-  border-color: var(--theme-border);
-}
-
-.theme-skill-box {
-  background-color: var(--theme-surface-soft);
-  border-color: var(--theme-border);
-}
-
-.theme-skill-box:hover {
-  background-color: #2a3852;
   border-color: var(--theme-border);
 }
 
@@ -130,37 +119,50 @@
   background: #008f96;
 }
 
-.theme-empty-box {
-  color: var(--theme-empty-text);
+/* --- Theme menu ------------------------------------------------------------ */
+
+.theme-menu {
+  position: absolute;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 190px;
+  padding: 6px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface);
+  box-shadow: var(--elev-3);
 }
 
-.theme-empty-box-inner {
-  border-color: var(--theme-empty-border);
-  outline-color: var(--theme-empty-border);
+.theme-menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 9px 11px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--theme-text-soft);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
 }
 
-.theme-empty-box-inner-active {
-  border-color: var(--theme-empty-active) !important;
-  outline-color: var(--theme-input-focus-border) !important;
-  color: var(--theme-empty-active) !important;
+.theme-menu__item:hover {
+  background: var(--theme-surface-soft);
+  color: var(--theme-text);
 }
 
-.theme-empty-box-icon {
-  background: linear-gradient(to bottom right, var(--theme-empty-icon-from), var(--theme-empty-icon-to));
-}
-
-.theme-empty-box-icon svg {
+.theme-menu__item.is-active {
+  background: color-mix(in srgb, var(--theme-accent-bright) 14%, transparent);
   color: var(--theme-accent-bright);
 }
 
-.theme-empty-box-icon-active svg {
-  color: var(--theme-input-focus-border);
-}
-
-.theme-empty-box-title {
-  color: var(--theme-empty-title);
-}
-
-.theme-empty-box-description {
-  color: var(--theme-empty-muted);
+.theme-menu__label {
+  display: flex;
+  align-items: center;
+  gap: 11px;
 }

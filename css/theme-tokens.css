@@ -1,16 +1,58 @@
+/* ---------------------------------------------------------------------------
+   Design primitives — shape, elevation and motion.
+   Theme-independent; colour lives in the :root / html.light token blocks below.
+   --------------------------------------------------------------------------- */
 :root {
-  --theme-app-bg: #535a6b;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --elev-1: 0 1px 2px rgba(4, 10, 20, 0.28);
+  --elev-2: 0 6px 18px rgba(4, 10, 20, 0.34);
+  --elev-3: 0 18px 42px rgba(4, 10, 20, 0.44);
+
+  --ring-accent: 0 0 0 2px var(--theme-dashboard-bg), 0 0 0 4px var(--theme-accent-bright);
+  --accent-glow: rgba(18, 199, 243, 0.16);
+  --accent-line: rgba(18, 199, 243, 0.34);
+  --grid-line: rgba(148, 190, 230, 0.055);
+  --drop-dash: rgba(148, 190, 230, 0.26);
+
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+}
+
+html.light {
+  --elev-1: 0 1px 2px rgba(12, 84, 135, 0.10);
+  --elev-2: 0 6px 18px rgba(12, 84, 135, 0.13);
+  --elev-3: 0 18px 42px rgba(12, 84, 135, 0.17);
+
+  --accent-glow: rgba(0, 127, 158, 0.12);
+  --accent-line: rgba(0, 127, 158, 0.30);
+  --grid-line: rgba(12, 84, 135, 0.055);
+  --drop-dash: rgba(12, 84, 135, 0.26);
+}
+
+:root {
+  --theme-app-bg: #161d2b;
   --theme-dashboard-bg: #202a3e;
-  --theme-content-bg: #212b3f;
-  --theme-nav-bg: #171e2c;
-  --theme-nav-hover-bg: #202a3e;
+  --theme-nav-bg: #161d2b;
+  --theme-nav-hover-bg: #222c40;
   --theme-nav-link-hover-text: #22d3ee;
-  --theme-sidebar-bg: #171e2c;
-  --theme-drop-header-bg: #111621;
-  --theme-drop-icon-bg: #1d5771;
+  --theme-sidebar-bg: #161d2b;
+  --theme-drop-header-bg: #161d2b;
+  --theme-drop-icon-bg: #15455c;
   --theme-drop-icon-text: #0fc6f8;
-  --theme-surface: #1b2435;
-  --theme-surface-soft: #1e273a;
+  --theme-surface: #28334a;
+  --theme-overlay-bg: #151c29;
+  --theme-overlay-surface: #1e2739;
+  --theme-overlay-surface-soft: #232d42;
+  --drop-zone-fill: #1a2334;
+  --theme-surface-soft: #2d3a53;
   --theme-surface-action: #171e2c;
   --theme-surface-action-hover: #1b2435;
   --theme-surface-action-border: #2a3852;
@@ -21,8 +63,8 @@
   --theme-surface-accent-action-hover-border: rgb(6 182 212 / 0.6);
   --theme-surface-accent-action-text: #a5f3fc;
   --theme-surface-action-text: #e6ebf2;
-  --theme-border: #2a3852;
-  --theme-border-strong: #2a3852;
+  --theme-border: #36455f;
+  --theme-border-strong: #47587a;
   --theme-text: #eaecf1;
   --theme-text-soft: #c6cad4;
   --theme-text-muted: #979fa1;
@@ -54,7 +96,7 @@
   --theme-empty-muted: #8f8f8f;
   --theme-empty-icon-from: #00a1cd59;
   --theme-empty-icon-to: #0080a038;
-  --theme-surface-muted: #262d3c;
+  --theme-surface-muted: #28334a;
   --theme-mobile-nav-shadow: rgba(4, 10, 20, 0.18);
   --theme-mobile-nav-icon-hover-bg: rgba(255, 255, 255, 0.07);
   --theme-mobile-nav-title-border: rgba(255, 255, 255, 0.08);
@@ -220,7 +262,6 @@
 html.light {
   --theme-app-bg: var(--light-app-bg);
   --theme-dashboard-bg: var(--light-dashboard-bg);
-  --theme-content-bg: var(--light-dashboard-bg);
   --theme-nav-bg: var(--light-nav-panel-bg);
   --theme-nav-hover-bg: var(--light-nav-hover-bg);
   --theme-nav-link-hover-text: #14a3ca;
@@ -229,6 +270,10 @@ html.light {
   --theme-drop-icon-bg: var(--light-accent-soft);
   --theme-drop-icon-text: var(--light-accent);
   --theme-surface: var(--light-surface);
+  --theme-overlay-bg: var(--light-surface);
+  --theme-overlay-surface: var(--light-surface);
+  --theme-overlay-surface-soft: var(--light-surface-soft);
+  --drop-zone-fill: #cae1f4;
   --theme-surface-soft: var(--light-surface-soft);
   --theme-surface-action: var(--light-surface-link);
   --theme-surface-action-hover: var(--light-surface-link-hover);

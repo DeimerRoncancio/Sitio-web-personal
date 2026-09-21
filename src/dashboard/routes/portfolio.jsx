@@ -10,14 +10,17 @@ export default function Portfolio() {
   return (
     <div className="droppable-zone-container animation-fadeInUp">
       <div className="max-w-5xl">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="theme-text text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-            <BsStars className="text-yellow-400" size={26} />
+        <header className="mb-7">
+          <p className="section-eyebrow">
+            {String(projects.length).padStart(2, '0')} proyectos
+          </p>
+          <h1 className="section-title flex items-center gap-2.5">
+            <BsStars className="text-yellow-400" size={22} />
             Proyectos Destacados
           </h1>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-1  sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} onOpen={() => setSelectedProject(project)} />
           ))}

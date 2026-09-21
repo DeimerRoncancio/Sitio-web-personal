@@ -2,37 +2,7 @@
   animation: fadeInUp 0.3s ease-out;
 }
 
-.nav-hover {
-  color: var(--theme-text);
-  transition: all 0.2s;
-}
-
-.nav-button {
-  background-color: var(--theme-nav-bg);
-  border-radius: 11px;
-  padding: 7px;
-  color: var(--theme-text);
-  transition: all 0.2s;
-}
-
-.nav-button:hover {
-  background-color: var(--theme-nav-hover-bg);
-}
-
-.nav-hover:hover {
-  color: var(--theme-text-soft);
-}
-
-.theme-nav-link {
-  color: var(--theme-text-soft);
-}
-
-.theme-nav-link:hover {
-  color: var(--theme-nav-link-hover-text);
-}
-
 .droppable-zone-container {
-  background-color: var(--theme-content-bg);
   color: var(--theme-text);
   max-width: 810px;
   margin: auto;
@@ -58,4 +28,119 @@
 .theme-drop-icon {
   background-color: var(--theme-drop-icon-bg);
   color: var(--theme-drop-icon-text);
+}
+
+/* --- Top bar ---------------------------------------------------------------
+   Grouped icon clusters and a monospace breadcrumb give the chrome a
+   workspace feel and separate navigation from page identity.
+   --------------------------------------------------------------------------- */
+
+.nav-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--theme-border);
+  background: color-mix(in srgb, var(--theme-surface) 55%, transparent);
+}
+
+.nav-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 7px;
+  color: var(--theme-text-soft);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.nav-icon-button:hover {
+  background: var(--theme-nav-hover-bg);
+  color: var(--theme-text);
+}
+
+.nav-icon-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--theme-nav-bg), 0 0 0 4px var(--theme-accent-bright);
+}
+
+.nav-crumb {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--theme-text-muted);
+}
+
+.nav-current {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--theme-text);
+}
+
+/* Segmented control used by the classic (non-dashboard) view. */
+.nav-segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid var(--theme-border);
+  background: color-mix(in srgb, var(--theme-surface) 55%, transparent);
+}
+
+.nav-segment__item {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--theme-text-muted);
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.nav-segment__item:hover {
+  background: var(--theme-nav-hover-bg);
+  color: var(--theme-text);
+}
+
+.nav-segment__item.is-active {
+  background: color-mix(in srgb, var(--theme-accent-bright) 16%, transparent);
+  color: var(--theme-accent-bright);
+}
+
+/* Right-hand actions. */
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 7px 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--theme-text-soft);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.nav-button:hover {
+  background: var(--theme-nav-hover-bg);
+  border-color: var(--theme-border);
+  color: var(--theme-text);
+}
+
+.nav-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--theme-nav-bg), 0 0 0 4px var(--theme-accent-bright);
 }

@@ -1,0 +1,339 @@
+/* ---------------------------------------------------------------------------
+   Drag-and-drop workspace — navigation rail, draggable modules and drop zone.
+   This is the signature interaction of the site, so it carries the strongest
+   accent treatment. Fully token-driven: light mode needs no overrides.
+   --------------------------------------------------------------------------- */
+
+/* --- Navigation rail ------------------------------------------------------- */
+
+.rail-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--theme-text-muted);
+}
+
+/* --- Draggable module ------------------------------------------------------ */
+
+.nav-module {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 56px;
+  height: 52px;
+  padding: 6px 4px;
+  font-size: 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface);
+  color: var(--theme-text-soft);
+  box-shadow: var(--elev-1);
+  cursor: grab;
+  overflow: hidden;
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.nav-module:active {
+  cursor: grabbing;
+}
+
+.nav-module__name {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* Accent bar revealed on the active module. */
+.nav-module::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 26px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--theme-accent-bright);
+  transform: translate(-50%, -3px);
+  opacity: 0;
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+/* Grip affordance — signals "this is draggable" without a label. */
+.nav-module__grip {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: none;
+  grid-template-columns: repeat(2, 2px);
+  gap: 2px;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.nav-module__grip span {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.nav-module:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-line);
+  color: var(--theme-text);
+  box-shadow: var(--elev-2);
+}
+
+.nav-module:hover .nav-module__grip {
+  opacity: 0.5;
+}
+
+.nav-module:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-accent), var(--elev-2);
+  border-color: var(--theme-accent-bright);
+}
+
+/* Active: the module whose page is currently loaded in the canvas. */
+.nav-module.is-active {
+  background: color-mix(in srgb, var(--theme-accent-bright) 12%, var(--theme-surface));
+  border-color: var(--accent-line);
+  color: var(--theme-text);
+  box-shadow: var(--elev-2);
+}
+
+.nav-module.is-active::before {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.nav-module.is-active svg {
+  color: var(--theme-accent-bright);
+}
+
+/* Lifted copy that follows the pointer. */
+.nav-module.is-dragging {
+  transform: scale(1.06);
+  border-color: var(--theme-accent-bright);
+  box-shadow: var(--elev-3), 0 0 0 1px var(--accent-line);
+  cursor: grabbing;
+}
+
+/* Placeholder left behind in the rail while its module is being dragged. */
+.nav-module.is-ghost {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--accent-line);
+  box-shadow: none;
+  opacity: 0.45;
+  transform: scale(0.96);
+}
+
+.nav-module.is-ghost::before {
+  opacity: 0;
+}
+
+@media (min-width: 380px) {
+  .nav-module {
+    width: 66px;
+    height: 62px;
+  }
+}
+
+@media (min-width: 640px) {
+  .nav-module {
+    width: 96px;
+    height: 82px;
+    gap: 7px;
+    font-size: 30px;
+    border-radius: var(--radius-lg);
+  }
+
+  .nav-module__name {
+    font-size: 12px;
+  }
+
+  .nav-module__grip {
+    display: grid;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-module,
+  .nav-module::before,
+  .nav-module__grip {
+    transition-duration: 1ms;
+  }
+
+  .nav-module:hover {
+    transform: none;
+  }
+}
+
+/* --- Drop zone ------------------------------------------------------------- */
+
+.drop-zone {
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Blueprint grid — reads "technical workspace" without adding an image. */
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: center center;
+}
+
+.drop-zone__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 720px;
+  max-height: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1.5px dashed var(--drop-dash);
+  border-radius: var(--radius-xl);
+  background: var(--drop-zone-fill);
+  backdrop-filter: blur(2px);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+.drop-zone__inner.is-target {
+  border-color: var(--theme-accent-bright);
+  border-style: solid;
+  background: color-mix(in srgb, var(--theme-accent-bright) 7%, var(--drop-zone-fill));
+  box-shadow:
+    0 0 0 1px var(--accent-line),
+    0 0 60px var(--accent-glow) inset;
+  transform: scale(1.01);
+}
+
+.drop-zone__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface);
+  color: var(--theme-accent-bright);
+  box-shadow: var(--elev-1);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.drop-zone__inner.is-target .drop-zone__icon {
+  transform: translateY(-4px) scale(1.06);
+  border-color: var(--accent-line);
+  box-shadow: var(--elev-2), 0 0 24px var(--accent-glow);
+}
+
+.drop-zone__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--theme-accent-bright);
+  margin-bottom: 10px;
+}
+
+.drop-zone__title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+  margin-bottom: 8px;
+}
+
+.drop-zone__description {
+  max-width: 44ch;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--theme-text-muted);
+}
+
+.drop-zone__hint {
+  /* Keyboard affordance only — hidden on touch-first widths. */
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface);
+  font-size: 11.5px;
+  color: var(--theme-text-muted);
+}
+
+.drop-zone__hint kbd {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid var(--theme-border-strong);
+  background: var(--theme-dashboard-bg);
+  color: var(--theme-text-soft);
+}
+
+@media (min-width: 640px) {
+  .drop-zone {
+    padding: 40px;
+  }
+
+  .drop-zone__hint {
+    display: inline-flex;
+  }
+
+  .drop-zone__title {
+    font-size: 26px;
+  }
+
+  .drop-zone__description {
+    font-size: 14.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drop-zone__inner,
+  .drop-zone__icon {
+    transition-duration: 1ms;
+  }
+
+  .drop-zone__inner.is-target {
+    transform: none;
+  }
+}

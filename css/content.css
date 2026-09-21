@@ -1,0 +1,554 @@
+/* ---------------------------------------------------------------------------
+   Content primitives shared by the dashboard pages.
+   Monospace is reserved for metadata (labels, dates, tech tags) so the
+   interface reads as a technical workspace without shouting.
+   --------------------------------------------------------------------------- */
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--theme-accent-bright);
+}
+
+/* Hairline that trails off after the label. */
+.section-eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--accent-line), transparent);
+}
+
+.section-title {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+}
+
+.section-lead {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--theme-text-muted);
+}
+
+/* --- Metadata -------------------------------------------------------------- */
+
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--theme-text-muted);
+  white-space: nowrap;
+}
+
+/* Status variant — content.css loads after components.css, so the availability
+   colours have to live here or .meta-chip would override them. */
+.meta-chip--ok {
+  border-color: var(--theme-status-border);
+  background: var(--theme-status-bg);
+  color: var(--theme-status-text);
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface-soft);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.01em;
+  color: var(--theme-text-soft);
+}
+
+/* --- Surfaces -------------------------------------------------------------- */
+
+.card {
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-lg);
+  background: var(--theme-surface);
+  box-shadow: var(--elev-1);
+}
+
+/* --- Skill tile ------------------------------------------------------------ */
+
+.skill-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 82px;
+  height: 82px;
+  padding: 10px 6px;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-md);
+  background: var(--theme-surface);
+  box-shadow: var(--elev-1);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.skill-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-line);
+  box-shadow: var(--elev-2);
+}
+
+.skill-tile__name {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: var(--theme-text-muted);
+}
+
+@media (min-width: 640px) {
+  .skill-tile {
+    width: 100px;
+    height: 100px;
+    gap: 11px;
+  }
+
+  .skill-tile__name {
+    font-size: 10.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-tile {
+    transition-duration: 1ms;
+  }
+
+  .skill-tile:hover {
+    transform: none;
+  }
+}
+
+/* --- Project card ----------------------------------------------------------
+   The surface stays neutral so the grid reads as one system; each project's
+   own colour appears only as an accent (top rail, icon, hover, action).
+   --------------------------------------------------------------------------- */
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-lg);
+  background: var(--theme-surface);
+  box-shadow: var(--elev-1);
+  overflow: hidden;
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--project-accent), transparent 88%);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--project-accent) 42%, var(--theme-border));
+  box-shadow: var(--elev-2);
+}
+
+.project-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--project-accent) 34%, transparent);
+  background: color-mix(in srgb, var(--project-accent) 15%, transparent);
+  color: var(--project-accent);
+}
+
+.project-card__media {
+  position: relative;
+  width: 100%;
+  height: 132px;
+  margin-bottom: 16px;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-md);
+  background: var(--theme-dashboard-bg);
+  overflow: hidden;
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--theme-border);
+  background: color-mix(in srgb, var(--theme-dashboard-bg) 78%, transparent);
+  color: var(--theme-text);
+  backdrop-filter: blur(4px);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.project-card__nav:hover {
+  background: var(--theme-surface);
+}
+
+.project-card__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--theme-text) 35%, transparent);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.project-card__dot.is-current {
+  background: var(--project-accent);
+}
+
+.project-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+  margin-bottom: 5px;
+}
+
+.project-card__desc {
+  flex-grow: 1;
+  min-height: 38px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--theme-text-muted);
+}
+
+.project-card__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: auto;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface-soft);
+  color: var(--theme-text-soft);
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.project-card__action:hover {
+  border-color: color-mix(in srgb, var(--project-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--project-accent) 13%, var(--theme-surface-soft));
+  color: var(--theme-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    transition-duration: 1ms;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+}
+
+/* --- Timeline -------------------------------------------------------------- */
+
+.timeline {
+  position: relative;
+  border-left: 1px solid var(--theme-border);
+}
+
+.timeline__marker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--marker-accent, var(--theme-accent-bright)) 42%, var(--theme-border));
+  background: var(--theme-surface);
+  color: var(--marker-accent, var(--theme-accent-bright));
+  box-shadow: var(--elev-1);
+}
+
+.timeline__marker--lg {
+  width: 40px;
+  height: 40px;
+  left: -20px;
+}
+
+.timeline__marker--sm {
+  width: 32px;
+  height: 32px;
+  left: -16px;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--theme-border-strong);
+}
+
+.timeline__org {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--theme-accent);
+}
+
+/* --- Project modal --------------------------------------------------------- */
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 14, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+html.light .modal-backdrop {
+  background: rgba(14, 40, 64, 0.38);
+}
+
+.modal-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-xl);
+  background: var(--theme-overlay-bg);
+  box-shadow: var(--elev-3);
+  overflow: hidden;
+
+  /* Redefining the surface tokens locally re-levels every child that uses
+     them — panels, chips, tags, buttons — without touching their rules. */
+  --theme-surface: var(--theme-overlay-surface);
+  --theme-surface-soft: var(--theme-overlay-surface-soft);
+}
+
+.modal-shell__rail {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, var(--project-accent), transparent 92%);
+}
+
+.modal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--project-accent) 34%, transparent);
+  background: color-mix(in srgb, var(--project-accent) 15%, transparent);
+  color: var(--project-accent);
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface-soft);
+  color: var(--theme-text-muted);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.modal-close:hover {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+}
+
+.modal-panel {
+  padding: 18px 20px;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-lg);
+  background: var(--theme-surface-soft);
+}
+
+.modal-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface-soft);
+  color: var(--theme-text);
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.modal-action:hover {
+  border-color: color-mix(in srgb, var(--project-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--project-accent) 12%, var(--theme-surface-soft));
+}
+
+.modal-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+  padding: 7px;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-md);
+  background: var(--theme-surface);
+  box-shadow: var(--elev-3);
+}
+
+.modal-menu a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--theme-text-soft);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.modal-menu a:hover {
+  background: var(--theme-surface-soft);
+  color: var(--theme-text);
+}
+
+.modal-figure {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius-lg);
+  background: var(--theme-dashboard-bg);
+  overflow: hidden;
+}
+
+.modal-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--theme-border);
+  background: color-mix(in srgb, var(--theme-dashboard-bg) 80%, transparent);
+  color: var(--theme-text);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--elev-2);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.modal-nav:hover {
+  background: var(--theme-surface);
+}
+
+.modal-thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 92px;
+  height: 62px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--theme-border);
+  overflow: hidden;
+  opacity: 0.45;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.modal-thumb:hover {
+  opacity: 0.75;
+}
+
+.modal-thumb.is-current {
+  opacity: 1;
+  border-color: var(--project-accent);
+}
+
+.modal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-heading {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+}

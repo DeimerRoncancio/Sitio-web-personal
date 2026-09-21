@@ -1,109 +1,101 @@
 import { FaGraduationCap, FaAward, FaCalendarAlt } from 'react-icons/fa';
 
+const certifications = [
+  {
+    title: 'Spring Framework 6 & Spring Boot 3 desde cero a experto 2024',
+    org: 'Udemy',
+    year: '2024',
+    description: 'Especialización en desarrollo backend con Spring Framework 6 y Spring Boot 3. Consolidé habilidades técnicas para diseñar aplicaciones seguras y escalables, dominando principios de diseño y buenas prácticas para asegurar un desarrollo eficiente y código limpio.',
+  },
+  {
+    title: 'Diseñando páginas web con Bootstrap 4',
+    org: 'Coursera - Universidad Austral',
+    year: '2023',
+    description: 'Aprendí a diseñar interfaces de usuario responsivas y atractivas utilizando Bootstrap 4, implementando componentes y patrones de diseño para crear experiencias de usuario coherentes y funcionales.',
+  },
+  {
+    title: 'Programación Básica',
+    org: 'Platzi',
+    year: '2023',
+    description: 'Curso introductorio a la programación, donde reaprendí conceptos fundamentales y mejoré mis habilidades en lógica de programación y resolución de problemas.',
+  },
+];
+
 export default function Formation() {
   return (
     <div className="droppable-zone-container animation-fadeInUp">
-      <div className="max-w-3xl space-y-10">
-        <div>
-          <h1 className="theme-text text-2xl sm:text-3xl font-bold mb-4">Trayectoria Educativa</h1>
-          <p className="theme-muted text-sm sm:text-lg leading-relaxed">
-            A lo largo de mi carrera, el aprendizaje teórico y práctico ha sido un pilar fundamental. 
-            Aquí detallo mi formación académica y las certificaciones con las que he validado 
-            mis conocimientos.
+      <div className="max-w-3xl">
+        <header className="mb-9">
+          <p className="section-eyebrow">Trayectoria</p>
+          <h1 className="section-title !text-2xl sm:!text-[26px]">Trayectoria Educativa</h1>
+          <p className="section-lead">
+            A lo largo de mi carrera, el aprendizaje teórico y práctico ha sido un pilar
+            fundamental. Aquí detallo mi formación académica y las certificaciones con las
+            que he validado mis conocimientos.
           </p>
-          <hr className="theme-border my-6" />
-        </div>
+        </header>
 
-        <div className="theme-border relative border-l-2 ml-4 md:ml-6 space-y-12 pb-4">
-          <div className="relative pl-8 md:pl-12">
-            <div className="theme-timeline-marker absolute -left-[25px] top-0 bg-[#151c2c] border-4 border-[#7d1ef8] rounded-full p-2">
-              <FaGraduationCap size={20} className="theme-timeline-icon" />
+        <div className="timeline ml-5 md:ml-6 space-y-11 pb-4">
+          <section className="relative pl-8 md:pl-11">
+            <div
+              className="timeline__marker timeline__marker--lg top-0"
+              style={{ '--marker-accent': '#a78bfa' }}
+            >
+              <FaGraduationCap size={18} />
             </div>
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
-              <h2 className="theme-text text-xl sm:text-2xl font-bold">Tecnólogo en Desarrollo de Software</h2>
-              <span className="theme-formation-date theme-accent-text flex items-center gap-2 text-xs font-semibold bg-[#1e273a] text-[#00a4ac] px-3 py-1.5 rounded-full w-max border border-[#2a3852]">
-                <FaCalendarAlt /> 2021 - 2023
+              <h2 className="theme-text text-lg sm:text-xl font-bold">
+                Tecnólogo en Desarrollo de Software
+              </h2>
+              <span className="meta-chip">
+                <FaCalendarAlt /> 2021 — 2023
               </span>
             </div>
-            <h3 className="theme-accent-text text-sm sm:text-lg font-medium text-[#00a4ac] mb-4">
-              Corporación Universitaría el Minuto de Dios
-            </h3>
-            <div className="theme-muted space-y-3 leading-relaxed">
+            <p className="timeline__org mb-4">Corporación Universitaria el Minuto de Dios</p>
+            <div className="theme-muted space-y-3 text-sm leading-relaxed">
               <p>
-                Durante mi formación universitaria adquirí sólidas bases en POO, estructuras de datos, 
+                Durante mi formación universitaria adquirí sólidas bases en POO, estructuras de datos,
                 algoritmos, bases de datos y desarrollo web. Como proyecto de grado, participé en el
-                desarrollo de una plataforma web en WordPress para la conservación ambiental del corredor 
-                ecológico de Villavicencio. Esta experiencia me permitió coordinar con entidades clave 
-                como la Alcaldía, Cormacarena y la Gobernación del Meta, fortaleciendo mis habilidades en 
-                gestión de proyectos con múltiples partes interesadas y la aplicación de tecnología en 
+                desarrollo de una plataforma web en WordPress para la conservación ambiental del corredor
+                ecológico de Villavicencio. Esta experiencia me permitió coordinar con entidades clave
+                como la Alcaldía, Cormacarena y la Gobernación del Meta, fortaleciendo mis habilidades en
+                gestión de proyectos con múltiples partes interesadas y la aplicación de tecnología en
                 entornos reales.
               </p>
               <p>
-                <strong>Proyecto Destacado:</strong> Desarrollo de una plataforma web para la gestión y 
-                visualización de registros multimedia capturados por cámaras trampa de fauna silvestre.
+                <strong className="theme-text font-semibold">Proyecto Destacado:</strong> Desarrollo de
+                una plataforma web para la gestión y visualización de registros multimedia capturados por
+                cámaras trampa de fauna silvestre.
               </p>
             </div>
-          </div>
+          </section>
 
-          <div className="relative pl-8 md:pl-12 pt-4">
-            <div className="theme-timeline-dot absolute -left-[11px] top-[24px] bg-[#2a3852] w-5 h-5 rounded-full"></div>
-            <h3 className="theme-text text-xl font-semibold">
+          <section className="relative pl-8 md:pl-11 pt-2">
+            <div className="timeline__dot top-[18px]" />
+            <h2 className="theme-text text-lg font-semibold">
               Educación Continua & Certificaciones
-            </h3>
-            <p className="theme-muted mt-2">
+            </h2>
+            <p className="theme-muted text-sm mt-1.5">
               Cursos profesionales que respaldan mis habilidades técnicas.
             </p>
-          </div>
+          </section>
 
-          <div className="relative pl-8 md:pl-12">
-            <div className="theme-certification-marker absolute -left-[19px] top-1 bg-[#151c2c] border-2 border-[#6DB33F] rounded-full p-2">
-              <FaAward size={16} className="text-[#6DB33F]" />
-            </div>
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-1 gap-2">
-                <h4 className="theme-text text-lg font-bold">
-                Spring Framework 6 & Spring Boot 3 desde cero a experto 2024
-              </h4>
-              <span className="theme-formation-year theme-muted text-xs w-fit font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2024</span>
-            </div>
-            <p className="theme-accent-text text-sm font-medium text-[#00a4ac] mb-2">Udemy</p>
-              <p className="theme-muted text-sm leading-relaxed">
-              Especialización en desarrollo backend con Spring Framework 6 y Spring Boot 3. Consolidé 
-              habilidades técnicas para diseñar aplicaciones seguras y escalables, dominando principios de 
-              diseño y buenas prácticas para asegurar un desarrollo eficiente y código limpio.
-            </p>
-          </div>
-
-          <div className="relative pl-8 md:pl-12">
-            <div className="theme-certification-marker absolute -left-[19px] top-1 bg-[#151c2c] border-2 border-[#6DB33F] rounded-full p-2">
-              <FaAward size={16} className="text-[#6DB33F]" />
-            </div>
-             <div className="flex flex-col md:flex-row md:items-center justify-between mb-1 gap-2">
-              <h4 className="theme-text text-lg font-bold">Diseñando páginas web con Bootstrap 4</h4>
-              <span className="theme-formation-year theme-muted text-xs w-fit font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2023</span>
-            </div>
-            <p className="theme-accent-text text-sm font-medium text-[#00a4ac] mb-2">Coursera - Universidad Austral</p>
-            <p className="theme-muted text-sm leading-relaxed">
-              Aprendí a diseñar interfaces de usuario responsivas y atractivas utilizando Bootstrap 4, 
-              implementando componentes y patrones de diseño para crear experiencias de usuario coherentes 
-              y funcionales.
-            </p>
-          </div>
-
-          <div className="relative pl-8 md:pl-12">
-            <div className="theme-certification-marker absolute -left-[19px] top-1 bg-[#151c2c] border-2 border-[#6DB33F] rounded-full p-2">
-              <FaAward size={16} className="text-[#6DB33F]" />
-            </div>
-             <div className="flex flex-col md:flex-row md:items-center justify-between mb-1 gap-2">
-               <h4 className="theme-text text-lg font-bold">Programación Básica</h4>
-              <span className="theme-formation-year theme-muted text-xs w-fit font-semibold text-[#979fa1] bg-[#1e273a] px-3 py-1 rounded border border-[#2a3852]">2023</span>
-            </div>
-            <p className="theme-accent-text text-sm font-medium text-[#00a4ac] mb-2">Platzi</p>
-            <p className="theme-muted text-sm leading-relaxed">
-              Curso introductorio a la programación, donde reaprendí conceptos fundamentales y mejoré 
-              mis habilidades en lógica de programación y resolución de problemas.
-            </p>
-          </div>
-
+          {certifications.map((cert) => (
+            <section key={cert.title} className="relative pl-8 md:pl-11">
+              <div
+                className="timeline__marker timeline__marker--sm top-0"
+                style={{ '--marker-accent': '#6db33f' }}
+              >
+                <FaAward size={14} />
+              </div>
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-1.5 gap-2">
+                <h3 className="theme-text text-base font-bold">{cert.title}</h3>
+                <span className="meta-chip">{cert.year}</span>
+              </div>
+              <p className="timeline__org mb-2">{cert.org}</p>
+              <p className="theme-muted text-sm leading-relaxed">{cert.description}</p>
+            </section>
+          ))}
         </div>
       </div>
     </div>

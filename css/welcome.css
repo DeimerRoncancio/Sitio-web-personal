@@ -1,56 +1,222 @@
-html.light .theme-welcome {
+/* ---------------------------------------------------------------------------
+   Welcome / landing page.
+   Shares the blueprint grid and accent language of the drag-and-drop
+   workspace so the entry point and the dashboard read as one product.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Sits just below the dashboard canvas: same family, a touch more depth
+     so the landing still reads as its own moment. */
+  --welcome-base: #1a2332;
+  --welcome-glow: rgba(18, 199, 243, 0.15);
+  --welcome-vignette: rgba(13, 18, 28, 0.5);
+}
+
+html.light {
+  --welcome-base: #dcecfa;
+  --welcome-glow: rgba(125, 211, 252, 0.5);
+  --welcome-vignette: rgba(255, 255, 255, 0.4);
+}
+
+.welcome {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   background:
-    radial-gradient(circle at 48% 30%, var(--light-welcome-radial-primary), var(--light-welcome-radial-primary-transparent) 32%),
-    radial-gradient(circle at 80% 78%, var(--light-welcome-radial-secondary), var(--light-welcome-radial-secondary-transparent) 34%),
-    linear-gradient(135deg, var(--light-welcome-gradient-from) 0%, var(--light-welcome-gradient-via) 52%, var(--light-welcome-gradient-to) 100%);
+    radial-gradient(ellipse 90% 55% at 50% -5%, var(--welcome-glow), transparent 68%),
+    var(--welcome-base);
 }
 
+/* Blueprint grid, identical in rhythm to the workspace drop zone. */
+.welcome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+/* Softens the grid towards the centre so the type stays the focus. */
+.welcome::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 45% at 50% 50%, var(--welcome-vignette), transparent 75%);
+  pointer-events: none;
+}
+
+.welcome__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--theme-border);
+  background: color-mix(in srgb, var(--theme-surface) 55%, transparent);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--theme-text-muted);
+}
+
+.welcome__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.welcome__name {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--theme-text);
+}
+
+.welcome__role {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--theme-accent-bright);
+}
+
+.welcome__role-sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--theme-text-muted);
+}
+
+/* --- Primary call to action ------------------------------------------------ */
+
+.welcome__cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-line);
+  background: color-mix(in srgb, var(--theme-accent-bright) 11%, var(--theme-surface));
+  color: var(--theme-text);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: var(--elev-2);
+  overflow: hidden;
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.welcome__cta:hover {
+  transform: translateY(-2px);
+  border-color: var(--theme-accent-bright);
+  box-shadow: var(--elev-3), 0 0 32px var(--accent-glow);
+}
+
+.welcome__cta:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--welcome-base), 0 0 0 4px var(--theme-accent-bright);
+}
+
+.welcome__cta svg {
+  color: var(--theme-accent-bright);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.welcome__cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* --- Theme switcher -------------------------------------------------------- */
+
+.welcome__theme-button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--theme-border);
+  background: color-mix(in srgb, var(--theme-surface) 55%, transparent);
+  backdrop-filter: blur(6px);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--theme-text-soft);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.welcome__theme-button:hover {
+  border-color: var(--accent-line);
+  color: var(--theme-text);
+}
+
+/* --- Social rail ----------------------------------------------------------- */
+
+.welcome__social {
+  font-size: 20px;
+  color: var(--theme-text-muted);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.welcome__social:hover {
+  color: var(--theme-accent-bright);
+  transform: translateY(-2px);
+}
+
+.welcome__rail::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 84px;
+  margin: 14px auto 0;
+  background: linear-gradient(to bottom, var(--accent-line), transparent);
+}
+
+/* Logos are authored light; invert them for the light theme. */
 html.light .theme-brand-logo {
-  filter: brightness(0) saturate(100%) invert(18%) sepia(20%) saturate(1161%) hue-rotate(177deg) brightness(92%) contrast(88%);
+  filter: brightness(0) saturate(100%) invert(18%) sepia(20%) saturate(1161%)
+    hue-rotate(177deg) brightness(92%) contrast(88%);
 }
 
-html.light .theme-social-link {
-  color: var(--light-muted);
+@media (min-width: 768px) {
+  .welcome__name {
+    font-size: 40px;
+  }
+
+  .welcome__role {
+    font-size: 15px;
+  }
 }
 
-html.light .theme-social-link:hover {
-  color: var(--light-accent-hover);
-  filter: drop-shadow(0 8px 14px var(--light-social-shadow));
-}
+@media (prefers-reduced-motion: reduce) {
+  .welcome__cta,
+  .welcome__cta svg,
+  .welcome__social {
+    transition-duration: 1ms;
+  }
 
-html.light .theme-social-rail::after {
-  background-image: linear-gradient(to bottom, var(--light-social-rail-from), var(--light-social-rail-to));
-}
-
-html.light .theme-welcome-theme-button:hover {
-  background: var(--light-welcome-button-hover-bg);
-  border-color: var(--light-welcome-button-hover-border);
-  color: var(--light-welcome-button-hover-text);
-  box-shadow: none;
-}
-
-html.light .theme-welcome-theme-button {
-  box-shadow: none;
-}
-
-html.light .theme-welcome-portfolio-button {
-  background: var(--light-surface);
-  border-color: var(--light-border);
-  box-shadow: var(--light-shadow);
-}
-
-html.light .theme-welcome-portfolio-button:hover {
-  background: #e8f6ff;
-  border-color: #78bce0;
-  box-shadow:
-    0 18px 42px rgba(12, 84, 135, 0.19),
-    0 0 0 1px rgba(0, 127, 158, 0.06);
-}
-
-html.light .theme-welcome-portfolio-button .theme-text {
-  color: var(--light-text);
-}
-
-html.light .theme-welcome-portfolio-button svg {
-  color: var(--light-accent-hover);
+  .welcome__cta:hover,
+  .welcome__social:hover {
+    transform: none;
+  }
 }

@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
 
-import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
-
 import Draggable from '../components/draggable'
 import Droppable from '../components/droppable';
 
 import { DragDropProvider } from '@dnd-kit/react'
-import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { RiHomeLine } from 'react-icons/ri';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import NavBar from '../components/nav-bar';
 import { items } from '../constants/items';
 import { useContext } from 'react';
@@ -17,7 +14,6 @@ export default function DashboardLayout() {
   const location = useLocation();
   const navigate = useNavigate();
   const [parent, setParent] = useState(() => location.pathname === "/dashboard" ? undefined : "droppable");
-  const item = items.find((item) => item.path === window.location.pathname);
   const { changeView, currentView } = useContext(viewContext);
 
   const changePage = (event) => {
@@ -48,18 +44,13 @@ export default function DashboardLayout() {
           <div style={{ display: currentView === 'dashboard' ? 'flex' : 'none' }}
           className="theme-sidebar sm:flex-col justify-center sm:justify-normal w-full sm:w-auto
           border-t sm:border-t-0 sm:border-r fixed bottom-0 sm:static order-2 sm:order-1 z-40">
-            <p className='theme-muted hidden sm:block text-[11px] transform scale-x-[1.1] text-center mt-4'>
-              NAVEGACIÓN
+            <p className='rail-label hidden sm:block text-center mt-5 mb-1'>
+              Navegación
             </p>
             <ul className='flex w-full xs:space-x-3 xs:w-auto justify-between sm:flex-col p-3 sm:space-y-3 
             sm:!space-x-0'>
-              {items.map((item, index) => (
-                <Draggable
-                  key={item.id}
-                  id={item.id}
-                  item={item}
-                  changePage={changePage}
-                />
+              {items.map((item) => (
+                <Draggable key={item.id} id={item.id} item={item} />
               ))}
             </ul>
           </div>
