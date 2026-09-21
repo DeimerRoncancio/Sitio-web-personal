@@ -132,7 +132,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  width: 190px;
+  width: 215px;
   padding: 6px;
   border-radius: var(--radius-md);
   border: 1px solid var(--theme-border);
@@ -169,6 +169,20 @@
   display: flex;
   align-items: center;
   gap: 11px;
+}
+
+.theme-menu__badge {
+  margin-left: -3px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-line);
+  background: var(--accent-glow);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--theme-text);
 }
 
 .theme-menu__swatch {

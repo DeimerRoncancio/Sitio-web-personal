@@ -1,5 +1,5 @@
 import { FiCheck } from "react-icons/fi";
-import { THEMES } from "../constants/themes";
+import { DEFAULT_THEME, THEMES } from "../constants/themes";
 
 /** Shared by the navbar toggle and the welcome page so both stay identical. */
 export default function ThemeMenu({ theme, onSelect, className = '' }) {
@@ -21,6 +21,9 @@ export default function ThemeMenu({ theme, onSelect, className = '' }) {
               aria-hidden="true"
             />
             <span>{label}</span>
+            {value === DEFAULT_THEME && (
+              <span className="theme-menu__badge">Default</span>
+            )}
           </span>
           {theme === value && <FiCheck size={15} />}
         </button>

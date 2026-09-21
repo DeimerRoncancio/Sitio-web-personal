@@ -3,13 +3,11 @@ import { DEFAULT_THEME, THEMES } from "../constants/themes";
 
 const THEME_CLASSES = THEMES.map(({ value }) => `theme-${value}`);
 
-// Values saved before themes existed.
-const LEGACY_THEMES = { dark: 'navy', light: 'teal' };
-
+// Anything that isn't a known theme (including the old 'dark'/'light'
+// values) falls back to the default.
 function readStoredTheme() {
   const stored = localStorage.getItem('theme');
-  const theme = LEGACY_THEMES[stored] ?? stored;
-  return THEMES.some(({ value }) => value === theme) ? theme : DEFAULT_THEME;
+  return THEMES.some(({ value }) => value === stored) ? stored : DEFAULT_THEME;
 }
 
 /**
