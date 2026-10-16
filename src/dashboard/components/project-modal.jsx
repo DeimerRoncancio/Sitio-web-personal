@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiExternalLink, FiMonitor } from "react-icons/fi";
+import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiExternalLink, FiMonitor, FiMaximize2 } from "react-icons/fi";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import ImageViewer from "./image-viewer";
 
 export default function ProjectModal({ project, onClose }) {
   const [currentImg, setCurrentImg] = useState(0);
   const [showLinksMenu, setShowLinksMenu] = useState(false);
+  const [viewerOpen, setViewerOpen] = useState(false);
   const thumbnailsRef = useRef(null);
   const menuRef = useRef(null);
 
@@ -53,10 +55,12 @@ export default function ProjectModal({ project, onClose }) {
   }, [showLinksMenu]);
 
   useEffect(() => {
+    // While the viewer is open it owns Escape, so it closes itself, not the modal.
+    if (viewerOpen) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  }, [onClose, viewerOpen]);
 
   if (!project) return null;
 
@@ -89,11 +93,20 @@ export default function ProjectModal({ project, onClose }) {
           {images.length > 0 && (
             <div className="flex flex-col gap-3">
               <div className="modal-figure group">
-                <img
-                  src={images[currentImg]}
-                  alt={`Captura de ${project.title}`}
-                  loading="lazy"
-                />
+                <button
+                  onClick={() => setViewerOpen(true)}
+                  className="modal-figure__open"
+                  aria-label="Ampliar imagen"
+                >
+                  <img
+                    src={images[currentImg]}
+                    alt={`Captura de ${project.title}`}
+                    loading="lazy"
+                  />
+                  <span className="modal-figure__hint opacity-0 group-hover:opacity-100 transition-opacity">
+                    <FiMaximize2 size={14} /> Ampliar
+                  </span>
+                </button>
 
                 {images.length > 1 && (
                   <>
@@ -202,6 +215,17 @@ export default function ProjectModal({ project, onClose }) {
           </div>
         </div>
       </div>
+
+      {viewerOpen && (
+        <ImageViewer
+          images={images}
+          index={currentImg}
+          onIndexChange={setCurrentImg}
+          onClose={() => setViewerOpen(false)}
+          title={project.title}
+          accent={project.theme.border}
+        />
+      )}
     </div>
   );
 }

@@ -551,6 +551,170 @@ html.themed .modal-backdrop {
   height: auto;
 }
 
+.modal-figure__open {
+  display: block;
+  cursor: zoom-in;
+}
+
+.modal-figure__hint {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--theme-border);
+  background: color-mix(in srgb, var(--theme-dashboard-bg) 80%, transparent);
+  backdrop-filter: blur(6px);
+  color: var(--theme-text);
+  font-size: 12px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+/* --- Image viewer (full screen, rendered in a portal) ---------------------- */
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  animation: viewer-in var(--dur-base, 0.2s) var(--ease-out, ease-out);
+}
+
+@keyframes viewer-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.viewer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 14, 0.92);
+  backdrop-filter: blur(2px);
+}
+
+/* Same per-theme shade as .modal-backdrop, just denser. */
+html.themed .viewer__backdrop {
+  background: color-mix(in srgb, var(--light-shade) 92%, transparent);
+}
+
+.viewer__bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.viewer__counter {
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #e6ebf2;
+}
+
+.viewer__stage {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+  .viewer__stage {
+    padding: 0 88px;
+  }
+}
+
+.viewer__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: viewer-in 0.18s ease-out;
+}
+
+.viewer__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f4f8;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.viewer__btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--project-accent);
+}
+
+.viewer__btn--nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  transform: translateY(-50%);
+}
+
+.viewer__thumbs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 14px 16px 18px;
+  overflow-x: auto;
+}
+
+.viewer__thumb {
+  flex-shrink: 0;
+  width: 72px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  overflow: hidden;
+  opacity: 0.45;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.viewer__thumb:hover {
+  opacity: 0.8;
+}
+
+.viewer__thumb.is-current {
+  opacity: 1;
+  border-color: var(--project-accent);
+}
+
+.viewer__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .modal-nav {
   display: flex;
   align-items: center;
