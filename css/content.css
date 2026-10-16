@@ -175,13 +175,13 @@
 
 /* Date chip, tags and action sink below the card instead of sitting above it. */
 .project-card {
-  --theme-surface-soft: var(--theme-dashboard-bg);
+  --theme-surface-soft: color-mix(in srgb, var(--theme-app-bg) 30%, var(--theme-dashboard-bg));
 }
 
 /* Other themes: halfway between card and sunk — the full sunk tone reads
    too dark there compared with Navy's subtle step. */
 html.themed .project-card {
-  --theme-surface-soft: color-mix(in srgb, var(--light-sunk) 50%, var(--light-surface));
+  --theme-surface-soft: color-mix(in srgb, var(--light-sunk) 65%, var(--light-surface));
 }
 
 .project-card .meta-chip {
