@@ -173,9 +173,17 @@
     box-shadow var(--dur-base) var(--ease-out);
 }
 
-/* Themed: tags and action sink below the card. */
+/* Date chip, tags and action sink below the card instead of sitting above it. */
+.project-card {
+  --theme-surface-soft: var(--theme-dashboard-bg);
+}
+
 html.themed .project-card {
   --theme-surface-soft: var(--light-sunk);
+}
+
+.project-card .meta-chip {
+  background: var(--theme-surface-soft);
 }
 
 .project-card::before {
@@ -419,6 +427,39 @@ html.themed .modal-backdrop {
 .modal-close:hover {
   background: var(--theme-surface);
   color: var(--theme-text);
+}
+
+/* Modal body scrollbar: transparent track so it blends into the overlay
+   surface (the global track color is the dashboard background). */
+.modal-scroll {
+  scrollbar-gutter: stable;
+}
+
+.modal-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: var(--theme-border);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--project-accent);
+  background-clip: padding-box;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .modal-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--theme-border) transparent;
+  }
 }
 
 .modal-panel {

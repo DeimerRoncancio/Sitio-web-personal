@@ -18,8 +18,15 @@ export default function ProjectModal({ project, onClose }) {
   };
 
   useEffect(() => {
-    const activeThumb = thumbnailsRef.current?.children[currentImg];
-    activeThumb?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    // Scroll only the thumbnail strip: scrollIntoView would also scroll the
+    // modal body vertically and hide the top of the main image.
+    const strip = thumbnailsRef.current;
+    const activeThumb = strip?.children[currentImg];
+    if (!activeThumb) return;
+    strip.scrollTo({
+      left: activeThumb.offsetLeft - (strip.clientWidth - activeThumb.offsetWidth) / 2,
+      behavior: 'smooth',
+    });
   }, [currentImg]);
 
   useEffect(() => {
@@ -65,7 +72,7 @@ export default function ProjectModal({ project, onClose }) {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto w-full flex flex-col pt-2 pb-6 md:pb-8 px-4 md:px-7 no-scrollbar">
+        <div className="flex-1 overflow-y-auto w-full flex flex-col pt-2 pb-6 md:pb-8 px-4 md:px-7 modal-scroll">
           {images.length > 0 && (
             <div className="flex flex-col gap-3">
               <div className="modal-figure group">
@@ -107,7 +114,7 @@ export default function ProjectModal({ project, onClose }) {
                     </button>
                   )}
 
-                  <div ref={thumbnailsRef} className="flex gap-2.5 overflow-x-auto pb-1 no-scrollbar px-1 scroll-smooth">
+                  <div ref={thumbnailsRef} className="relative flex gap-2.5 overflow-x-auto pb-1 no-scrollbar px-1 scroll-smooth">
                     {images.map((img, idx) => (
                       <button
                         key={idx}
