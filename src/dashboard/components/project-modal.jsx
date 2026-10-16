@@ -9,6 +9,19 @@ export default function ProjectModal({ project, onClose }) {
   const menuRef = useRef(null);
 
   const images = project?.images ?? [];
+  const [thumbsOverflow, setThumbsOverflow] = useState(false);
+
+  // Thumbnail arrows only make sense when the strip actually overflows,
+  // which depends on the modal width, not on a fixed image count.
+  useEffect(() => {
+    const strip = thumbnailsRef.current;
+    if (!strip) return;
+    const check = () => setThumbsOverflow(strip.scrollWidth > strip.clientWidth + 1);
+    check();
+    const observer = new ResizeObserver(check);
+    observer.observe(strip);
+    return () => observer.disconnect();
+  }, [images.length]);
 
   const step = (delta) => () =>
     setCurrentImg((prev) => (prev + delta + images.length) % images.length);
@@ -104,7 +117,7 @@ export default function ProjectModal({ project, onClose }) {
 
               {images.length > 1 && (
                 <div className="relative group/thumbs">
-                  {images.length > 6 && (
+                  {thumbsOverflow && (
                     <button
                       onClick={() => scrollThumbnails('left')}
                       className="modal-nav !w-7 !h-7 absolute left-0 top-1/2 -translate-y-1/2 -ml-2 z-10 opacity-0 group-hover/thumbs:opacity-100 transition-opacity"
@@ -127,7 +140,7 @@ export default function ProjectModal({ project, onClose }) {
                     ))}
                   </div>
 
-                  {images.length > 6 && (
+                  {thumbsOverflow && (
                     <button
                       onClick={() => scrollThumbnails('right')}
                       className="modal-nav !w-7 !h-7 absolute right-0 top-1/2 -translate-y-1/2 -mr-2 z-10 opacity-0 group-hover/thumbs:opacity-100 transition-opacity"
