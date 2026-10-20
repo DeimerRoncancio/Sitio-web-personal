@@ -13,8 +13,6 @@ export default function ProjectModal({ project, onClose }) {
   const images = project?.images ?? [];
   const [thumbsOverflow, setThumbsOverflow] = useState(false);
 
-  // Thumbnail arrows only make sense when the strip actually overflows,
-  // which depends on the modal width, not on a fixed image count.
   useEffect(() => {
     const strip = thumbnailsRef.current;
     if (!strip) return;
@@ -33,8 +31,6 @@ export default function ProjectModal({ project, onClose }) {
   };
 
   useEffect(() => {
-    // Scroll only the thumbnail strip: scrollIntoView would also scroll the
-    // modal body vertically and hide the top of the main image.
     const strip = thumbnailsRef.current;
     const activeThumb = strip?.children[currentImg];
     if (!activeThumb) return;
@@ -55,7 +51,6 @@ export default function ProjectModal({ project, onClose }) {
   }, [showLinksMenu]);
 
   useEffect(() => {
-    // While the viewer is open it owns Escape, so it closes itself, not the modal.
     if (viewerOpen) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKey);

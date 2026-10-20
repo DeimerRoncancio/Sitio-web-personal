@@ -229,6 +229,7 @@ html.themed .project-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .project-card__nav {
@@ -713,6 +714,7 @@ html.themed .viewer__backdrop {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .modal-nav {
@@ -761,6 +763,7 @@ html.themed .viewer__backdrop {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .modal-heading {
