@@ -83,6 +83,7 @@ export const projects = [
       '/proyects/admin-panel/admin-panel-11.webp',
       '/proyects/admin-panel/admin-panel-12.webp',
       '/proyects/admin-panel/admin-panel-13.webp',
+      '/proyects/admin-panel/admin-panel-14.webp',
     ],
     frontendRepo: 'https://github.com/DeimerRoncancio/control-panel-multi-shop',
     backendRepo: 'https://github.com/DeimerRoncancio/multi-shop-api'
