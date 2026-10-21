@@ -28,6 +28,7 @@ export const projects = [
       '/proyects/multi-shop/multi-shop-14.webp',
       '/proyects/multi-shop/multi-shop-15.webp',
       '/proyects/multi-shop/multi-shop-16.webp',
+      '/proyects/multi-shop/multi-shop-17.webp',
     ],
     frontendRepo: 'https://github.com/DeimerRoncancio/ecommerce-multi-shop',
     backendRepo: 'https://github.com/DeimerRoncancio/multi-shop-api'
